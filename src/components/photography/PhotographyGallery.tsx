@@ -320,7 +320,7 @@ export function PhotographyGallery() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
           {filteredImages.map((image, index) => (
             <div
-              key={`${selectedCategory}-${image.id}`}
+              key={`photo-${image.id}`}
               className={`group relative overflow-hidden rounded-lg cursor-pointer transition-all duration-500 hover:scale-105 ${
                 index % 7 === 0 || index % 7 === 4 ? 'md:row-span-2' : ''
               }`}
