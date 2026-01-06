@@ -1,15 +1,9 @@
 import { Navigation } from '@/components/Navigation'
-<<<<<<< HEAD
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ReviewsHero } from '@/components/reviews/ReviewsHero'
 import { ReviewPlatforms } from '@/components/reviews/ReviewPlatforms'
 import { ReviewStats } from '@/components/reviews/ReviewStats'
 import { VideoTestimonial } from '@/components/reviews/VideoTestimonial'
-=======
-import { ReviewsHero } from '@/components/reviews/ReviewsHero'
-import { ReviewPlatforms } from '@/components/reviews/ReviewPlatforms'
-import { ReviewStats } from '@/components/reviews/ReviewStats'
->>>>>>> f127de2 (Deploy latest version from same.new)
 import { CustomerReviews } from '@/components/reviews/CustomerReviews'
 import { ReviewsCTA } from '@/components/reviews/ReviewsCTA'
 import { ContactSection } from '@/components/ContactSection'
@@ -25,17 +19,11 @@ export default function ReviewsPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navigation />
-<<<<<<< HEAD
       <Breadcrumbs />
       <ReviewsHero />
       <ReviewPlatforms />
       <ReviewStats />
       <VideoTestimonial />
-=======
-      <ReviewsHero />
-      <ReviewPlatforms />
-      <ReviewStats />
->>>>>>> f127de2 (Deploy latest version from same.new)
       <CustomerReviews />
       <ReviewsCTA />
       <ContactSection />

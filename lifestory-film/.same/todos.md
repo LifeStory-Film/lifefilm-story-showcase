@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # LifeStory.Film Website Development Tasks
 
 ## ✅ Comprehensive Video Modal Enhancement Suite (v49) - COMPLETE!
@@ -163,38 +162,3 @@ All requested features, optimizations, responsive improvements, advanced package
 - Enhanced video presentation with play button overlays
 - Professional animation system with GPU acceleration
 - Complete luxury wedding videography website with premium interactivity
-=======
-# Lifestory Film Website Updates
-
-## Current Tasks
-
-## Completed Tasks
-- [x] Initial website structure created
-- [x] Add switcher to Packages section for combo vs photo/video only packages
-- [x] Remove "View Photography Only" and "Add Drone Coverage" buttons from PackagesSection
-- [x] Update Instagram posts with professional wedding photography content from uploaded images
-- [x] Remove drone footage add-on from contact form
-- [x] Set up email API to send contact form submissions to rick@lifestory.film
-- [x] Updated Instagram feed with diverse cultural wedding photography (South Asian & Western)
-- [x] Enhanced captions to reflect authentic wedding cinematography content
-- [x] Created professional PhotoSlider component with uploaded wedding images
-- [x] Moved photo slider to be dynamic background behind "wedding photography" title
-- [x] Enhanced gradient overlays for better text readability over dynamic backgrounds
-- [x] Optimized PhotoSlider component for both background and standalone use cases
-- [x] Hidden navigation controls when used as background to avoid UI conflicts
-- [x] Created cinematic hero section with your actual professional wedding photography
-- [x] Created comprehensive PhotographyGallery component with 18 professional images
-- [x] Added filterable categories: Bridal, Couples, Cultural, Documentary, Details, Reception
-- [x] Implemented lightbox functionality with full-screen viewing and navigation
-- [x] Added masonry grid layout with hover effects and smooth transitions
-- [x] Integrated gallery into Photography page for complete portfolio showcase
-- [x] FIXED PRICING PAGE - Complete overhaul with working package selection
-- [x] Fixed Photography/Videography/Combo package switching - now fully functional
-- [x] Added comparison view with feature matrix and checkmarks
-- [x] Implemented custom package builder with add-on selection
-- [x] Added full payment vs Pay-in-4 options with proper pricing display
-- [x] Dynamic pricing based on wedding date, location, and factors
-- [x] Pricing factor indicators and seasonal adjustments
-- [x] All links verified and navigation working properly
-- [x] All changes tested and verified with no code errors
->>>>>>> f127de2 (Deploy latest version from same.new)
