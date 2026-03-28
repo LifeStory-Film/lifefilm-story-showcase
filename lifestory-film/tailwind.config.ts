@@ -49,6 +49,12 @@ export default {
           '3': 'hsl(var(--chart-3))',
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
+        },
+        cinematic: {
+          primary: '#0f0e0c',
+          secondary: '#1a1916',
+          card: '#211f1c',
+          footer: '#0a0908',
         }
       },
       borderRadius: {

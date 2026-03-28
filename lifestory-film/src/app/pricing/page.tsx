@@ -1,5 +1,4 @@
 import { Navigation } from '@/components/Navigation'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { PricingHero } from '@/components/pricing/PricingHero'
 import { PricingPackages } from '@/components/pricing/PricingPackages'
 import { PricingCalculator } from '@/components/pricing/PricingCalculator'
@@ -16,9 +15,8 @@ export const metadata = {
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
-      <Breadcrumbs />
       <PricingHero />
       <PricingPackages />
       <PricingCalculator />

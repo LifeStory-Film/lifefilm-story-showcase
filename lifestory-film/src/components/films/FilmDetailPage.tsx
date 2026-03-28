@@ -144,7 +144,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="py-8 bg-zinc-900">
+      <section className="py-8 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <div className="flex justify-center">
             <div className="flex bg-black rounded-full p-2">
@@ -184,7 +184,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
       </section>
 
       {/* Dynamic Content Sections */}
-      <section className="py-16 bg-zinc-900">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           {activeSection === 'overview' && (
             <AnimatedSection direction="fade" className="space-y-16">

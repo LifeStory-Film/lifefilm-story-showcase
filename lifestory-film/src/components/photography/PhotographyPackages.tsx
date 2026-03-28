@@ -79,7 +79,7 @@ export function PhotographyPackages() {
   }
 
   return (
-    <section className="py-32 bg-zinc-900">
+    <section className="py-32 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
           <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Packages</p>

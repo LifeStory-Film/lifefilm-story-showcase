@@ -379,7 +379,7 @@ export function PackagesSection() {
   }
 
   return (
-    <section id="packages" className="py-32 bg-zinc-950">
+    <section id="packages" className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Packages</p>
@@ -402,7 +402,7 @@ export function PackagesSection() {
 
         {/* Package Type Toggle */}
         <div className="flex justify-center mb-8">
-          <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+          <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
             <button
               onClick={() => setPackageType('combo')}
               className={`px-6 py-3 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -438,7 +438,7 @@ export function PackagesSection() {
 
         {/* View Mode Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+          <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
             <button
               onClick={() => setViewMode('cards')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -485,7 +485,7 @@ export function PackagesSection() {
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
+                  className="w-full bg-transparent border border-[#211f1c] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 />
               </div>
               <div>
@@ -493,7 +493,7 @@ export function PackagesSection() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full bg-[#002349] border border-[#002349] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
+                  className="w-full bg-[#211f1c] border border-[#211f1c] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 >
                   <option value="local">Los Angeles Area</option>
                   <option value="bay-area">San Francisco Bay Area</option>
@@ -529,7 +529,7 @@ export function PackagesSection() {
           <>
             {/* Payment Toggle */}
             <div className="flex justify-center mb-12">
-              <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+              <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
                 <button
                   onClick={() => setShowPaymentOptions(false)}
                   className={`px-6 py-3 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -564,14 +564,14 @@ export function PackagesSection() {
                   <div
                     key={pkg.id}
                     className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105"
-                    style={{ backgroundColor: '#002349' }}
+                    style={{ backgroundColor: '#211f1c' }}
                   >
                     {/* Most Popular Ribbon */}
                     {pkg.popular && (
                       <div className="absolute top-0 left-0 right-0 z-10">
                         <div
                           className="text-center py-3 font-medium text-sm"
-                          style={{ backgroundColor: '#4F0341', color: '#957C3D' }}
+                          style={{ backgroundColor: '#4a2d5a', color: '#d4b8e0' }}
                         >
                           Most Popular
                         </div>
@@ -581,7 +581,7 @@ export function PackagesSection() {
                     {/* Limited Availability Ribbon */}
                     {pkg.limited && (
                       <div className="absolute top-0 left-0 right-0 z-10">
-                        <div className="bg-red-600 text-white text-center py-3 font-medium text-sm">
+                        <div className="text-center py-3 font-medium text-sm" style={{ backgroundColor: '#BFA181', color: '#1a1a1a' }}>
                           Limited Availability
                         </div>
                       </div>
@@ -664,24 +664,31 @@ export function PackagesSection() {
                         ))}
                       </ul>
 
-                      {/* CTA Button */}
-                      <div className="space-y-4">
-                        <PrimaryCTA variant="primary" className="w-full">
-                          Book My Date
-                        </PrimaryCTA>
-
-                        <PrimaryCTA
-                          variant="secondary"
+                      {/* CTA Buttons */}
+                      <div className="space-y-3">
+                        <button
                           onClick={() => {
                             const element = document.getElementById('contact')
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                            }
+                            if (element) element.scrollIntoView({ behavior: 'smooth' })
                           }}
-                          className="w-full"
+                          className="w-full h-12 px-6 rounded-full text-sm transition-all duration-300 hover:scale-105"
+                          style={{ backgroundColor: '#BFA181', color: '#0f0e0c', fontWeight: 600 }}
+                          onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
+                          onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
                         >
-                          Build Your Coverage Plan
-                        </PrimaryCTA>
+                          Book My Date
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            const element = document.getElementById('contact')
+                            if (element) element.scrollIntoView({ behavior: 'smooth' })
+                          }}
+                          className="w-full text-center transition-colors duration-200 hover:opacity-70"
+                          style={{ background: 'none', border: 'none', color: '#BFA181', fontSize: '14px', cursor: 'pointer' }}
+                        >
+                          or customize your package →
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -695,9 +702,9 @@ export function PackagesSection() {
         {viewMode === 'comparison' && (
           <div className="max-w-6xl mx-auto">
             <div className="overflow-x-auto">
-              <table className="w-full bg-[#002349]/50 rounded-2xl overflow-hidden">
+              <table className="w-full bg-[#211f1c]/50 rounded-2xl overflow-hidden">
                 <thead>
-                  <tr className="bg-[#002349]">
+                  <tr className="bg-[#211f1c]">
                     <th className="text-left p-6 text-[#BFA181] font-semibold">Features</th>
                     {getCurrentPackages().map(pkg => (
                       <th key={pkg.id} className="text-center p-6 text-[#EAE7DD] font-semibold relative">
@@ -738,7 +745,7 @@ export function PackagesSection() {
                   ))}
                 </tbody>
                 <tfoot>
-                  <tr className="bg-[#002349]">
+                  <tr className="bg-[#211f1c]">
                     <td className="p-6"></td>
                     {getCurrentPackages().map(pkg => (
                       <td key={pkg.id} className="p-6 text-center">
@@ -770,7 +777,7 @@ export function PackagesSection() {
                       {getCurrentPackages().map(pkg => (
                         <label
                           key={pkg.id}
-                          className="flex items-center p-4 bg-[#002349]/30 rounded-lg border border-[#BFA181]/20 hover:border-[#BFA181]/50 transition-colors cursor-pointer"
+                          className="flex items-center p-4 bg-[#211f1c]/30 rounded-lg border border-[#BFA181]/20 hover:border-[#BFA181]/50 transition-colors cursor-pointer"
                         >
                           <input
                             type="radio"
@@ -817,7 +824,7 @@ export function PackagesSection() {
                             {features.map(feature => (
                               <label
                                 key={feature.id}
-                                className="flex items-center p-3 bg-[#002349]/20 rounded-lg border border-[#BFA181]/10 hover:border-[#BFA181]/30 transition-colors cursor-pointer"
+                                className="flex items-center p-3 bg-[#211f1c]/20 rounded-lg border border-[#BFA181]/10 hover:border-[#BFA181]/30 transition-colors cursor-pointer"
                               >
                                 <input
                                   type="checkbox"
@@ -848,7 +855,7 @@ export function PackagesSection() {
 
               {/* Price Summary */}
               <div className="lg:sticky lg:top-8">
-                <div className="bg-[#002349] p-8 rounded-2xl border border-[#BFA181]/30">
+                <div className="bg-[#211f1c] p-8 rounded-2xl border border-[#BFA181]/30">
                   <h4 className="text-xl font-bold text-[#BFA181] mb-6">Your Custom Package</h4>
 
                   {selectedPackage ? (
@@ -960,7 +967,7 @@ export function PackagesSection() {
             </p>
 
             {showPaymentOptions && (
-              <div className="bg-[#002349]/30 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+              <div className="bg-[#211f1c]/30 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
                 <h4 className="text-[#BFA181] font-semibold mb-2">Payment Plan Details</h4>
                 <p className="text-[#EAE7DD]/80 text-sm">
                   Split your investment into 4 equal payments. First payment due at booking,
@@ -972,7 +979,7 @@ export function PackagesSection() {
 
 
             {/* Transition to Testimonials */}
-            <div className="bg-gradient-to-r from-[#4F0341]/30 to-[#002349]/50 rounded-2xl p-12 border border-[#BFA181]/20">
+            <div className="bg-gradient-to-r from-[#4F0341]/30 to-[#211f1c]/50 rounded-2xl p-12 border border-[#BFA181]/20">
               <h3 className="text-3xl font-bold text-[#BFA181] mb-4">Don't Just Take Our Word For It</h3>
               <p className="text-xl text-[#EAE7DD] mb-8 max-w-2xl mx-auto">
                 Hear from hundreds of couples who trusted us to capture their most precious moments.

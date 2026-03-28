@@ -1,5 +1,4 @@
 import { Navigation } from '@/components/Navigation'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { PhotographyHero } from '@/components/photography/PhotographyHero'
 import { PhotographyPortfolio } from '@/components/photography/PhotographyPortfolio'
 import { PhotographyGallery } from '@/components/photography/PhotographyGallery'
@@ -17,9 +16,8 @@ export const metadata = {
 
 export default function PhotographyPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
-      <Breadcrumbs />
       <PhotographyHero />
       <PhotographyPortfolio />
       <PhotographyGallery />

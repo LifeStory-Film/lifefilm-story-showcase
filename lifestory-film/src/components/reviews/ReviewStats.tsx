@@ -22,7 +22,7 @@ export function ReviewStats() {
   ]
 
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-16 max-w-6xl mx-auto">
           {stats.map((stat, index) => (

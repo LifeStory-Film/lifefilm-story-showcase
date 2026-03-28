@@ -57,7 +57,7 @@ export function ReviewPlatforms() {
   )
 
   return (
-    <section className="py-16 bg-zinc-900">
+    <section className="py-16 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {platforms.map((platform, index) => (
@@ -65,7 +65,7 @@ export function ReviewPlatforms() {
               key={platform.name}
               direction="up"
               delay={index * 0.1}
-              className="flex items-center justify-between bg-black border border-gray-700 rounded-xl p-6 hover:border-gray-500 transition-all duration-300"
+              className="flex items-center justify-between bg-[#211f1c] border border-gray-700 rounded-xl p-6 hover:border-gray-500 transition-all duration-300"
             >
               <div className="flex items-center space-x-4">
                 <div>

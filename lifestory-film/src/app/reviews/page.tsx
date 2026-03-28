@@ -1,5 +1,4 @@
 import { Navigation } from '@/components/Navigation'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ReviewsHero } from '@/components/reviews/ReviewsHero'
 import { ReviewPlatforms } from '@/components/reviews/ReviewPlatforms'
 import { ReviewStats } from '@/components/reviews/ReviewStats'
@@ -17,9 +16,8 @@ export const metadata = {
 
 export default function ReviewsPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
-      <Breadcrumbs />
       <ReviewsHero />
       <ReviewPlatforms />
       <ReviewStats />

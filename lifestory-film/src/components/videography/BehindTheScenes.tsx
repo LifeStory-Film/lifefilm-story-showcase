@@ -24,7 +24,7 @@ export function BehindTheScenes() {
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
           {/* Behind-the-Scenes Video */}
           <AnimatedSection direction="left" delay={0.2}>
-            <div className="relative aspect-video bg-zinc-900 rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+            <div className="relative aspect-video bg-[#1a1916] rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
               <OptimizedVideo
                 videoId="dQw4w9WgXcQ"
                 title="LifeStory.Film - Behind The Scenes"
@@ -36,7 +36,7 @@ export function BehindTheScenes() {
 
             {/* Video Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-              <div className="text-center p-4 bg-zinc-900 rounded-lg border border-gray-700">
+              <div className="text-center p-4 bg-[#1a1916] rounded-lg border border-gray-700">
                 <div className="flex justify-center mb-3">
                   <div className="w-12 h-12 rounded-full bg-purple-600/20 flex items-center justify-center">
                     <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@ export function BehindTheScenes() {
                 <div className="text-xl font-bold text-white mb-1">4K Ultra HD</div>
                 <div className="text-sm text-gray-400 leading-relaxed">Cinema-grade image quality</div>
               </div>
-              <div className="text-center p-4 bg-zinc-900 rounded-lg border border-gray-700">
+              <div className="text-center p-4 bg-[#1a1916] rounded-lg border border-gray-700">
                 <div className="flex justify-center mb-3">
                   <div className="w-12 h-12 rounded-full bg-green-600/20 flex items-center justify-center">
                     <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ export function BehindTheScenes() {
                 <div className="text-xl font-bold text-white mb-1">Professional Creative Team</div>
                 <div className="text-sm text-gray-400 leading-relaxed">15+ years of wedding storytelling experience</div>
               </div>
-              <div className="text-center p-4 bg-zinc-900 rounded-lg border border-gray-700">
+              <div className="text-center p-4 bg-[#1a1916] rounded-lg border border-gray-700">
                 <div className="flex justify-center mb-3">
                   <div className="w-12 h-12 rounded-full bg-yellow-600/20 flex items-center justify-center">
                     <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@ export function BehindTheScenes() {
               ].map((phase, index) => (
                 <div
                   key={index}
-                  className="relative bg-zinc-900 rounded-2xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 group"
+                  className="relative bg-[#1a1916] rounded-2xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 group"
                 >
                   <div className="text-5xl font-bold text-gray-700 group-hover:text-purple-500 transition-colors mb-4">
                     {phase.step}

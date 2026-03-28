@@ -10,20 +10,19 @@ export function ReviewsHero() {
   }, [])
 
   return (
-    <section className="relative py-32 flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-black to-zinc-800" />
-
+    <section className="py-20 bg-[#0f0e0c]">
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div className="text-center px-6 max-w-6xl mx-auto">
         <div className={`transition-all duration-1000 ${isLoaded ? 'fade-in-up' : 'opacity-0'}`}>
-          <h1 className="section-text text-white mb-6">
-            reviews
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Client Love</p>
+          <h1
+            className="font-extrabold text-white leading-tight mb-6"
+            style={{ fontSize: 'clamp(48px, 6vw, 72px)', letterSpacing: '-0.02em' }}
+          >
+            What Couples Say
           </h1>
-
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
             Authentic testimonials from couples who trusted us to capture their most precious moments.
-            Every review reflects our commitment to excellence and timeless storytelling.
           </p>
         </div>
       </div>

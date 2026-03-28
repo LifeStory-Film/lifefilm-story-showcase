@@ -75,7 +75,7 @@ export function BehindTheScenes() {
   }
 
   return (
-    <section className="py-32 bg-gradient-to-b from-[#002349] to-[#001a35]">
+    <section className="py-32 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <AnimatedSection direction="fade" className="text-center mb-16">
@@ -211,7 +211,7 @@ export function BehindTheScenes() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-[#002349]/50 backdrop-blur-sm border border-[#BFA181]/20 rounded-xl p-6 text-center hover:border-[#BFA181]/50 transition-all duration-300"
+                className="bg-[#211f1c]/50 backdrop-blur-sm border border-[#BFA181]/20 rounded-xl p-6 text-center hover:border-[#BFA181]/50 transition-all duration-300"
               >
                 <div className="flex justify-center mb-4 text-[#BFA181]">
                   {stat.icon}
@@ -225,7 +225,7 @@ export function BehindTheScenes() {
 
         {/* CTA */}
         <AnimatedSection direction="up" delay={0.8} className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#4F0341]/30 to-[#002349]/50 rounded-2xl p-12 border border-[#BFA181]/20 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-[#4F0341]/30 to-[#211f1c]/50 rounded-2xl p-12 border border-[#BFA181]/20 max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold text-[#BFA181] mb-4">
               Ready for Cinematic Wedding Films That Last a Lifetime?
             </h3>

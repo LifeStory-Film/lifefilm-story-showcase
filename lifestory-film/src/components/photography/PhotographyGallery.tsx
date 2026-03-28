@@ -157,7 +157,7 @@ export function PhotographyGallery() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <div className="bg-[#002349]/30 rounded-2xl p-12 border border-[#BFA181]/20">
+          <div className="bg-[#211f1c]/30 rounded-2xl p-12 border border-[#BFA181]/20">
             <h3 className="text-3xl font-bold text-[#BFA181] mb-4">Love What You See?</h3>
             <p className="text-xl text-[#EAE7DD] mb-8 max-w-2xl mx-auto">
               Every image tells a story. Let us capture yours with the same artistry,

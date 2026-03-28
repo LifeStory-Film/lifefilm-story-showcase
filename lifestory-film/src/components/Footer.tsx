@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="bg-zinc-900 py-16">
+    <footer className="bg-[#0a0908] py-16">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Logo & Description */}
@@ -38,7 +38,7 @@ export function Footer() {
         {/* Social Media & Copyright */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 LifeStory.Film. All rights reserved.
+            © 2026 LifeStory.Film. All rights reserved.
           </div>
 
           <div className="flex space-x-6">

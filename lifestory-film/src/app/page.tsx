@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <CriticalCSS />
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen bg-[#0f0e0c] text-white">
         <Navigation />
 
         {/* 1. Hero */}

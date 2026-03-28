@@ -34,7 +34,7 @@ const SHOWCASE_PHOTOS = [
 
 export function PhotoShowcase() {
   return (
-    <section className="py-32 bg-zinc-950">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
 
         {/* Header */}

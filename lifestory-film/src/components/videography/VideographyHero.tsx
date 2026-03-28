@@ -32,27 +32,34 @@ export function VideographyHero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         <div className={`transition-all duration-1000 ${isLoaded ? 'fade-in-up' : 'opacity-0'}`}>
-          <h1 className="hero-text text-white mb-6 text-shadow">
-            wedding
-            <br />
-            <span className="text-gray-300">videography</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-6 font-light">Our Films</p>
+          <h1
+            className="font-extrabold text-white leading-tight mb-6 text-shadow"
+            style={{ fontSize: 'clamp(48px, 7vw, 80px)', letterSpacing: '-0.02em' }}
+          >
+            Wedding Videography
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
-            Cinematic wedding films designed to give you a good understanding of what you are going to get.
-            Every frame tells your unique love story with Hollywood-quality production.
+          <p className="font-light text-white/75 mb-10 max-w-[600px] mx-auto" style={{ fontSize: '20px' }}>
+            Cinematic wedding films that tell your story — not just document it.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={() => document.getElementById('films')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
+              style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
             >
               View Our Films
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border border-white text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white hover:text-black transition-all duration-300"
+              className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
+              style={{ background: 'transparent', border: '1px solid #BFA181', color: '#BFA181' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#BFA181'; e.currentTarget.style.color = '#0f0e0c' }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#BFA181' }}
             >
               Check Date Availability
             </button>

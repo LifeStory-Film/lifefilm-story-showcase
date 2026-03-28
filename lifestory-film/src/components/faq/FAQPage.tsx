@@ -168,35 +168,37 @@ export function FAQPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0f0e0c]">
       {/* Hero Section */}
-      <section className="py-16 bg-black">
+      <section className="py-20 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" className="text-center mb-12">
-            <h1 className="section-text text-white mb-6">
-              frequently asked
-              <br />
-              <span className="text-gray-400">questions</span>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Questions</p>
+            <h1
+              className="font-extrabold text-white leading-tight mb-6"
+              style={{ fontSize: 'clamp(48px, 6vw, 72px)', letterSpacing: '-0.02em' }}
+            >
+              Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-              Everything you need to know about our wedding videography services, pricing, and process.
-              Can't find what you're looking for? Contact us directly.
+            <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
+              Everything you need to know about our services, pricing, and process.
             </p>
           </AnimatedSection>
 
           {/* Category Filter */}
           <AnimatedSection direction="fade" delay={0.4}>
             <div className="flex justify-center mb-12">
-              <div className="flex flex-wrap gap-2 bg-zinc-900 rounded-full p-2 max-w-4xl">
+              <div className="flex flex-wrap gap-2 bg-[#1a1916] rounded-full p-2 max-w-4xl">
                 {categories.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       selectedCategory === category.id
-                        ? 'bg-white text-black'
-                        : 'text-gray-300 hover:text-white'
+                        ? 'text-[#0f0e0c]'
+                        : 'text-white/55 hover:text-white'
                     }`}
+                    style={selectedCategory === category.id ? { backgroundColor: '#BFA181' } : {}}
                   >
                     {category.label}
                   </button>
@@ -208,7 +210,7 @@ export function FAQPage() {
       </section>
 
       {/* FAQ Items */}
-      <section className="py-16 bg-zinc-900">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             {filteredFAQs.map((item, index) => (
@@ -218,10 +220,10 @@ export function FAQPage() {
                 delay={index * 0.05}
                 className="mb-4"
               >
-                <div className="bg-black rounded-2xl border border-gray-700 overflow-hidden">
+                <div className="bg-[#211f1c] rounded-2xl border border-white/8 overflow-hidden">
                   <button
                     onClick={() => toggleItem(item.id)}
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-zinc-800 transition-colors duration-300"
+                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-[#2a2724] transition-colors duration-300"
                   >
                     <span className="text-lg font-medium text-white pr-4">
                       {item.question}
@@ -262,24 +264,29 @@ export function FAQPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" delay={0.6} className="text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Still Have Questions?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              We're here to help! Get in touch with us directly and we'll answer any questions
-              about your wedding videography needs.
+            <h2 className="font-extrabold text-white mb-6" style={{ fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-0.02em' }}>Still Have Questions?</h2>
+            <p className="font-light text-white/55 mb-8 max-w-2xl mx-auto" style={{ fontSize: '18px' }}>
+              Get in touch directly and we'll answer anything about your wedding day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-gray-200 transition-all duration-300"
+                className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
+                style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
               >
                 Contact Us
               </button>
               <a
-                href="tel:323.556.4362"
-                className="border border-white text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white hover:text-black transition-all duration-300"
+                href="tel:3235564362"
+                className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
+                style={{ background: 'transparent', border: '1px solid #BFA181', color: '#BFA181' }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#BFA181'; e.currentTarget.style.color = '#0f0e0c' }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#BFA181' }}
               >
                 Call (323) 556-4362
               </a>
@@ -289,7 +296,7 @@ export function FAQPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 bg-zinc-900">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" delay={0.8}>
             <div className="grid md:grid-cols-3 gap-8 text-center">

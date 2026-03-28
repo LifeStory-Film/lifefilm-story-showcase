@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function PelicanHillPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
 
       <article className="pt-24 pb-32">
@@ -58,7 +58,7 @@ export default function PelicanHillPage() {
           </header>
 
           {/* Film embed */}
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-zinc-900 mb-12">
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-[#1a1916] mb-12">
             <iframe
               src="https://www.youtube.com/embed/cp3PmoI9nio?si=EkwuDwuG3FMy9Uys"
               title="Ryan & Victoria — Pelican Hill Wedding Film by LifeStory.Film"
@@ -92,7 +92,7 @@ export default function PelicanHillPage() {
           </div>
 
           {/* CTA */}
-          <div className="bg-zinc-900 rounded-2xl p-10 border border-zinc-800 text-center">
+          <div className="bg-[#1a1916] rounded-2xl p-10 border border-zinc-800 text-center">
             <h2 className="text-2xl font-bold text-white mb-3">Planning a Pelican Hill wedding?</h2>
             <p className="text-gray-400 mb-6">
               Tell us your date and we'll check availability. We respond within 24 hours.

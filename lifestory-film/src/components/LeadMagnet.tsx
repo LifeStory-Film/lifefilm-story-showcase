@@ -27,7 +27,7 @@ export function LeadMagnet() {
   }
 
   return (
-    <section className="py-24 bg-[#0c0f1a]">
+    <section className="py-24 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade">
           <div className="max-w-2xl mx-auto text-center">

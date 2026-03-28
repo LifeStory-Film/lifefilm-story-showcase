@@ -410,7 +410,7 @@ export function PricingPackages() {
 
         {/* Package Type Toggle */}
         <div className="flex justify-center mb-8">
-          <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+          <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
             <button
               onClick={() => setPackageType('combo')}
               className={`px-6 py-3 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -446,7 +446,7 @@ export function PricingPackages() {
 
         {/* View Mode Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+          <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
             <button
               onClick={() => setViewMode('cards')}
               className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -482,7 +482,7 @@ export function PricingPackages() {
 
         {/* Dynamic Pricing Controls */}
         {(viewMode === 'cards' || viewMode === 'builder') && (
-          <div className="max-w-4xl mx-auto mb-12 p-6 bg-[#002349]/30 rounded-xl border border-[#BFA181]/20">
+          <div className="max-w-4xl mx-auto mb-12 p-6 bg-[#211f1c]/30 rounded-xl border border-[#BFA181]/20">
             <h3 className="text-lg font-semibold text-[#BFA181] mb-4 text-center">
               Get Your Custom Quote
             </h3>
@@ -501,7 +501,7 @@ export function PricingPackages() {
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full bg-[#002349] border border-[#002349] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
+                  className="w-full bg-[#211f1c] border border-[#211f1c] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 >
                   <option value="local">Los Angeles Area</option>
                   <option value="bay-area">San Francisco Bay Area</option>
@@ -537,7 +537,7 @@ export function PricingPackages() {
           <>
             {/* Payment Toggle */}
             <div className="flex justify-center mb-12">
-              <div className="bg-[#002349]/50 rounded-lg p-1 border border-[#BFA181]/30">
+              <div className="bg-[#211f1c]/50 rounded-lg p-1 border border-[#BFA181]/30">
                 <button
                   onClick={() => setShowPaymentOptions(false)}
                   className={`px-6 py-3 rounded-md text-sm font-medium transition-all duration-300 ${
@@ -572,7 +572,7 @@ export function PricingPackages() {
                   <div
                     key={pkg.id}
                     className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105"
-                    style={{ backgroundColor: '#002349' }}
+                    style={{ backgroundColor: '#211f1c' }}
                   >
                     {/* Most Popular Ribbon */}
                     {pkg.popular && (
@@ -703,9 +703,9 @@ export function PricingPackages() {
         {viewMode === 'comparison' && (
           <div className="max-w-6xl mx-auto">
             <div className="overflow-x-auto">
-              <table className="w-full bg-[#002349]/50 rounded-2xl overflow-hidden">
+              <table className="w-full bg-[#211f1c]/50 rounded-2xl overflow-hidden">
                 <thead>
-                  <tr className="bg-[#002349]">
+                  <tr className="bg-[#211f1c]">
                     <th className="text-left p-6 text-[#BFA181] font-semibold">Features</th>
                     {getCurrentPackages().map(pkg => (
                       <th key={pkg.id} className="text-center p-6 text-[#EAE7DD] font-semibold relative">
@@ -746,7 +746,7 @@ export function PricingPackages() {
                   ))}
                 </tbody>
                 <tfoot>
-                  <tr className="bg-[#002349]">
+                  <tr className="bg-[#211f1c]">
                     <td className="p-6"></td>
                     {getCurrentPackages().map(pkg => (
                       <td key={pkg.id} className="p-6 text-center">
@@ -778,7 +778,7 @@ export function PricingPackages() {
                       {getCurrentPackages().map(pkg => (
                         <label
                           key={pkg.id}
-                          className="flex items-center p-4 bg-[#002349]/30 rounded-lg border border-[#BFA181]/20 hover:border-[#BFA181]/50 transition-colors cursor-pointer"
+                          className="flex items-center p-4 bg-[#211f1c]/30 rounded-lg border border-[#BFA181]/20 hover:border-[#BFA181]/50 transition-colors cursor-pointer"
                         >
                           <input
                             type="radio"
@@ -825,7 +825,7 @@ export function PricingPackages() {
                             {features.map(feature => (
                               <label
                                 key={feature.id}
-                                className="flex items-center p-3 bg-[#002349]/20 rounded-lg border border-[#BFA181]/10 hover:border-[#BFA181]/30 transition-colors cursor-pointer"
+                                className="flex items-center p-3 bg-[#211f1c]/20 rounded-lg border border-[#BFA181]/10 hover:border-[#BFA181]/30 transition-colors cursor-pointer"
                               >
                                 <input
                                   type="checkbox"
@@ -856,7 +856,7 @@ export function PricingPackages() {
 
               {/* Price Summary */}
               <div className="lg:sticky lg:top-8">
-                <div className="bg-[#002349] p-8 rounded-2xl border border-[#BFA181]/30">
+                <div className="bg-[#211f1c] p-8 rounded-2xl border border-[#BFA181]/30">
                   <h4 className="text-xl font-bold text-[#BFA181] mb-6">Your Custom Package</h4>
 
                   {selectedPackage ? (
@@ -968,7 +968,7 @@ export function PricingPackages() {
             </p>
 
             {showPaymentOptions && (
-              <div className="bg-[#002349]/30 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+              <div className="bg-[#211f1c]/30 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
                 <h4 className="text-[#BFA181] font-semibold mb-2">Payment Plan Details</h4>
                 <p className="text-[#EAE7DD]/80 text-sm">
                   Split your investment into 4 equal payments. First payment due at booking,

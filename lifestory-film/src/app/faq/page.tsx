@@ -1,5 +1,4 @@
 import { Navigation } from '@/components/Navigation'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { FAQPage } from '@/components/faq/FAQPage'
 import { Footer } from '@/components/Footer'
 
@@ -11,9 +10,8 @@ export const metadata = {
 
 export default function FAQPageRoute() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
-      <Breadcrumbs />
       <FAQPage />
       <Footer />
     </main>

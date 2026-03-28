@@ -31,7 +31,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
   const [videoLoaded, setVideoLoaded] = useState(false)
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-effect py-6">
         <div className="container mx-auto px-6 flex items-center justify-between">
@@ -64,7 +64,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
 
           {/* Video Player */}
           <AnimatedSection direction="up" delay={0.3} className="max-w-6xl mx-auto mb-16">
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#1a1916]">
               {!videoLoaded && (
                 <div
                   className="absolute inset-0 bg-cover bg-center cursor-pointer group"
@@ -129,7 +129,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
             {/* Right Column */}
             <AnimatedSection direction="right" delay={0.7}>
               {/* Client Testimonial */}
-              <div className="bg-zinc-900 rounded-2xl p-8 mb-8">
+              <div className="bg-[#1a1916] rounded-2xl p-8 mb-8">
                 <svg className="w-8 h-8 text-gray-400 mb-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M6.732 4.732a.75.75 0 011.36-.632l.007.015c.44.96.742 2.084.742 3.435 0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4zM13.732 4.732a.75.75 0 011.36-.632l.007.015c.44.96.742 2.084.742 3.435 0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4z" clipRule="evenodd" />
                 </svg>
@@ -158,7 +158,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
       </section>
 
       {/* Related Films Section */}
-      <section className="py-16 bg-zinc-900">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">More Featured Films</h2>

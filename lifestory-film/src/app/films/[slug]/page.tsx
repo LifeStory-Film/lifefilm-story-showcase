@@ -210,7 +210,7 @@ export default async function FilmPage({
   if (!film) notFound()
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
 
       <article className="pt-24 pb-32">
@@ -236,7 +236,7 @@ export default async function FilmPage({
 
         {/* Film embed */}
         <div className="container mx-auto px-6 mb-12 max-w-5xl">
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-zinc-900">
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-[#1a1916]">
             <iframe
               src={film.embedUrl}
               title={`${film.title} — ${film.subtitle} Wedding Film`}
@@ -254,7 +254,7 @@ export default async function FilmPage({
 
         {/* CTA */}
         <div className="container mx-auto px-6 max-w-2xl text-center">
-          <div className="bg-zinc-900 rounded-2xl p-10 border border-zinc-800">
+          <div className="bg-[#1a1916] rounded-2xl p-10 border border-zinc-800">
             <h2 className="text-2xl font-bold text-white mb-3">Want a film like this?</h2>
             <p className="text-gray-400 mb-6">Tell us your date and we'll let you know if we're available.</p>
             <Link

@@ -4,7 +4,7 @@ import { AnimatedSection } from '../AnimatedSection'
 
 export function PhotographyApproach() {
   return (
-    <section className="py-32 bg-zinc-900">
+    <section className="py-32 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Title */}

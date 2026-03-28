@@ -81,7 +81,7 @@ export function CustomerReviews() {
   )
 
   return (
-    <section className="py-32 bg-zinc-900">
+    <section className="py-32 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {reviews.map((review, index) => (
@@ -89,7 +89,7 @@ export function CustomerReviews() {
               key={review.name}
               direction="up"
               delay={index * 0.1}
-              className="bg-black border border-gray-700 rounded-2xl p-8 hover:border-gray-500 transition-all duration-300"
+              className="bg-[#211f1c] border border-gray-700 rounded-2xl p-8 hover:border-gray-500 transition-all duration-300"
             >
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-white mb-2">{review.name}</h3>

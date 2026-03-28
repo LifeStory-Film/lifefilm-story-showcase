@@ -2,11 +2,11 @@
 
 export function PricingStats() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           {/* Reviews Section */}
-          <div className="bg-zinc-900 rounded-2xl p-8">
+          <div className="bg-[#1a1916] rounded-2xl p-8">
             <h2 className="text-3xl font-bold text-white mb-8">Reviews</h2>
 
             <div className="space-y-8">
@@ -37,7 +37,7 @@ export function PricingStats() {
           </div>
 
           {/* Availability Section */}
-          <div className="bg-zinc-900 rounded-2xl p-8">
+          <div className="bg-[#1a1916] rounded-2xl p-8">
             <h2 className="text-3xl font-bold text-white mb-6">Availability</h2>
 
             <div className="text-gray-300 mb-8">
@@ -46,7 +46,7 @@ export function PricingStats() {
                 to ensure every couple receives our full attention and dedication.
               </p>
 
-              <div className="bg-black rounded-lg p-4">
+              <div className="bg-[#0f0e0c] rounded-lg p-4">
                 <div className="text-center text-purple-400 font-semibold mb-4">
                   19/20 spots filled
                 </div>

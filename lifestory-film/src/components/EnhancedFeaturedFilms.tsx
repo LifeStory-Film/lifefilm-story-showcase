@@ -166,7 +166,7 @@ export function EnhancedFeaturedFilms() {
   }, [selectedVideo, closeVideoModal, navigateVideo])
 
   return (
-    <section id="films" className="py-32 bg-zinc-900">
+    <section id="films" className="py-32 bg-[#1a1916]">
       <div className="container mx-auto px-6">
         <SmoothReveal direction="fade" className="text-center mb-16">
           <h2 className="section-text text-white mb-6">
@@ -255,7 +255,7 @@ export function EnhancedFeaturedFilms() {
 
         {/* Transition to Packages */}
         <SmoothReveal direction="up" className="text-center mt-16">
-          <div className="bg-gradient-to-r from-[#002349]/50 to-[#4F0341]/30 rounded-2xl p-12 border border-[#BFA181]/20">
+          <div className="bg-gradient-to-r from-[#211f1c]/50 to-[#4F0341]/30 rounded-2xl p-12 border border-[#BFA181]/20">
             <h3 className="text-3xl font-bold text-[#BFA181] mb-4">Ready to Create Your Story?</h3>
             <p className="text-xl text-[#EAE7DD] mb-8 max-w-2xl mx-auto">
               Choose from our comprehensive photo + video packages designed for complete wedding coverage with seamless coordination.

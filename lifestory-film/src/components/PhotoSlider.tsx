@@ -94,7 +94,7 @@ export function PhotoSlider({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#002349]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#002349] hover:scale-110 transition-all duration-300 group"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#211f1c]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#211f1c] hover:scale-110 transition-all duration-300 group"
               aria-label="Previous image"
             >
               <svg className="w-6 h-6 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@ export function PhotoSlider({
 
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#002349]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#002349] hover:scale-110 transition-all duration-300 group"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-[#211f1c]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#211f1c] hover:scale-110 transition-all duration-300 group"
               aria-label="Next image"
             >
               <svg className="w-6 h-6 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@ export function PhotoSlider({
         {/* Play/Pause Button - subtle when used as background */}
         <button
           onClick={toggleAutoPlay}
-          className={`absolute ${className.includes('h-full') ? 'top-4 right-4 opacity-30 hover:opacity-70' : 'top-4 right-4'} w-10 h-10 bg-[#002349]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#002349] transition-all duration-300`}
+          className={`absolute ${className.includes('h-full') ? 'top-4 right-4 opacity-30 hover:opacity-70' : 'top-4 right-4'} w-10 h-10 bg-[#211f1c]/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#BFA181] hover:bg-[#211f1c] transition-all duration-300`}
           aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
         >
           {isPlaying ? (
@@ -178,7 +178,7 @@ export function PhotoSlider({
 
       {/* Progress Bar */}
       {isPlaying && (
-        <div className="mt-4 w-full h-1 bg-[#002349]/20 rounded-full overflow-hidden">
+        <div className="mt-4 w-full h-1 bg-[#211f1c]/20 rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-[#BFA181] to-[#178582] rounded-full transition-all duration-300"
             style={{

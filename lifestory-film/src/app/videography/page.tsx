@@ -1,5 +1,4 @@
 import { Navigation } from '@/components/Navigation'
-import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { VideographyHero } from '@/components/videography/VideographyHero'
 import { VideographyPortfolio } from '@/components/videography/VideographyPortfolio'
 import { VideographyApproach } from '@/components/videography/VideographyApproach'
@@ -17,9 +16,8 @@ export const metadata = {
 
 export default function VideographyPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-[#0f0e0c] text-white">
       <Navigation />
-      <Breadcrumbs />
       <VideographyHero />
       <VideographyPortfolio />
       <VideographyApproach />

@@ -11,6 +11,7 @@ interface FormData {
   weddingDate: string
   venue: string
   message: string
+  website: string // honeypot
 }
 
 interface FormErrors {
@@ -25,7 +26,8 @@ export function ContactSection() {
     phone: '',
     weddingDate: '',
     venue: '',
-    message: ''
+    message: '',
+    website: ''
   })
 
   const [errors, setErrors] = useState<FormErrors>({})
@@ -93,7 +95,8 @@ export function ContactSection() {
         phone: '',
         weddingDate: '',
         venue: '',
-        message: ''
+        message: '',
+        website: ''
       })
     } catch (error) {
       setSubmitStatus('error')
@@ -110,7 +113,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-32 bg-zinc-950">
+    <section id="contact" className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -264,6 +267,18 @@ export function ContactSection() {
                     />
                     {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
                   </div>
+                </div>
+
+                {/* Honeypot — hidden from real users, bots fill it */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(e) => handleInputChange('website', e.target.value)}
+                  />
                 </div>
 
                 <div className="space-y-4">

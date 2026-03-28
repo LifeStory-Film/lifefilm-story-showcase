@@ -123,7 +123,7 @@ export function PricingFAQs() {
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category.id
                   ? 'bg-[#BFA181] text-[#002349] shadow-lg scale-105'
-                  : 'bg-[#002349]/30 text-[#EAE7DD] border border-[#BFA181]/30 hover:border-[#BFA181] hover:bg-[#002349]/50'
+                  : 'bg-[#211f1c]/30 text-[#EAE7DD] border border-[#BFA181]/30 hover:border-[#BFA181] hover:bg-[#211f1c]/50'
               }`}
             >
               {category.label}
@@ -139,7 +139,7 @@ export function PricingFAQs() {
               direction="up"
               delay={index * 0.05}
             >
-              <div className="bg-[#002349]/50 backdrop-blur-sm rounded-2xl border border-[#BFA181]/20 overflow-hidden transition-all duration-300 hover:border-[#BFA181]/50">
+              <div className="bg-[#211f1c]/50 backdrop-blur-sm rounded-2xl border border-[#BFA181]/20 overflow-hidden transition-all duration-300 hover:border-[#BFA181]/50">
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-8 py-6 text-left flex items-center justify-between group"
@@ -181,7 +181,7 @@ export function PricingFAQs() {
 
         {/* Contact CTA */}
         <AnimatedSection direction="fade" delay={0.4} className="text-center mt-16">
-          <div className="bg-[#002349]/30 rounded-2xl p-12 border border-[#BFA181]/20 max-w-2xl mx-auto">
+          <div className="bg-[#211f1c]/30 rounded-2xl p-12 border border-[#BFA181]/20 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-[#BFA181] mb-4">Still Have Questions?</h3>
             <p className="text-[#EAE7DD] mb-8">
               We're here to help! Contact us directly and we'll answer any questions you have about

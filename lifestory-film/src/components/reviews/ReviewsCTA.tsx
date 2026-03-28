@@ -45,7 +45,7 @@ export function ReviewsCTA() {
   )
 
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Title */}
@@ -65,7 +65,7 @@ export function ReviewsCTA() {
               {platforms.map((platform, index) => (
                 <div
                   key={platform.name}
-                  className="flex items-center justify-between bg-zinc-900 border border-gray-700 rounded-xl p-6 hover:border-gray-500 transition-all duration-300"
+                  className="flex items-center justify-between bg-[#1a1916] border border-gray-700 rounded-xl p-6 hover:border-gray-500 transition-all duration-300"
                 >
                   <div className="flex items-center space-x-4">
                     <div>

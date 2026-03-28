@@ -2,20 +2,17 @@ import { AnimatedSection } from './AnimatedSection'
 
 export function TeamSection() {
   return (
-    <section className="py-32 bg-zinc-950">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">The People Behind the Films</p>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">The Team</p>
             <h2
               className="font-extrabold text-white leading-tight mb-4"
               style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
             >
-              Meet the Director
+              Meet the People Behind the Lens
             </h2>
-            <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
-              Trained in narrative film. Shooting weddings since 2010.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -23,8 +20,8 @@ export function TeamSection() {
             <div className="relative">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-800/50">
                 <img
-                  src="/images/rick-director.jpg"
-                  alt="Rich — Director & Lead Cinematographer at LifeStory.Film"
+                  src="https://photos.smugmug.com/LifeStoryFilm-Production/Desert-Wedding/Desert-Wedding-Day-2/i-HSB4Rp7/0/NT95vfXC9T5RscjGdcpLWvDKmt4d4BmVzgvdrQw28/4K/Life.Film-100-4K.jpg"
+                  alt="LifeStory.Film team — cinematographers and photographers at work"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -34,29 +31,24 @@ export function TeamSection() {
 
             {/* Bio */}
             <div className="space-y-6">
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-1">Rich</h3>
-                <p className="text-[#BFA181] text-sm tracking-widest uppercase">Director, Cinematographer &amp; Photographer</p>
-              </div>
-
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  Rich founded LifeStory.Film in 2010 with one belief: that a wedding should be documented like a short film — and photographed like fine art. Over the past 15 years, he's built a team of cinematographers and photographers who cover over 100 weddings a year across Southern California and beyond.
+                  LifeStory.Film is a team of cinematographers and photographers who have been documenting weddings together since 2010. We cover over 100 weddings a year across Southern California, destination venues, and beyond.
                 </p>
                 <p>
-                  Trained in narrative filmmaking and fine art photography, Rich brings a documentary instinct to every day — staying unobtrusive, reading the room, and never missing the moments that actually matter. His work has been featured at Pelican Hill, the Four Seasons, the Ritz-Carlton, and private estates across Malibu and Santa Barbara.
+                  Every member of our team is trained in both narrative filmmaking and fine art photography — so whether you're booking photo, film, or both, you get the same documentary instinct, the same unobtrusive presence, and the same obsession with the moments that actually matter.
                 </p>
                 <p>
-                  He still personally leads the photo and film teams for couples who want him on their day — just ask when you inquire.
+                  Our work has been featured at Pelican Hill, the Four Seasons, the Ritz-Carlton, and private estates across Malibu, Santa Barbara, and internationally.
                 </p>
               </div>
 
-              {/* Personal quote */}
+              {/* Team quote */}
               <blockquote className="border-l-2 border-[#BFA181] pl-5 mt-8">
                 <p className="text-white/80 italic text-lg leading-relaxed">
-                  "I don't make wedding videos or take wedding photos. I tell the story of the most important day of your life — in every medium it deserves."
+                  "We don't just show up and shoot. We study your day, learn your people, and disappear into it — so what we capture feels completely real."
                 </p>
-                <cite className="text-[#BFA181] text-sm mt-3 block not-italic">— Rich, Creative Director</cite>
+                <cite className="text-[#BFA181] text-sm mt-3 block not-italic">— The LifeStory.Film Team</cite>
               </blockquote>
 
               <div className="pt-4">

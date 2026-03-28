@@ -146,9 +146,9 @@ export function BlogPage() {
   const regularPosts = filteredPosts.filter(post => !post.featured)
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0f0e0c]">
       {/* Hero Section */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" className="text-center mb-12">
             <h1 className="section-text text-white mb-6">
@@ -165,7 +165,7 @@ export function BlogPage() {
           {/* Category Filter */}
           <AnimatedSection direction="fade" delay={0.4}>
             <div className="flex justify-center mb-12">
-              <div className="flex flex-wrap gap-2 bg-zinc-900 rounded-full p-2">
+              <div className="flex flex-wrap gap-2 bg-[#1a1916] rounded-full p-2">
                 {categories.map((category) => (
                   <button
                     key={category.id}
@@ -187,7 +187,7 @@ export function BlogPage() {
 
       {/* Featured Posts */}
       {selectedCategory === 'all' && (
-        <section className="py-16 bg-zinc-900">
+        <section className="py-16 bg-[#1a1916]">
           <div className="container mx-auto px-6">
             <AnimatedSection direction="fade" delay={0.2}>
               <h2 className="text-3xl font-bold text-white mb-8 text-center">Featured Posts</h2>
@@ -195,7 +195,7 @@ export function BlogPage() {
                 {featuredPosts.map((post, index) => (
                   <div
                     key={post.id}
-                    className="group relative bg-black rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-500 transition-all duration-500 hover:scale-105 cursor-pointer"
+                    className="group relative bg-[#211f1c] rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-500 transition-all duration-500 hover:scale-105 cursor-pointer"
                   >
                     {/* Image */}
                     <div className="relative aspect-[16/10] overflow-hidden">
@@ -247,7 +247,7 @@ export function BlogPage() {
       )}
 
       {/* Regular Posts Grid */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           {selectedCategory !== 'all' && (
             <AnimatedSection direction="fade" delay={0.2}>
@@ -263,7 +263,7 @@ export function BlogPage() {
                 key={post.id}
                 direction="up"
                 delay={index * 0.1}
-                className="group bg-zinc-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-500 transition-all duration-500 hover:scale-105 cursor-pointer"
+                className="group bg-[#1a1916] rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-500 transition-all duration-500 hover:scale-105 cursor-pointer"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -311,7 +311,7 @@ export function BlogPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-zinc-900">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" delay={0.6} className="text-center">
             <h2 className="text-3xl font-bold text-white mb-6">Stay Updated</h2>
@@ -324,7 +324,7 @@ export function BlogPage() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 bg-black border border-gray-700 rounded-full px-6 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-colors"
+                  className="flex-1 bg-[#211f1c] border border-gray-700 rounded-full px-6 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none transition-colors"
                 />
                 <button className="bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-all duration-300">
                   Subscribe
@@ -339,7 +339,7 @@ export function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" delay={0.8} className="text-center">
             <h2 className="text-3xl font-bold text-white mb-6">Ready to Start Your Story?</h2>

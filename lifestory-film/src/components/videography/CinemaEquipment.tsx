@@ -4,13 +4,13 @@ import { AnimatedSection } from '../AnimatedSection'
 
 export function CinemaEquipment() {
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Camera Image */}
           <AnimatedSection direction="left" delay={0.2}>
             <div className="relative">
-              <div className="bg-zinc-900 rounded-2xl p-12 flex items-center justify-center">
+              <div className="bg-[#1a1916] rounded-2xl p-12 flex items-center justify-center">
                 {/* Camera Illustration */}
                 <div className="relative">
                   <div className="w-64 h-48 bg-gradient-to-br from-zinc-700 to-zinc-900 rounded-lg shadow-2xl">
