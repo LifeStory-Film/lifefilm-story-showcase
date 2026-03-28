@@ -37,12 +37,14 @@ export function TestimonialsSection() {
     <section id="testimonials" className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            client
-            <br />
-            <span className="text-gray-400 italic font-light">love stories</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">What Couples Say</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Client Love Stories
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+          <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
             Hear from couples who trusted us to capture their most precious moments.
           </p>
         </AnimatedSection>
@@ -52,7 +54,7 @@ export function TestimonialsSection() {
             {REVIEWS.map((review, index) => (
               <div
                 key={index}
-                className="bg-zinc-800 rounded-2xl p-8 border border-zinc-700 hover:border-[#BFA181]/40 transition-all duration-300 flex flex-col"
+                className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-[#BFA181]/30 transition-all duration-300 flex flex-col"
               >
                 {/* Stars */}
                 <div className="flex gap-1 mb-5">
@@ -69,7 +71,7 @@ export function TestimonialsSection() {
                 </blockquote>
 
                 {/* Reviewer */}
-                <div className="flex items-center justify-between pt-4 border-t border-zinc-700">
+                <div className="flex items-center justify-between pt-4 border-t border-white/10">
                   <div className="flex items-center gap-3">
                     {/* Avatar placeholder */}
                     <div className="w-10 h-10 rounded-full bg-[#BFA181]/20 border border-[#BFA181]/40 flex items-center justify-center flex-shrink-0">
@@ -104,7 +106,7 @@ export function TestimonialsSection() {
             href="https://www.google.com/search?q=lifestory.film+reviews"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-zinc-800 hover:bg-zinc-700 transition-colors px-6 py-3 rounded-full border border-zinc-700"
+            className="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 transition-colors px-6 py-3 rounded-full border border-white/10 hover:border-white/20"
           >
             <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>

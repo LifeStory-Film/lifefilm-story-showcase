@@ -27,7 +27,7 @@ export function LeadMagnet() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#002349] to-[#003866]">
+    <section className="py-24 bg-[#0c0f1a]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade">
           <div className="max-w-2xl mx-auto text-center">
@@ -51,10 +51,13 @@ export function LeadMagnet() {
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2
+              className="font-black tracking-tight leading-[0.92] text-white mb-5"
+              style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
+            >
               Watch our Pelican Hill film — free
             </h2>
-            <p className="text-lg text-white/85 mb-8">
+            <p className="text-white/55 font-light mb-8" style={{ fontSize: 'clamp(15px, 1.3vw, 17px)' }}>
               Enter your email and we'll send you straight to the film. No fluff, just the work.
             </p>
 
@@ -77,13 +80,13 @@ export function LeadMagnet() {
                 </button>
               </div>
               {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
-              <p className="text-white/60 text-sm mt-4">
+              <p className="text-white/35 text-sm mt-4">
                 We respect your privacy. No spam, ever.
               </p>
             </form>
 
             <div className="mt-8 pt-8 border-t border-white/20">
-              <p className="text-white/70 text-sm">
+              <p className="text-white/40 text-sm">
                 Ready to book?{' '}
                 <button
                   onClick={() => {

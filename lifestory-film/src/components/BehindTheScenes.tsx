@@ -79,14 +79,16 @@ export function BehindTheScenes() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            behind the
-            <br />
-            <span className="text-gray-400 italic font-light">scenes</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Behind the Lens</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            On The Wedding Day
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-            See how we work on your wedding day – our professional approach, attention to detail, and
-            passion for capturing every precious moment with cinematic precision.
+          <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
+            See how we work on your wedding day — our approach, attention to detail, and passion for
+            capturing every precious moment with cinematic precision.
           </p>
         </AnimatedSection>
 
@@ -107,9 +109,6 @@ export function BehindTheScenes() {
 
             {/* Title Overlay */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-              <h3 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl">
-                Behind The Scenes
-              </h3>
               <p className="text-xl text-white/90 mb-8 max-w-2xl drop-shadow-lg">
                 The Resort At Pelican Hill
               </p>

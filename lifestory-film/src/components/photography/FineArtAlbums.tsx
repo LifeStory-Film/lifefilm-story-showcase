@@ -37,10 +37,12 @@ export function FineArtAlbums() {
 
           {/* Right Side - Content */}
           <AnimatedSection direction="right" delay={0.4}>
-            <h2 className="section-text text-white mb-8">
-              Fine art
-              <br />
-              <span className="text-gray-400">albums</span>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Premium Albums</p>
+            <h2
+              className="font-extrabold text-white leading-tight mb-6"
+              style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+            >
+              Fine Art Albums
             </h2>
 
             <p className="text-xl text-gray-300 leading-relaxed font-light mb-8">

@@ -6,6 +6,7 @@ import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { SocialProofSection } from '@/components/SocialProofSection'
 import { TrustSection } from '@/components/TrustSection'
 import { TeamSection } from '@/components/TeamSection'
+import { PhotoShowcase } from '@/components/PhotoShowcase'
 import { PackagesSection } from '@/components/PackagesSection'
 import { CinematicBreak } from '@/components/CinematicBreak'
 import { StickyMobileBar } from '@/components/StickyMobileBar'
@@ -27,7 +28,10 @@ export default function Home() {
         {/* 2. Film portfolio */}
         <FeaturedFilms />
 
-        {/* 3. Testimonials + trust metrics */}
+        {/* 3. Photography showcase */}
+        <PhotoShowcase />
+
+        {/* 4. Testimonials + trust metrics */}
         <TestimonialsSection />
         <TrustSection />
 

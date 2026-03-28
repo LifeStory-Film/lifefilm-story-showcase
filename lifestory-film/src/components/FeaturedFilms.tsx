@@ -66,15 +66,15 @@ export function FeaturedFilms() {
       slug: "michelle-and-jason",
     },
     {
-      title: "Ayaka & Kyan",
+      title: "Jazza & Naim",
       location: "Palos Verdes",
       category: "Indian",
       duration: "4:45",
       description: "A beautiful Indian wedding celebration with stunning coastal views.",
       videoId: "ETxaM39nn4E",
       embedUrl: "https://www.youtube.com/embed/ETxaM39nn4E?si=1iWNkH4CHI1EkXKt",
-      thumbnail: `https://img.youtube.com/vi/ETxaM39nn4E/maxresdefault.jpg`,
-      slug: "ayaka-and-kyan-palos-verdes",
+      thumbnail: `https://img.youtube.com/vi/ETxaM39nn4E/hqdefault.jpg`,
+      slug: "jazza-and-naim",
     },
     {
       title: "Charlotte & John",
@@ -84,7 +84,7 @@ export function FeaturedFilms() {
       description: "A romantic destination wedding in the heart of San Francisco.",
       videoId: "D_vIC41fA4U",
       embedUrl: "https://www.youtube.com/embed/D_vIC41fA4U?si=DlnudIoq-MnZGBad",
-      thumbnail: `https://img.youtube.com/vi/D_vIC41fA4U/maxresdefault.jpg`,
+      thumbnail: `https://img.youtube.com/vi/D_vIC41fA4U/hqdefault.jpg`,
       slug: "charlotte-and-john",
     },
     {
@@ -95,8 +95,19 @@ export function FeaturedFilms() {
       description: "A stunning coastal wedding with breathtaking Malibu ocean views.",
       videoId: "SoXEpK1tGYo",
       embedUrl: "https://www.youtube.com/embed/SoXEpK1tGYo?si=BGGRwNil8rAHfLIh",
-      thumbnail: `https://img.youtube.com/vi/SoXEpK1tGYo/maxresdefault.jpg`,
+      thumbnail: `https://img.youtube.com/vi/SoXEpK1tGYo/hqdefault.jpg`,
       slug: "carrie-and-grant",
+    },
+    {
+      title: "Serena & Daniel",
+      location: "Los Angeles",
+      category: "Classic",
+      duration: "4:58",
+      description: "An elegant and timeless wedding with old-world charm in the heart of Los Angeles.",
+      videoId: "vvYnUEuwOGM",
+      embedUrl: "https://www.youtube.com/embed/vvYnUEuwOGM",
+      thumbnail: `https://img.youtube.com/vi/vvYnUEuwOGM/maxresdefault.jpg`,
+      slug: "serena-and-daniel",
     }
   ]
 
@@ -114,12 +125,14 @@ export function FeaturedFilms() {
     <section id="films" className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            featured
-            <br />
-            <span className="text-gray-400">films</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Work</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Featured Films
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+          <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
             Each film is crafted to reflect the couple's unique story,
             blending documentary authenticity with cinematic artistry.
           </p>
@@ -213,7 +226,7 @@ export function FeaturedFilms() {
                 <span>Check Date Availability</span>
               </button>
               <button
-                onClick={() => window.location.href = '/films'}
+                onClick={() => window.location.href = '/videography'}
                 className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all duration-300 rounded-full font-medium"
               >
                 <span>Watch More Real Weddings</span>

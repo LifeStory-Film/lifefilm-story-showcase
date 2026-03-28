@@ -6,10 +6,12 @@ export function PhotographyPortfolio() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="section-text text-heading mb-6">
-            portfolio
-            <br />
-            <span className="text-heading italic font-light">showcase</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">The Portfolio</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Portfolio Showcase
           </h2>
           <p className="text-xl text-primary max-w-3xl mx-auto font-light leading-relaxed">
             A curated collection of our finest wedding photography, showcasing diverse cultural traditions,

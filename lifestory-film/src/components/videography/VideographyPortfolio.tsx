@@ -83,10 +83,12 @@ export function VideographyPortfolio() {
     <section id="films" className="py-32 bg-black">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            wedding
-            <br />
-            <span className="text-gray-400">films</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Films</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Wedding Films
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Full wedding film galleries designed to give you a good understanding of what you are going to get.

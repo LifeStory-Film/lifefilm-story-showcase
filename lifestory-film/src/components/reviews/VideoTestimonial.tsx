@@ -8,10 +8,12 @@ export function VideoTestimonial() {
     <section className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            client
-            <br />
-            <span className="text-gray-400">testimonial</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Testimonials</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Client Testimonials
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Don't just take our word for it. Hear directly from one of our couples about

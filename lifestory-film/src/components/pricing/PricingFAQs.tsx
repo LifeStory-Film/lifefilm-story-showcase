@@ -101,10 +101,12 @@ export function PricingFAQs() {
     <section className="py-32 bg-gradient-diagonal">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-heading mb-6">
-            frequently asked
-            <br />
-            <span className="text-heading italic font-light">questions</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">FAQ</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Frequently Asked Questions
           </h2>
           <p className="text-xl text-primary max-w-3xl mx-auto font-light">
             Everything you need to know about our pricing, packages, and process.

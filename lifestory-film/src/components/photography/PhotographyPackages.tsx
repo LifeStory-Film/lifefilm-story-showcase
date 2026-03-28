@@ -82,10 +82,12 @@ export function PhotographyPackages() {
     <section className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
-          <h2 className="section-text text-white mb-6">
-            photography
-            <br />
-            <span className="text-gray-400">packages</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Packages</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Photography Packages
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Professional wedding photography packages designed to capture every precious moment of your special day.

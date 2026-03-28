@@ -9,10 +9,12 @@ export function PhotographyApproach() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Title */}
           <AnimatedSection direction="left" delay={0.2}>
-            <h2 className="section-text text-white mb-8">
-              Photography
-              <br />
-              <span className="text-gray-400">approach</span>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Approach</p>
+            <h2
+              className="font-extrabold text-white leading-tight mb-6"
+              style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+            >
+              Photography Approach
             </h2>
           </AnimatedSection>
 

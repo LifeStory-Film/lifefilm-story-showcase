@@ -11,56 +11,62 @@ interface InstagramPost {
   url: string
 }
 
-// Instagram posts - using Instagram media URLs
 const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: '1',
-    image: 'https://www.instagram.com/p/C-GKqpPPyBX/media/?size=l',
-    caption: 'Jaza, the epitome of grace and beauty ✨',
+    image: 'https://ext.same-assets.com/613934530/2159466363.jpeg',
+    caption: 'Classic bridal portrait with bouquet and natural light',
     likes: 487,
-    url: 'https://www.instagram.com/p/C-GKqpPPyBX/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '2',
-    image: 'https://www.instagram.com/p/DDsJeccyU8o/media/?size=l',
-    caption: 'Timeless traditions and modern elegance ✨',
+    image: 'https://ext.same-assets.com/613934530/2180482571.webp',
+    caption: 'Bouquet toss — pure celebration',
     likes: 542,
-    url: 'https://www.instagram.com/p/DDsJeccyU8o/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '3',
-    image: 'https://www.instagram.com/p/C0cbvjpSuQT/media/?size=l',
-    caption: 'Beautiful Ayaka at Bel Air Bay Club 💕',
+    image: 'https://ext.same-assets.com/613934530/2202004677.jpeg',
+    caption: 'Traditional wedding ceremony in a garden setting',
     likes: 629,
-    url: 'https://www.instagram.com/p/C0cbvjpSuQT/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '4',
-    image: 'https://www.instagram.com/p/DI1s2VWPu71/media/?size=l',
-    caption: 'Serena & Daniel - Old-world charm ✨',
+    image: 'https://ext.same-assets.com/613934530/2357869345.webp',
+    caption: 'Romantic couple portrait with eucalyptus bouquet',
     likes: 734,
-    url: 'https://www.instagram.com/p/DI1s2VWPu71/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '5',
-    image: 'https://www.instagram.com/p/DEGEuQLSx0T/media/?size=l',
-    caption: 'Sarah & Blake at Mission San Juan 💍',
+    image: 'https://ext.same-assets.com/613934530/4005707773.jpeg',
+    caption: 'Luxury crystal wedding shoes — every detail matters',
     likes: 618,
-    url: 'https://www.instagram.com/p/DEGEuQLSx0T/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '6',
-    image: 'https://www.instagram.com/p/DDp3C7gTEp6/media/?size=l',
-    caption: 'Timeless moments at LA Athletic Club 🖤',
+    image: 'https://ext.same-assets.com/613934530/24522886.webp',
+    caption: 'Window light bridal portrait with soft shadows',
     likes: 425,
-    url: 'https://www.instagram.com/p/DDp3C7gTEp6/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
   },
   {
     id: '7',
-    image: 'https://www.instagram.com/p/C-gKgdCSSng/media/?size=l',
-    caption: 'Capturing the magic of a bride ✨',
+    image: 'https://ext.same-assets.com/613934530/1996507150.webp',
+    caption: 'Traditional South Asian bridal portrait with intricate henna',
     likes: 329,
-    url: 'https://www.instagram.com/p/C-gKgdCSSng/'
+    url: 'https://www.instagram.com/lifestoryfilm/'
+  },
+  {
+    id: '8',
+    image: 'https://ext.same-assets.com/613934530/1122270631.jpeg',
+    caption: 'Emotional father-daughter moment before the ceremony',
+    likes: 591,
+    url: 'https://www.instagram.com/lifestoryfilm/'
   }
 ]
 
@@ -80,13 +86,18 @@ export function SocialProofSection() {
   }
 
   return (
-    <section id="social-proof" className="py-32 bg-gradient-diagonal">
+    <section id="social-proof" className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Instagram Feed */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-heading mb-2">Recent Work</h3>
-            <p className="text-primary/80 mb-8">Behind the scenes & latest moments from the field</p>
+            <h3
+              className="font-black tracking-tight leading-[0.92] text-white mb-4"
+              style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}
+            >
+              Recent Work
+            </h3>
+            <p className="text-white/45 font-light text-base mb-8">Behind the scenes &amp; latest moments from the field</p>
 
             <div className="relative overflow-hidden rounded-2xl">
               <div

@@ -50,10 +50,12 @@ export function ReviewsCTA() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Title */}
           <AnimatedSection direction="left" delay={0.2}>
-            <h2 className="section-text text-white mb-8">
-              See more
-              <br />
-              <span className="text-gray-400">reviews here</span>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">See More</p>
+            <h2
+              className="font-extrabold text-white leading-tight mb-6"
+              style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+            >
+              Read More Reviews
             </h2>
           </AnimatedSection>
 

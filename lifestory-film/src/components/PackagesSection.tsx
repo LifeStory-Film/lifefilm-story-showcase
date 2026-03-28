@@ -379,15 +379,17 @@ export function PackagesSection() {
   }
 
   return (
-    <section id="packages" className="py-32 bg-gradient-diagonal">
+    <section id="packages" className="py-32 bg-zinc-950">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="section-text text-heading mb-6">
-            {packageType === 'combo' ? 'photo + video' : packageType === 'photo' ? 'photography' : 'videography'}
-            <br />
-            <span className="text-heading italic font-light">packages</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Packages</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            {packageType === 'combo' ? 'Photo + Video Packages' : packageType === 'photo' ? 'Photography Packages' : 'Videography Packages'}
           </h2>
-          <p className="text-xl text-primary max-w-3xl mx-auto font-light">
+          <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
             {packageType === 'combo'
               ? 'Combined photography and videography packages for complete wedding coverage with seamless coordination.'
               : packageType === 'photo'
@@ -395,7 +397,7 @@ export function PackagesSection() {
               : 'Cinematic wedding videography packages to tell your love story through beautiful moving images.'
             }
           </p>
-          <p className="text-sm text-primary/70 mt-4">30-month payment plans available</p>
+          <p className="text-sm text-white/35 mt-4 tracking-wide">30-month payment plans available</p>
         </div>
 
         {/* Package Type Toggle */}
@@ -472,7 +474,7 @@ export function PackagesSection() {
 
         {/* Dynamic Pricing Controls */}
         {(viewMode === 'cards' || viewMode === 'builder') && (
-          <div className="max-w-4xl mx-auto mb-12 p-6 bg-[#002349]/30 rounded-xl border border-[#BFA181]/20">
+          <div className="max-w-4xl mx-auto mb-12 p-6 bg-white/5 rounded-xl border border-white/10">
             <h3 className="text-lg font-semibold text-[#BFA181] mb-4 text-center">
               Get Your Custom Quote
             </h3>

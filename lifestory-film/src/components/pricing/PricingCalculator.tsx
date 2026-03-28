@@ -143,10 +143,12 @@ export function PricingCalculator() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="section-text text-heading mb-6">
-              pricing
-              <br />
-              <span className="text-heading italic font-light">calculator</span>
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Build Your Quote</p>
+            <h2
+              className="font-extrabold text-white leading-tight mb-4"
+              style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+            >
+              Pricing Calculator
             </h2>
             <p className="text-xl text-primary max-w-3xl mx-auto font-light">
               Customize your perfect wedding package with our interactive calculator.

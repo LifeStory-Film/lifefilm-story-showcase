@@ -2,23 +2,29 @@ import { AnimatedSection } from './AnimatedSection'
 
 export function TeamSection() {
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-zinc-950">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <div className="luxury-caption mb-4 text-[#BFA181]">The people behind the films</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-['Playfair_Display'] leading-tight">
-              Meet the director
+            <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">The People Behind the Films</p>
+            <h2
+              className="font-extrabold text-white leading-tight mb-4"
+              style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+            >
+              Meet the Director
             </h2>
+            <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
+              Trained in narrative film. Shooting weddings since 2010.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Photo */}
             <div className="relative">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-900">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-800/50">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1067&fit=crop&crop=face"
-                  alt="Rick — Director & Lead Cinematographer at LifeStory.Film"
+                  src="/images/rick-director.jpg"
+                  alt="Rich — Director & Lead Cinematographer at LifeStory.Film"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
@@ -29,28 +35,28 @@ export function TeamSection() {
             {/* Bio */}
             <div className="space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-1">Rick</h3>
-                <p className="text-[#BFA181] text-sm tracking-widest uppercase">Director & Lead Cinematographer</p>
+                <h3 className="text-2xl font-bold text-white mb-1">Rich</h3>
+                <p className="text-[#BFA181] text-sm tracking-widest uppercase">Director, Cinematographer &amp; Photographer</p>
               </div>
 
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
-                  Rick founded LifeStory.Film in 2010 with one belief: that a wedding film should feel like a short film about the two most important people in the world to you — because it is. Over the past 15 years, he's built a team of cinematic storytellers who shoot over 100 weddings a year across Southern California and beyond.
+                  Rich founded LifeStory.Film in 2010 with one belief: that a wedding should be documented like a short film — and photographed like fine art. Over the past 15 years, he's built a team of cinematographers and photographers who cover over 100 weddings a year across Southern California and beyond.
                 </p>
                 <p>
-                  Trained in narrative filmmaking before pivoting to weddings, Rick brings a documentary instinct to every day — staying unobtrusive, reading the room, and never missing the moments that actually matter. His work has been featured at Pelican Hill, the Four Seasons, the Ritz-Carlton, and private estates across Malibu and Santa Barbara.
+                  Trained in narrative filmmaking and fine art photography, Rich brings a documentary instinct to every day — staying unobtrusive, reading the room, and never missing the moments that actually matter. His work has been featured at Pelican Hill, the Four Seasons, the Ritz-Carlton, and private estates across Malibu and Santa Barbara.
                 </p>
                 <p>
-                  He still personally directs the films for couples who want him on their day — just ask when you inquire.
+                  He still personally leads the photo and film teams for couples who want him on their day — just ask when you inquire.
                 </p>
               </div>
 
               {/* Personal quote */}
               <blockquote className="border-l-2 border-[#BFA181] pl-5 mt-8">
                 <p className="text-white/80 italic text-lg leading-relaxed">
-                  "I don't make wedding videos. I make films that, twenty years from now, you'll watch with your kids and feel every single thing you felt that day."
+                  "I don't make wedding videos or take wedding photos. I tell the story of the most important day of your life — in every medium it deserves."
                 </p>
-                <cite className="text-[#BFA181] text-sm mt-3 block not-italic">— Rick, Director</cite>
+                <cite className="text-[#BFA181] text-sm mt-3 block not-italic">— Rich, Creative Director</cite>
               </blockquote>
 
               <div className="pt-4">

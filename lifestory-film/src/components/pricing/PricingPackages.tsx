@@ -390,10 +390,12 @@ export function PricingPackages() {
     <section id="packages" className="py-32 bg-gradient-diagonal">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="section-text text-heading mb-6">
-            {packageType === 'combo' ? 'photo + video' : packageType === 'photo' ? 'photography' : 'videography'}
-            <br />
-            <span className="text-heading italic font-light">packages</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Packages</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            {packageType === 'combo' ? 'Photo + Video Packages' : packageType === 'photo' ? 'Photography Packages' : 'Videography Packages'}
           </h2>
           <p className="text-xl text-primary max-w-3xl mx-auto font-light">
             {packageType === 'combo'

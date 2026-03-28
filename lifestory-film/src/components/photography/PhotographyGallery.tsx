@@ -114,10 +114,12 @@ export function PhotographyGallery() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="section-text text-heading mb-6">
-            wedding
-            <br />
-            <span className="text-heading italic font-light">gallery</span>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">The Gallery</p>
+          <h2
+            className="font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
+          >
+            Wedding Gallery
           </h2>
           <p className="text-xl text-primary max-w-3xl mx-auto font-light leading-relaxed">
             A curated collection showcasing the diversity of our wedding photography - from intimate details
