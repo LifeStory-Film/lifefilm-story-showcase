@@ -31,15 +31,21 @@ export function Navigation() {
   const isActivePage = (path: string) => pathname === path
 
   const getNavLinkClass = (path: string) => {
-    const baseClass = "relative text-sm font-medium transition-all duration-500 group"
+    const baseClass = "relative text-sm font-normal transition-all duration-500 group"
     if (isActivePage(path)) {
-      return `${baseClass} text-[hsl(var(--luxury-gold))] font-semibold`
+      return `${baseClass} font-semibold`
     }
-    return `${baseClass} text-[hsl(var(--luxury-platinum))] hover:text-[hsl(var(--luxury-gold))]`
+    return baseClass
+  }
+
+  const getNavLinkStyle = (path: string) => {
+    if (isActivePage(path)) return { color: '#BFA181' }
+    return { color: 'rgba(255,255,255,0.90)' }
   }
 
   const NavLink = ({ href, children, onClick }: { href?: string, children: React.ReactNode, onClick?: () => void }) => {
-    const linkClass = href ? getNavLinkClass(href) : "relative text-sm font-medium transition-all duration-500 group text-[hsl(var(--luxury-platinum))] hover:text-[hsl(var(--luxury-gold))]"
+    const linkClass = href ? getNavLinkClass(href) : "relative text-sm font-normal transition-all duration-500 group"
+    const linkStyle = href ? getNavLinkStyle(href) : { color: 'rgba(255,255,255,0.90)' }
 
     const content = (
       <>
@@ -53,14 +59,28 @@ export function Navigation() {
 
     if (href) {
       return (
-        <Link href={href} className={linkClass} {...cursorProps}>
+        <Link
+          href={href}
+          className={linkClass}
+          style={linkStyle}
+          onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+          onMouseLeave={e => (e.currentTarget.style.color = isActivePage(href) ? '#BFA181' : 'rgba(255,255,255,0.90)')}
+          {...cursorProps}
+        >
           {content}
         </Link>
       )
     }
 
     return (
-      <button onClick={onClick} className={linkClass} {...cursorProps}>
+      <button
+        onClick={onClick}
+        className={linkClass}
+        style={linkStyle}
+        onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+        onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
+        {...cursorProps}
+      >
         {content}
       </button>
     )
@@ -80,7 +100,7 @@ export function Navigation() {
           {...cursorProps}
         >
           <div className="luxury-heading text-2xl md:text-3xl font-bold tracking-tight transition-all duration-500 group-hover:scale-105">
-            <span className="luxury-text-gradient">LifeStory</span>
+            <span style={{ color: '#BFA181' }}>LifeStory</span>
             <span className="text-[hsl(var(--luxury-platinum)/0.8)]">.Film</span>
           </div>
           {/* Subtle glow on hover */}
@@ -119,12 +139,15 @@ export function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <PrimaryCTA
-            variant="primary"
+          <button
             onClick={() => scrollToSection('contact')}
+            className="h-10 px-5 rounded-full text-sm transition-all duration-300 hover:scale-105"
+            style={{ backgroundColor: '#BFA181', color: '#0f0e0c', fontWeight: 600 }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
           >
             Inquire
-          </PrimaryCTA>
+          </button>
         </div>
       </div>
 
@@ -147,23 +170,22 @@ export function Navigation() {
 
             {/* Mobile CTA */}
             <div className="pt-6 border-t border-[hsl(var(--luxury-smoke)/0.3)]">
-              <PrimaryCTA
-                variant="primary"
-                onClick={() => {
-                  scrollToSection('contact')
-                  setIsMobileMenuOpen(false)
-                }}
-                className="w-full"
+              <button
+                onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false) }}
+                className="w-full h-12 px-6 rounded-full text-sm transition-all duration-300"
+                style={{ backgroundColor: '#BFA181', color: '#0f0e0c', fontWeight: 600 }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
               >
                 Inquire
-              </PrimaryCTA>
+              </button>
             </div>
 
             {/* Contact Info */}
             <div className="pt-6 space-y-3 text-center">
               <div className="luxury-caption">Get in Touch</div>
               <div className="luxury-body text-sm">
-                <div>info@lifestory.film</div>
+                <div>rick@lifestory.film</div>
                 <div>323.556.4362</div>
               </div>
             </div>

@@ -27,6 +27,8 @@ export function VideographyHero() {
         {/* Video Overlay for Better Text Readability */}
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+        {/* Top gradient for nav readability */}
+        <div className="absolute top-0 left-0 right-0 h-[120px] pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(15,14,12,0.75) 0%, transparent 100%)' }} />
       </div>
 
       {/* Content */}

@@ -33,6 +33,8 @@ export function HeroSection() {
         />
         {/* Minimal overlay — dark gradient at bottom only */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
+        {/* Top gradient for nav readability */}
+        <div className="absolute top-0 left-0 right-0 h-[120px] pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(15,14,12,0.75) 0%, transparent 100%)' }} />
       </div>
 
       {/* Content — anchored to bottom of viewport */}
@@ -42,7 +44,7 @@ export function HeroSection() {
         }`}
       >
         {/* Eyebrow */}
-        <p className="text-white/50 text-xs tracking-[0.25em] uppercase mb-6 font-light">
+        <p className="text-white/70 text-xs tracking-[0.25em] uppercase mb-6 font-light" style={{ paddingTop: '100px' }}>
           California &amp; Worldwide · Since 2010
         </p>
 

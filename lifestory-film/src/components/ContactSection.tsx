@@ -135,7 +135,7 @@ export function ContactSection() {
               <div className="space-y-8">
                 <div>
                   <div className="text-white/30 text-[10px] tracking-[0.22em] uppercase mb-1 font-light">Email</div>
-                  <div className="text-white font-medium">info@lifestory.film</div>
+                  <div className="text-white font-medium">rick@lifestory.film</div>
                 </div>
 
                 <div>
@@ -282,15 +282,16 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-4">
-                  <PrimaryCTA
-                    variant="primary"
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    loading={isSubmitting}
-                    className="w-full"
+                    className="w-full h-12 px-6 rounded-full text-sm transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: '#BFA181', color: '#0f0e0c', fontWeight: 600 }}
+                    onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#d4b896' }}
+                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#BFA181' }}
                   >
                     {isSubmitting ? 'Sending My Inquiry...' : 'Send My Inquiry'}
-                  </PrimaryCTA>
+                  </button>
 
                   <p className="text-sm text-white/40 text-center leading-relaxed">
                     By submitting this form, you agree to our privacy policy. We respect your privacy and will never share your information with third parties. Your inquiry will be handled with complete confidentiality.
