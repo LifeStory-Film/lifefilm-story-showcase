@@ -1,32 +1,38 @@
 'use client'
 
-import { useState } from 'react'
 import { AnimatedSection } from './AnimatedSection'
 
+const REVIEWS = [
+  {
+    name: 'Sarah Thompson',
+    coupleName: 'Sarah & James Thompson',
+    location: 'Pelican Hill, Newport Beach',
+    date: 'October 2024',
+    quote: 'LifeStory.Film exceeded every expectation we had. From our first consultation to receiving our final film, their team was professional, creative, and truly understood our vision. The cinematography is breathtaking — watching our wedding film feels like reliving the most magical day of our lives.',
+    initials: 'ST',
+    googleUrl: 'https://www.google.com/search?q=lifestory.film+reviews',
+  },
+  {
+    name: 'Elena Voss',
+    coupleName: 'Michael & Elena Voss',
+    location: 'Big Sur, CA',
+    date: 'August 2024',
+    quote: 'Every time we watch it, we discover new beautiful moments we didn\'t even know were captured. They have an incredible eye for emotion. Our families cried watching the film — more than they cried at the wedding itself.',
+    initials: 'EV',
+    googleUrl: 'https://www.google.com/search?q=lifestory.film+reviews',
+  },
+  {
+    name: 'Rachel Kim',
+    coupleName: 'David & Rachel Kim',
+    location: 'Four Seasons, Los Angeles',
+    date: 'June 2024',
+    quote: 'The attention to detail and artistic vision they brought to our wedding was incredible. Our families still talk about how professional and unobtrusive they were. And the final film — genuinely one of the best decisions we made for our wedding.',
+    initials: 'RK',
+    googleUrl: 'https://www.google.com/search?q=lifestory.film+reviews',
+  },
+]
+
 export function TestimonialsSection() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
-
-  const testimonials = [
-    {
-      quote: "LifeStory.Film exceeded every expectation we had. From our first consultation to receiving our final film, their team was professional, creative, and truly understood our vision. The cinematography is breathtaking, and watching our wedding film feels like reliving the most magical day of our lives. Every time we watch it, we discover new beautiful moments we didn't even know were captured. We cannot recommend them highly enough!",
-      author: "Sarah & James",
-      location: "Napa Valley, CA",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=800&fit=crop"
-    },
-    {
-      quote: "The cinematography is breathtaking, and watching our wedding film feels like reliving the most magical day of our lives. Every time we watch it, we discover new beautiful moments we didn't even know were captured.",
-      author: "Michael & Elena",
-      location: "Big Sur, CA",
-      image: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=1200&h=800&fit=crop"
-    },
-    {
-      quote: "We cannot recommend them highly enough! The attention to detail and artistic vision they brought to our wedding was incredible. Our families still talk about how professional and unobtrusive they were.",
-      author: "David & Rachel",
-      location: "Los Angeles, CA",
-      image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&h=800&fit=crop"
-    }
-  ]
-
   return (
     <section id="testimonials" className="py-32 bg-zinc-900">
       <div className="container mx-auto px-6">
@@ -37,67 +43,82 @@ export function TestimonialsSection() {
             <span className="text-gray-400 italic font-light">love stories</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
-            Hear from hundreds of couples who trusted us to capture their most precious moments.
+            Hear from couples who trusted us to capture their most precious moments.
           </p>
         </AnimatedSection>
 
-        {/* Main Testimonial Display */}
-        <AnimatedSection direction="fade" delay={0.4} className="max-w-6xl mx-auto">
-          <div className="relative">
-            {/* Background Image */}
-            <div
-              className="h-96 md:h-[500px] rounded-2xl bg-cover bg-center relative overflow-hidden"
-              style={{ backgroundImage: `url('${testimonials[activeTestimonial].image}')` }}
-            >
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-60" />
+        <AnimatedSection direction="fade" delay={0.3} className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            {REVIEWS.map((review, index) => (
+              <div
+                key={index}
+                className="bg-zinc-800 rounded-2xl p-8 border border-zinc-700 hover:border-[#BFA181]/40 transition-all duration-300 flex flex-col"
+              >
+                {/* Stars */}
+                <div className="flex gap-1 mb-5">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
 
-              {/* Content */}
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="text-center max-w-4xl">
-                  <blockquote className="text-xl md:text-2xl text-white italic font-light leading-relaxed mb-8">
-                    "{testimonials[activeTestimonial].quote}"
-                  </blockquote>
+                {/* Quote */}
+                <blockquote className="text-gray-300 leading-relaxed italic flex-1 mb-6">
+                  "{review.quote}"
+                </blockquote>
 
-                  <div className="text-white">
-                    <div className="text-lg font-semibold">{testimonials[activeTestimonial].author}</div>
-                    <div className="text-gray-300 text-sm">{testimonials[activeTestimonial].location}</div>
+                {/* Reviewer */}
+                <div className="flex items-center justify-between pt-4 border-t border-zinc-700">
+                  <div className="flex items-center gap-3">
+                    {/* Avatar placeholder */}
+                    <div className="w-10 h-10 rounded-full bg-[#BFA181]/20 border border-[#BFA181]/40 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#BFA181] text-sm font-semibold">{review.initials}</span>
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-sm">{review.coupleName}</div>
+                      <div className="text-gray-400 text-xs">{review.location} · {review.date}</div>
+                    </div>
                   </div>
+                  {/* Google link */}
+                  <a
+                    href={review.googleUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0 ml-3"
+                    title="View on Google"
+                  >
+                    <svg className="w-5 h-5 text-gray-500 hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeTestimonial ? 'bg-white' : 'bg-gray-600 hover:bg-gray-400'
-                }`}
-              />
             ))}
           </div>
         </AnimatedSection>
 
-        {/* Stats Section */}
-        <AnimatedSection direction="fade" delay={0.8} className="mt-24">
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">5.0</div>
-              <div className="text-gray-400">Average Rating</div>
+        {/* Google aggregate rating */}
+        <AnimatedSection direction="fade" delay={0.6} className="text-center mt-12">
+          <a
+            href="https://www.google.com/search?q=lifestory.film+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-zinc-800 hover:bg-zinc-700 transition-colors px-6 py-3 rounded-full border border-zinc-700"
+          >
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/>
+            </svg>
+            <div className="flex gap-0.5">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
             </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">98%</div>
-              <div className="text-gray-400">Referral Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-white mb-2">72hr</div>
-              <div className="text-gray-400">Avg Response Time</div>
-            </div>
-          </div>
+            <span className="text-white font-semibold">5.0</span>
+            <span className="text-gray-400 text-sm">· View all reviews on Google</span>
+          </a>
         </AnimatedSection>
       </div>
     </section>

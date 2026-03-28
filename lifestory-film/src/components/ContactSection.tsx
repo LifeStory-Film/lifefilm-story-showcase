@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { PrimaryCTA } from './PrimaryCTA'
 
 interface FormData {
+  weddingDate: string
+  email: string
   firstName: string
   lastName: string
-  email: string
   phone: string
-  weddingDate: string
   venue: string
   message: string
 }
@@ -19,42 +19,30 @@ interface FormErrors {
 
 export function ContactSection() {
   const [formData, setFormData] = useState<FormData>({
+    weddingDate: '',
+    email: '',
     firstName: '',
     lastName: '',
-    email: '',
     phone: '',
-    weddingDate: '',
     venue: '',
-    message: ''
+    message: '',
   })
 
   const [errors, setErrors] = useState<FormErrors>({})
+  const [isExpanded, setIsExpanded] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required'
+    if (!formData.weddingDate.trim()) {
+      newErrors.weddingDate = 'Wedding date is required'
     }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required'
-    }
-
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address'
-    }
-
-    if (!formData.weddingDate.trim()) {
-      newErrors.weddingDate = 'Wedding date is required'
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Please tell us about your vision'
     }
 
     setErrors(newErrors)
@@ -64,7 +52,11 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!validateForm()) {
+    if (!validateForm()) return
+
+    // If user hasn't expanded the form yet, expand it so they can add more details
+    if (!isExpanded) {
+      setIsExpanded(true)
       return
     }
 
@@ -72,47 +64,27 @@ export function ContactSection() {
     setSubmitStatus('idle')
 
     try {
-      // Submit form to API
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
 
-      if (!response.ok) {
-        throw new Error('Failed to submit form')
-      }
+      if (!response.ok) throw new Error('Failed to submit form')
 
       setSubmitStatus('success')
-
-      // Reset form
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        weddingDate: '',
-        venue: '',
-        message: ''
-      })
-    } catch (error) {
+      setFormData({ weddingDate: '', email: '', firstName: '', lastName: '', phone: '', venue: '', message: '' })
+      setIsExpanded(false)
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
     }
   }
 
-  const handleInputChange = (field: keyof FormData, value: string | boolean) => {
+  const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }))
-    }
-  }
-
-  const handleCheckboxChange = (field: keyof FormData, checked: boolean) => {
-    setFormData(prev => ({ ...prev, [field]: checked }))
+    if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }))
   }
 
   return (
@@ -192,7 +164,7 @@ export function ContactSection() {
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
                   <p className="text-green-400 text-center">
-                    Thank you! Your inquiry has been sent successfully. We'll get back to you within 24 hours.
+                    Thank you! Your inquiry has been sent. We'll get back to you within 24 hours.
                   </p>
                 </div>
               )}
@@ -205,47 +177,49 @@ export function ContactSection() {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Contact Information Group */}
-                <div className="space-y-6">
-                  <h4 className="text-lg font-medium text-[#BFA181] border-b border-[#BFA181]/30 pb-2">
-                    Contact Information
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Always-visible: Wedding Date + Email */}
+                <div>
+                  <input
+                    type="date"
+                    value={formData.weddingDate}
+                    onChange={(e) => handleInputChange('weddingDate', e.target.value)}
+                    className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
+                  />
+                  {errors.weddingDate && <p className="text-red-400 text-sm mt-1">{errors.weddingDate}</p>}
+                  <p className="text-gray-400 text-xs mt-1 ml-1">Wedding date *</p>
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your email address *"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
+                  />
+                  {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                </div>
+
+                {/* Expandable full form */}
+                {isExpanded && (
+                  <div className="space-y-4 border-t border-[#002349]/40 pt-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <input
                         type="text"
-                        placeholder="First Name *"
+                        placeholder="First Name"
                         value={formData.firstName}
                         onChange={(e) => handleInputChange('firstName', e.target.value)}
                         className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
                       />
-                      {errors.firstName && <p className="text-red-400 text-sm mt-1">{errors.firstName}</p>}
-                    </div>
-                    <div>
                       <input
                         type="text"
-                        placeholder="Last Name *"
+                        placeholder="Last Name"
                         value={formData.lastName}
                         onChange={(e) => handleInputChange('lastName', e.target.value)}
                         className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
                       />
-                      {errors.lastName && <p className="text-red-400 text-sm mt-1">{errors.lastName}</p>}
                     </div>
-                  </div>
-
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Email Address *"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
-                    />
-                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-                  </div>
-
-                  <div>
                     <input
                       type="tel"
                       placeholder="Phone Number"
@@ -253,57 +227,24 @@ export function ContactSection() {
                       onChange={(e) => handleInputChange('phone', e.target.value)}
                       className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
                     />
-                  </div>
-                </div>
-
-                {/* Wedding Details Group */}
-                <div className="space-y-6">
-                  <h4 className="text-lg font-medium text-[#BFA181] border-b border-[#BFA181]/30 pb-2">
-                    Wedding Details
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <input
-                        type="date"
-                        placeholder="Wedding Date *"
-                        value={formData.weddingDate}
-                        onChange={(e) => handleInputChange('weddingDate', e.target.value)}
-                        className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
-                      />
-                      {errors.weddingDate && <p className="text-red-400 text-sm mt-1">{errors.weddingDate}</p>}
-                    </div>
-                    <div>
-                      <input
-                        type="text"
-                        placeholder="Wedding Venue"
-                        value={formData.venue}
-                        onChange={(e) => handleInputChange('venue', e.target.value)}
-                        className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Vision Group */}
-                <div className="space-y-6">
-                  <h4 className="text-lg font-medium text-[#BFA181] border-b border-[#BFA181]/30 pb-2">
-                    Your Vision
-                  </h4>
-                  <div>
+                    <input
+                      type="text"
+                      placeholder="Wedding Venue"
+                      value={formData.venue}
+                      onChange={(e) => handleInputChange('venue', e.target.value)}
+                      className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors"
+                    />
                     <textarea
-                      placeholder="Tell us about your vision... *"
+                      placeholder="Tell us about your vision..."
                       rows={4}
                       value={formData.message}
                       onChange={(e) => handleInputChange('message', e.target.value)}
                       className="w-full bg-transparent border border-[#002349] rounded-lg px-4 py-3 text-primary placeholder-gray-400 focus:border-[#178582] focus:outline-none transition-colors resize-none"
                     />
-                    {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
                   </div>
-                </div>
+                )}
 
-
-
-                <div className="space-y-4">
+                <div className="space-y-4 pt-2">
                   <PrimaryCTA
                     variant="primary"
                     type="submit"
@@ -311,11 +252,25 @@ export function ContactSection() {
                     loading={isSubmitting}
                     className="w-full"
                   >
-                    {isSubmitting ? 'Sending My Inquiry...' : 'Send My Inquiry'}
+                    {isSubmitting
+                      ? 'Sending…'
+                      : isExpanded
+                      ? 'Send My Inquiry'
+                      : 'Check My Date'}
                   </PrimaryCTA>
 
+                  {!isExpanded && (
+                    <button
+                      type="button"
+                      onClick={() => setIsExpanded(true)}
+                      className="w-full text-sm text-gray-400 hover:text-[#BFA181] transition-colors text-center"
+                    >
+                      Add more details (venue, message, phone) →
+                    </button>
+                  )}
+
                   <p className="text-sm text-[#EAE7DD] text-center leading-relaxed">
-                    By submitting this form, you agree to our privacy policy. We respect your privacy and will never share your information with third parties. Your inquiry will be handled with complete confidentiality.
+                    We respect your privacy and will never share your information with third parties.
                   </p>
                 </div>
               </form>

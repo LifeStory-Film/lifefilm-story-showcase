@@ -34,7 +34,7 @@ interface CustomFeature {
 const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
-    name: "Essential",
+    name: "The Story Film",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "5 hours",
@@ -53,7 +53,7 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "signature",
-    name: "Signature",
+    name: "The Full Day Edit",
     basePrice: 6998,
     monthlyPrice: 1750,
     duration: "Full day",
@@ -75,7 +75,7 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day",
-    name: "Multi Day",
+    name: "The Destination Feature",
     basePrice: 12999,
     monthlyPrice: 3250,
     duration: "Multi day",

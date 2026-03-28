@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { AnimatedSection } from './AnimatedSection'
 import { OptimizedImage } from './OptimizedImage'
 import { OptimizedVideo } from './OptimizedVideo'
@@ -17,7 +18,8 @@ export function FeaturedFilms() {
       description: "A breathtaking luxury resort wedding with sweeping ocean views and elegant architecture.",
       videoId: "cp3PmoI9nio",
       embedUrl: "https://www.youtube.com/embed/cp3PmoI9nio?si=EkwuDwuG3FMy9Uys",
-      thumbnail: `https://img.youtube.com/vi/cp3PmoI9nio/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/cp3PmoI9nio/maxresdefault.jpg`,
+      slug: "ryan-and-victoria",
     },
     {
       title: "Katherine & Harsh",
@@ -27,7 +29,8 @@ export function FeaturedFilms() {
       description: "A beautiful fusion of Indian and Vietnamese traditions in a stunning garden setting.",
       videoId: "G4Mlon9-iLY",
       embedUrl: "https://www.youtube.com/embed/G4Mlon9-iLY?si=vUBoA_fMh2qzD2kh",
-      thumbnail: `https://img.youtube.com/vi/G4Mlon9-iLY/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/G4Mlon9-iLY/maxresdefault.jpg`,
+      slug: "katherine-and-harsh",
     },
     {
       title: "Josh & Whitney",
@@ -37,7 +40,8 @@ export function FeaturedFilms() {
       description: "An intimate destination wedding capturing the energy and romance of the city.",
       videoId: "WCjUi2yqK3U",
       embedUrl: "https://www.youtube.com/embed/WCjUi2yqK3U?si=BGGRwNil8rAHfLIh",
-      thumbnail: `https://img.youtube.com/vi/WCjUi2yqK3U/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/WCjUi2yqK3U/maxresdefault.jpg`,
+      slug: "josh-and-whitney",
     },
     {
       title: "Ayaka & Kyan",
@@ -47,7 +51,8 @@ export function FeaturedFilms() {
       description: "A dreamy beachside wedding with the Pacific Ocean as the perfect backdrop.",
       videoId: "17rIApee9B8",
       embedUrl: "https://www.youtube.com/embed/17rIApee9B8?si=1iWNkH4CHI1EkXKt",
-      thumbnail: `https://img.youtube.com/vi/17rIApee9B8/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/17rIApee9B8/maxresdefault.jpg`,
+      slug: "ayaka-and-kyan",
     },
     {
       title: "Michelle & Jason",
@@ -57,7 +62,8 @@ export function FeaturedFilms() {
       description: "A grand celebration blending Indian and Jewish traditions in a historic venue.",
       videoId: "z_6rqvk2tAs",
       embedUrl: "https://www.youtube.com/embed/z_6rqvk2tAs?si=43vuFod-iY4Pvp0w",
-      thumbnail: `https://img.youtube.com/vi/z_6rqvk2tAs/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/z_6rqvk2tAs/maxresdefault.jpg`,
+      slug: "michelle-and-jason",
     },
     {
       title: "Ayaka & Kyan",
@@ -67,7 +73,8 @@ export function FeaturedFilms() {
       description: "A beautiful Indian wedding celebration with stunning coastal views.",
       videoId: "ETxaM39nn4E",
       embedUrl: "https://www.youtube.com/embed/ETxaM39nn4E?si=1iWNkH4CHI1EkXKt",
-      thumbnail: `https://img.youtube.com/vi/ETxaM39nn4E/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/ETxaM39nn4E/maxresdefault.jpg`,
+      slug: "ayaka-and-kyan-palos-verdes",
     },
     {
       title: "Charlotte & John",
@@ -77,7 +84,8 @@ export function FeaturedFilms() {
       description: "A romantic destination wedding in the heart of San Francisco.",
       videoId: "D_vIC41fA4U",
       embedUrl: "https://www.youtube.com/embed/D_vIC41fA4U?si=DlnudIoq-MnZGBad",
-      thumbnail: `https://img.youtube.com/vi/D_vIC41fA4U/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/D_vIC41fA4U/maxresdefault.jpg`,
+      slug: "charlotte-and-john",
     },
     {
       title: "Carrie & Grant",
@@ -87,7 +95,8 @@ export function FeaturedFilms() {
       description: "A stunning coastal wedding with breathtaking Malibu ocean views.",
       videoId: "SoXEpK1tGYo",
       embedUrl: "https://www.youtube.com/embed/SoXEpK1tGYo?si=BGGRwNil8rAHfLIh",
-      thumbnail: `https://img.youtube.com/vi/SoXEpK1tGYo/maxresdefault.jpg`
+      thumbnail: `https://img.youtube.com/vi/SoXEpK1tGYo/maxresdefault.jpg`,
+      slug: "carrie-and-grant",
     }
   ]
 
@@ -163,12 +172,21 @@ export function FeaturedFilms() {
 
               {/* Film Info */}
               <div className="absolute inset-0 flex items-end p-6">
-                <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 w-full">
                   <h3 className="text-2xl font-bold mb-1">{film.title}</h3>
                   <p className="text-gray-300 mb-2">{film.location}</p>
-                  <p className="text-sm text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
-                    {film.description}
-                  </p>
+                  <div className="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-sm text-gray-400 line-clamp-1 flex-1 mr-4">
+                      {film.description}
+                    </p>
+                    <Link
+                      href={`/films/${film.slug}`}
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[#BFA181] text-sm font-medium whitespace-nowrap hover:text-white transition-colors flex-shrink-0"
+                    >
+                      View film →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>

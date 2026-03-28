@@ -102,41 +102,26 @@ export function HeroSection() {
             Cinematic Excellence • Since 2010
           </div>
 
-          {/* Main Heading - Benefit-Driven */}
+          {/* Main Heading */}
           <h1 className="hero-text luxury-heading mb-8 drop-shadow-2xl">
-            <span className="luxury-text-gradient">Your Wedding Day</span>
+            <span className="luxury-text-gradient">Your wedding film should</span>
             <br />
             <span className="luxury-text-gradient italic font-light">
-              Preserved Forever
+              make you cry.
             </span>
+            <br />
+            <span className="luxury-text-gradient text-[0.7em]">Every time you watch it.</span>
           </h1>
 
-          {/* Clear Value Proposition */}
-          <p className="luxury-body text-xl md:text-2xl mb-6 max-w-4xl mx-auto leading-relaxed opacity-95 text-white drop-shadow-lg">
-            Cinematic wedding films and photography for couples who want every emotion, detail, and moment captured with Hollywood-quality artistry.
+          {/* Subheadline */}
+          <p className="luxury-body text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-95 text-white drop-shadow-lg">
+            Cinematic wedding films for couples who want more than a highlight reel — made by a team that's been doing this since 2010.
           </p>
 
-          {/* Key Differentiator */}
-          <p className="luxury-subheading text-lg md:text-xl mb-12 max-w-3xl mx-auto text-white/90 drop-shadow-lg">
-            15+ years of experience • 1,000+ weddings • Same-day teaser delivery
-          </p>
-
-          {/* Clear Call-to-Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          {/* Single Primary CTA + subtle text link */}
+          <div className="flex flex-col items-center gap-4 mb-16">
             <PrimaryCTA
               variant="primary"
-              onClick={() => scrollToSection('contact')}
-              icon={
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              }
-            >
-              Check Date Availability
-            </PrimaryCTA>
-
-            <PrimaryCTA
-              variant="secondary"
               onClick={() => scrollToSection('films')}
               icon={
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,22 +130,27 @@ export function HeroSection() {
                 </svg>
               }
             >
-              Watch Real Wedding Films
+              See Our Films
             </PrimaryCTA>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-white/70 hover:text-[#BFA181] text-sm tracking-wide transition-colors duration-200 underline underline-offset-4"
+            >
+              Check date availability →
+            </button>
           </div>
 
           {/* Trust Indicators - Prominent */}
           <div
             ref={badgesRef}
-            className={`grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12 transition-all duration-1000 ${
+            className={`grid grid-cols-3 gap-6 max-w-3xl mx-auto mb-12 transition-all duration-1000 ${
               badgesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             {[
               { number: "1,000+", label: "Couples Served", icon: "💕", delay: "0.1s" },
               { number: "15+", label: "Years Experience", icon: "⭐", delay: "0.2s" },
-              { number: "5.0", label: "Star Rating", icon: "🏆", delay: "0.3s" },
-              { number: "98%", label: "Referral Rate", icon: "✨", delay: "0.4s" }
+              { number: "5.0", label: "Google Rating", icon: "🏆", delay: "0.3s" },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -180,6 +170,26 @@ export function HeroSection() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Venue logo strip */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <p className="text-white/40 text-xs tracking-widest uppercase mb-6 text-center">Filmed at</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+              {[
+                'Pelican Hill',
+                'Four Seasons',
+                'Ritz-Carlton',
+                'Malibu Rocky Oaks',
+              ].map((venue) => (
+                <span
+                  key={venue}
+                  className="text-white/35 hover:text-white/60 transition-colors duration-300 text-sm md:text-base font-light tracking-widest uppercase select-none"
+                >
+                  {venue}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* Social Proof Testimonial */}

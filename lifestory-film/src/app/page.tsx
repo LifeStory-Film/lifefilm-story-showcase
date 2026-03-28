@@ -2,11 +2,13 @@ import { Navigation } from '@/components/Navigation'
 import { HeroSection } from '@/components/HeroSection'
 import { FeaturedFilms } from '@/components/FeaturedFilms'
 import { BehindTheScenes } from '@/components/BehindTheScenes'
-
 import { TestimonialsSection } from '@/components/TestimonialsSection'
 import { SocialProofSection } from '@/components/SocialProofSection'
 import { TrustSection } from '@/components/TrustSection'
+import { TeamSection } from '@/components/TeamSection'
 import { PackagesSection } from '@/components/PackagesSection'
+import { CinematicBreak } from '@/components/CinematicBreak'
+import { StickyMobileBar } from '@/components/StickyMobileBar'
 import { LeadMagnet } from '@/components/LeadMagnet'
 import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
@@ -19,29 +21,35 @@ export default function Home() {
       <main className="min-h-screen bg-black text-white">
         <Navigation />
 
-        {/* 1. Hero with CTA and trust badges */}
+        {/* 1. Hero */}
         <HeroSection />
 
-        {/* 2. Portfolio section (films/photos) */}
+        {/* 2. Film portfolio */}
         <FeaturedFilms />
 
-        {/* 3. Packages with booking CTA */}
-        <PackagesSection />
-
-        {/* 4. Testimonials and trust metrics */}
+        {/* 3. Testimonials + trust metrics */}
         <TestimonialsSection />
         <TrustSection />
 
-        {/* 5. Behind-the-scenes and philosophy */}
-        <BehindTheScenes />
+        {/* 4. Director bio */}
+        <TeamSection />
 
-        {/* 6. Instagram feed or blog teasers */}
+        {/* 5. Recent work (Instagram grid) */}
         <SocialProofSection />
 
-        {/* 6.5 Soft lead capture for non-ready visitors */}
+        {/* 6. Cinematic visual break */}
+        <CinematicBreak />
+
+        {/* 7. Packages */}
+        <PackagesSection />
+
+        {/* 8. Behind the scenes / philosophy */}
+        <BehindTheScenes />
+
+        {/* 9. Lead magnet */}
         <LeadMagnet />
 
-        {/* 7. Inquiry form */}
+        {/* 10. Inquiry form */}
         <ContactSection />
 
         <Footer />
@@ -66,6 +74,10 @@ export default function Home() {
           <input type="checkbox" name="droneFootage" />
         </form>
       </main>
+
+      {/* Sticky mobile CTA — client component, outside main */}
+      <StickyMobileBar />
+
       <DeferredScripts />
     </>
   )
