@@ -23,21 +23,21 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'LifeStory.Film - Luxury Wedding Videography',
-  description: 'Cinematic wedding films that transform your most precious moments into timeless art. Professional luxury wedding videography and photography services.',
-  keywords: 'luxury wedding videography, cinematic wedding films, wedding photography, LifeStory.Film, premium wedding videos',
+  title: 'LifeStory.Film | Luxury Wedding Photography & Videography | Los Angeles',
+  description: 'Cinematic wedding films and photography for couples who want more than a highlight reel. Based in Los Angeles, serving California and worldwide since 2010.',
+  keywords: 'luxury wedding videography, cinematic wedding films, wedding photography, LifeStory.Film, premium wedding videos, Los Angeles wedding photographer',
   authors: [{ name: 'LifeStory.Film' }],
   openGraph: {
-    title: 'LifeStory.Film - Luxury Wedding Videography',
-    description: 'Cinematic wedding films that transform your most precious moments into timeless art.',
+    title: 'LifeStory.Film | Luxury Wedding Photography & Videography | Los Angeles',
+    description: 'Cinematic wedding films and photography for couples who want more than a highlight reel.',
     type: 'website',
     locale: 'en_US',
     siteName: 'LifeStory.Film',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'LifeStory.Film - Luxury Wedding Videography',
-    description: 'Cinematic wedding films that transform your most precious moments into timeless art.',
+    title: 'LifeStory.Film | Luxury Wedding Photography & Videography | Los Angeles',
+    description: 'Cinematic wedding films and photography for couples who want more than a highlight reel.',
   },
   robots: {
     index: true,
@@ -67,6 +67,33 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "LifeStory.Film",
+              "description": "Luxury wedding photography and videography based in Los Angeles, serving California and worldwide since 2010.",
+              "url": "https://lifestory.film",
+              "telephone": "323-556-4362",
+              "email": "info@lifestory.film",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Los Angeles",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "78",
+                "bestRating": "5"
+              },
+              "priceRange": "$$$"
+            })
+          }}
+        />
       </head>
       <body className="font-inter antialiased luxury-gradient min-h-screen">
         <LuxuryCursor />

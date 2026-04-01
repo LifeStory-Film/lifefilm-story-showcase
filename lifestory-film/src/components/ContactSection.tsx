@@ -122,7 +122,7 @@ export function ContactSection() {
               className="font-extrabold text-white leading-tight mb-4"
               style={{ fontSize: 'clamp(40px, 4.5vw, 56px)', letterSpacing: '-0.02em' }}
             >
-              Let's Plan Your Wedding Film
+              Let's Plan Your Wedding
             </h2>
             <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
               We respond within 24 hours. Tell us about your day and we'll reach out to check availability.
@@ -145,7 +145,7 @@ export function ContactSection() {
 
                 <div>
                   <div className="text-white/30 text-[10px] tracking-[0.22em] uppercase mb-1 font-light">Based In</div>
-                  <div className="text-white font-medium">Los Angeles, CA</div>
+                  <div className="text-white font-medium">California &amp; Worldwide</div>
                 </div>
 
                 <div>

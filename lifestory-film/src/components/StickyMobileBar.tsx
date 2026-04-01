@@ -46,7 +46,7 @@ export function StickyMobileBar() {
       aria-hidden={!show}
     >
       {/* Safe-area padding for notch phones */}
-      <div className="bg-black/90 backdrop-blur-md border-t border-white/10 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+      <div className="border-t border-white/10 px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]" style={{ backgroundColor: '#1a1a1a' }}>
         <button
           onClick={scrollToContact}
           className="w-full bg-[#BFA181] text-black py-4 rounded-full font-semibold text-base tracking-wide hover:bg-[#957C3D] transition-colors active:scale-95"

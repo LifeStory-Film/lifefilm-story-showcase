@@ -23,8 +23,8 @@ interface Package {
 const BASE_PACKAGES: Package[] = [
   {
     id: 'essential',
-    name: 'Essential',
-    basePrice: 5200,
+    name: 'The Story Film',
+    basePrice: 3999,
     duration: '5 hours',
     team: '1 photographer + 1 videographer',
     features: [
@@ -39,8 +39,8 @@ const BASE_PACKAGES: Package[] = [
   },
   {
     id: 'signature',
-    name: 'Signature',
-    basePrice: 8400,
+    name: 'The Full Day Edit',
+    basePrice: 6998,
     duration: 'Full day',
     team: '2 photographers + 2 videographers',
     features: [
@@ -58,8 +58,8 @@ const BASE_PACKAGES: Package[] = [
   },
   {
     id: 'multi-day',
-    name: 'Multi Day',
-    basePrice: 13400,
+    name: 'The Destination Feature',
+    basePrice: 12999,
     duration: 'Multi day',
     team: '2 photographers + 2 videographers',
     features: [

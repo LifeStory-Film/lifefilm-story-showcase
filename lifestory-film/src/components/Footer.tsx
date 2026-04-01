@@ -9,8 +9,7 @@ export function Footer() {
               LifeStory<span className="text-gray-400">.Film</span>
             </div>
             <p className="text-gray-400 leading-relaxed max-w-md">
-              Luxury wedding videography that transforms your most precious moments
-              into cinematic art. Based in Los Angeles, available worldwide.
+              Luxury wedding photography and videography — capturing your story since 2010.
             </p>
           </div>
 
@@ -30,7 +29,7 @@ export function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>rick@lifestory.film</li>
               <li>323.556.4362</li>
-              <li>Los Angeles, CA</li>
+              <li>California &amp; Worldwide</li>
             </ul>
           </div>
         </div>

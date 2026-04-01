@@ -8,7 +8,7 @@ import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
 
 export const metadata = {
-  title: "Wedding Photography & Videography Pricing | LifeStory.Film",
+  title: "Wedding Photography & Video Pricing | LifeStory.Film",
   description: "Transparent pricing for luxury wedding photography and videography packages. Professional photo+video coverage starting at $5,200. View our complete package details.",
   keywords: "wedding photography pricing, wedding videography cost, LifeStory.Film packages, luxury wedding packages, photo video pricing",
 }

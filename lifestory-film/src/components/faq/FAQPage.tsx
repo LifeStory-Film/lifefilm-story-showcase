@@ -20,7 +20,7 @@ export function FAQPage() {
       id: 1,
       category: 'pricing',
       question: "How much does wedding videography cost?",
-      answer: "Our wedding videography packages range from $2,800 to $13,400, depending on coverage length, team size, and deliverables. Our Essential package starts at $2,800 for 5 hours of coverage, while our Signature package at $8,400 includes full day coverage with two videographers. For exact pricing based on your wedding date and specific needs, we recommend scheduling a consultation."
+      answer: "Our combined photo + video packages range from $3,999 to $12,999, depending on coverage length, team size, and deliverables. The Story Film package starts at $3,999 for 5 hours of coverage, while The Full Day Edit at $6,998 includes full day coverage with two photographers and two videographers. For exact pricing based on your wedding date and specific needs, we recommend scheduling a consultation."
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ export function FAQPage() {
       id: 4,
       category: 'pricing',
       question: "What's the difference between your packages?",
-      answer: "The main differences are coverage duration, team size, and deliverables. Essential packages include single videographer coverage and basic deliverables. Signature packages add a second videographer, more comprehensive coverage, and additional edits. Multi-day packages include rehearsal coverage, extended documentary edits, and premium delivery options."
+      answer: "The main differences are coverage duration, team size, and deliverables. The Story Film includes single-team coverage and essential deliverables. The Full Day Edit adds a second photographer and videographer, more comprehensive coverage, and additional edits. The Destination Feature includes multi-day coverage, rehearsal coverage, extended documentary edits, and premium delivery options."
     },
 
     // Timeline & Process
@@ -46,7 +46,7 @@ export function FAQPage() {
       id: 5,
       category: 'timeline',
       question: "How long does it take to receive our wedding film?",
-      answer: "Delivery times vary by package. Essential packages are delivered within 6-8 weeks, while Signature and Multi-day packages are completed within 4-6 weeks due to priority processing. We also offer a 48-hour highlight reel for Signature packages and above to share with friends and family immediately after your wedding."
+      answer: "Delivery times vary by package. The Story Film is delivered within 6-8 weeks, while The Full Day Edit and The Destination Feature are completed within 4-6 weeks due to priority processing. We also offer a 48-hour highlight reel for The Full Day Edit and above to share with friends and family immediately after your wedding."
     },
     {
       id: 6,
@@ -72,7 +72,7 @@ export function FAQPage() {
       id: 9,
       category: 'service',
       question: "How many videographers will be at our wedding?",
-      answer: "This depends on your package. Essential and Full Day packages include one professional videographer. Signature and Multi-day packages include two videographers for comprehensive coverage and multiple angles. Having two videographers allows us to capture both wide ceremony shots and intimate reactions simultaneously."
+      answer: "This depends on your package. The Story Film includes one professional videographer. The Full Day Edit and The Destination Feature include two videographers for comprehensive coverage and multiple angles. Having two videographers allows us to capture both wide ceremony shots and intimate reactions simultaneously."
     },
     {
       id: 10,
@@ -104,7 +104,7 @@ export function FAQPage() {
       id: 14,
       category: 'technical',
       question: "Do you provide same-day highlights?",
-      answer: "Same-day highlights are included with our Signature and Multi-day packages. These are 60-90 second highlight reels delivered within 48-72 hours of your wedding, perfect for sharing on social media or with friends and family who couldn't attend."
+      answer: "Same-day highlights are included with The Full Day Edit and The Destination Feature. These are 60-90 second highlight reels delivered within 48-72 hours of your wedding, perfect for sharing on social media or with friends and family who couldn't attend."
     },
     {
       id: 15,

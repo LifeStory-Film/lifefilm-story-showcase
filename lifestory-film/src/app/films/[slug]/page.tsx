@@ -183,6 +183,9 @@ export async function generateMetadata({
   return {
     title,
     description: film.metaDescription,
+    alternates: {
+      canonical: `https://lifestory.film/films/${slug}`,
+    },
     openGraph: {
       title,
       description: film.metaDescription,
@@ -250,6 +253,16 @@ export default async function FilmPage({
         {/* Description */}
         <div className="container mx-auto px-6 max-w-2xl mb-16">
           <p className="text-gray-300 text-lg leading-relaxed">{film.description}</p>
+        </div>
+
+        {/* View more films */}
+        <div className="container mx-auto px-6 max-w-2xl mb-8 text-center">
+          <Link
+            href="/videography"
+            className="text-[#BFA181] hover:text-[#d4b896] transition-colors text-sm tracking-wide"
+          >
+            View more films →
+          </Link>
         </div>
 
         {/* CTA */}

@@ -67,14 +67,17 @@ export function HeroSection() {
           className="text-white/65 font-light leading-relaxed mb-10"
           style={{ fontSize: 'clamp(15px, 1.5vw, 19px)', maxWidth: '560px' }}
         >
-          Cinematic wedding films for couples who want more than a highlight reel — made by a team that's been doing this since 2010.
+          Cinematic wedding films and photography for couples who want more than a highlight reel — made by a team that's been doing this since 2010.
         </p>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mb-16 md:mb-20">
           <button
             onClick={() => scrollToSection('films')}
-            className="bg-white text-black px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-[#BFA181] hover:text-white transition-colors duration-200"
+            className="px-8 py-3.5 rounded-full text-sm font-semibold tracking-wide transition-colors duration-200"
+            style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }}
+            onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#BFA181'; e.currentTarget.style.color = '#0f0e0c' }}
+            onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#1a1a1a'; e.currentTarget.style.color = '#ffffff' }}
           >
             See Our Films
           </button>

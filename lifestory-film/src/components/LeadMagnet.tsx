@@ -9,6 +9,7 @@ const PELICAN_HILL_VIDEO_URL = 'https://www.youtube.com/watch?v=cp3PmoI9nio'
 export function LeadMagnet() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,6 +23,8 @@ export function LeadMagnet() {
 
     // Brief pause for UX, then redirect to the film
     setTimeout(() => {
+      setSubmitted(true)
+      setIsSubmitting(false)
       window.location.href = PELICAN_HILL_VIDEO_URL
     }, 800)
   }
@@ -51,39 +54,55 @@ export function LeadMagnet() {
               </div>
             </div>
 
-            <h2
-              className="font-black tracking-tight leading-[0.92] text-white mb-5"
-              style={{ fontSize: 'clamp(28px, 4vw, 48px)' }}
-            >
-              Watch our Pelican Hill film — free
-            </h2>
-            <p className="text-white/55 font-light mb-8" style={{ fontSize: 'clamp(15px, 1.3vw, 17px)' }}>
-              Enter your email and we'll send you straight to the film. No fluff, just the work.
-            </p>
-
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => { setEmail(e.target.value); setError('') }}
-                  placeholder="Your email address"
-                  required
-                  className="flex-1 px-6 py-4 rounded-full bg-white/10 border-2 border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-[#BFA181] transition-colors"
-                />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="px-8 py-4 bg-[#BFA181] text-[#002349] rounded-full font-semibold hover:bg-[#957C3D] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
+            {submitted ? (
+              <div className="py-8">
+                <p
+                  className="font-extrabold text-white mb-3"
+                  style={{ fontSize: 'clamp(24px, 3vw, 36px)', letterSpacing: '-0.02em' }}
                 >
-                  {isSubmitting ? 'Opening film…' : 'Watch the film'}
-                </button>
+                  Check your inbox — your film is on its way.
+                </p>
               </div>
-              {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
-              <p className="text-white/35 text-sm mt-4">
-                We respect your privacy. No spam, ever.
-              </p>
-            </form>
+            ) : (
+              <>
+                <h2
+                  className="font-extrabold tracking-tight leading-[0.95] text-white mb-5"
+                  style={{ fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.02em' }}
+                >
+                  See the film before you book.
+                </h2>
+                <p className="text-white/55 font-light mb-8" style={{ fontSize: 'clamp(15px, 1.3vw, 17px)' }}>
+                  Watch our full Pelican Hill wedding film — enter your email and we'll send it to you directly.
+                </p>
+
+                <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); setError('') }}
+                      placeholder="Your email address"
+                      required
+                      className="flex-1 px-6 py-4 rounded-full bg-white/10 border-2 border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-[#BFA181] transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="px-8 py-4 rounded-full font-semibold transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
+                      style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                      onMouseEnter={e => { if (!isSubmitting) e.currentTarget.style.backgroundColor = '#d4b896' }}
+                      onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#BFA181' }}
+                    >
+                      {isSubmitting ? 'Opening film…' : 'Watch the Film →'}
+                    </button>
+                  </div>
+                  {error && <p className="text-red-400 text-sm mt-3">{error}</p>}
+                  <p className="text-white/35 text-sm mt-4">
+                    We respect your privacy. Unsubscribe anytime.
+                  </p>
+                </form>
+              </>
+            )}
 
             <div className="mt-8 pt-8 border-t border-white/20">
               <p className="text-white/40 text-sm">
@@ -93,7 +112,7 @@ export function LeadMagnet() {
                     const el = document.getElementById('contact')
                     if (el) el.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="text-[#BFA181] underline hover:text-[#957C3D] transition-colors"
+                  className="text-[#BFA181] underline hover:text-[#d4b896] transition-colors"
                 >
                   Check your date availability →
                 </button>

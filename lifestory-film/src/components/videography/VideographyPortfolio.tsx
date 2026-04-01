@@ -11,57 +11,51 @@ export function VideographyPortfolio() {
   const films = [
     {
       id: 1,
-      title: "Sarah & Michael",
-      location: "Napa Valley, CA",
+      title: "Ryan & Victoria",
+      location: "Pelican Hill, Newport Beach",
       duration: "4:32",
-      thumbnail: "https://images.squarespace-cdn.com/content/v1/5de04e649f40c13aa68cadf9/99b0baa2-f383-4064-9924-58e3986719a9/French+Riviera+Wedding+Videography.jpg",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "sarah-michael-napa-valley"
+      videoId: "cp3PmoI9nio",
+      slug: "ryan-and-victoria"
     },
     {
       id: 2,
-      title: "Jessica & David",
-      location: "Big Sur, CA",
+      title: "Katherine & Harsh",
+      location: "Saratoga Springs, CA",
       duration: "5:12",
-      thumbnail: "https://images.squarespace-cdn.com/content/v1/674f379b66552d5bd917587b/37c25b3b-ba48-468e-8d4b-0c902174cfd3/russell-john-films-wedding-video-cinematography-twin-oaks-san-diego2.jpg",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "jessica-david-big-sur"
+      videoId: "G4Mlon9-iLY",
+      slug: "katherine-and-harsh"
     },
     {
       id: 3,
-      title: "Emma & James",
-      location: "Malibu, CA",
+      title: "Josh & Whitney",
+      location: "New York, NY",
       duration: "3:45",
-      thumbnail: "https://www.dolcevitaweddingcinema.com/wp-content/uploads/2024/01/wedding-lake-como-balbianello-videography-riva-boat-italy-luxury.jpg",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "emma-james-malibu"
+      videoId: "WCjUi2yqK3U",
+      slug: "josh-and-whitney"
     },
     {
       id: 4,
-      title: "Maria & Carlos",
-      location: "Tulum, Mexico",
+      title: "Ayaka & Kyan",
+      location: "Malibu, CA",
       duration: "6:18",
-      thumbnail: "https://images.squarespace-cdn.com/content/v1/6347c44b9a8b8c0d95f6c3e3/1665710950901-YQJT8VYG0XCF8XKM7ZNJ/destination-wedding-film-tuscany-italy",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "maria-carlos-tulum"
+      videoId: "17rIApee9B8",
+      slug: "ayaka-and-kyan"
     },
     {
       id: 5,
-      title: "Ashley & Ryan",
-      location: "Beverly Hills, CA",
+      title: "Michelle & Jason",
+      location: "Los Angeles, CA",
       duration: "4:55",
-      thumbnail: "https://images.squarespace-cdn.com/content/v1/5de04e649f40c13aa68cadf9/1671045123423-8N0XVKZQXPJT6XFWH42E/luxury-wedding-videography-cinematography",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "ashley-ryan-beverly-hills"
+      videoId: "z_6rqvk2tAs",
+      slug: "michelle-and-jason"
     },
     {
       id: 6,
-      title: "Sophia & Alexander",
-      location: "Paris, France",
+      title: "Carrie & Grant",
+      location: "Malibu, CA",
       duration: "5:30",
-      thumbnail: "https://images.squarespace-cdn.com/content/v1/5de04e649f40c13aa68cadf9/1671045123423-8N0XVKZQXPJT6XFWH42E/luxury-wedding-videography-cinematography",
-      videoUrl: "https://player.vimeo.com/video/950060298?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
-      slug: "sophia-alexander-paris"
+      videoId: "SoXEpK1tGYo",
+      slug: "carrie-and-grant"
     }
   ]
 
@@ -80,7 +74,7 @@ export function VideographyPortfolio() {
   }
 
   return (
-    <section id="films" className="py-32 bg-black">
+    <section id="films" className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="text-center mb-16">
           <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">Our Films</p>
@@ -106,10 +100,10 @@ export function VideographyPortfolio() {
               className="group relative overflow-hidden rounded-lg aspect-[16/9] cursor-pointer transform transition-all duration-500 hover:scale-105"
               onClick={() => openVideoModal(index)}
             >
-              {/* Video Thumbnail */}
+              {/* YouTube Thumbnail */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${film.thumbnail}')` }}
+                style={{ backgroundImage: `url('https://img.youtube.com/vi/${film.videoId}/maxresdefault.jpg')` }}
               />
 
               {/* Dark Overlay */}
@@ -182,7 +176,7 @@ export function VideographyPortfolio() {
             {/* Video Embed */}
             <iframe
               className="w-full h-full rounded-lg"
-              src={`${films[selectedFilm].videoUrl}&autoplay=1`}
+              src={`https://www.youtube.com/embed/${films[selectedFilm].videoId}?autoplay=1&rel=0`}
               title={`${films[selectedFilm].title} Wedding Film`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

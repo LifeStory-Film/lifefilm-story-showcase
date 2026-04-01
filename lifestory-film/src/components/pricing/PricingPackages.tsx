@@ -34,7 +34,7 @@ interface CustomFeature {
 const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
-    name: "Essential",
+    name: "The Story Film",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "5 hours",
@@ -53,7 +53,7 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "signature",
-    name: "Signature",
+    name: "The Full Day Edit",
     basePrice: 6998,
     monthlyPrice: 1750,
     duration: "Full day",
@@ -75,7 +75,7 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day",
-    name: "Multi Day",
+    name: "The Destination Feature",
     basePrice: 12999,
     monthlyPrice: 3250,
     duration: "Multi day",
@@ -102,7 +102,7 @@ const COMBO_PACKAGES: Package[] = [
 const PHOTO_PACKAGES: Package[] = [
   {
     id: "essential-photo",
-    name: "Essential Photography",
+    name: "The Story Film Photography",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -134,7 +134,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "signature-photo",
-    name: "Signature Photography",
+    name: "The Full Day Edit Photography",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "8 hours",
@@ -151,7 +151,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-photo",
-    name: "Multi Day Photography",
+    name: "The Destination Feature Photography",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",
@@ -172,7 +172,7 @@ const PHOTO_PACKAGES: Package[] = [
 const VIDEO_PACKAGES: Package[] = [
   {
     id: "essential-video",
-    name: "Essential Film",
+    name: "The Story Film",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -204,7 +204,7 @@ const VIDEO_PACKAGES: Package[] = [
   },
   {
     id: "signature-video",
-    name: "Signature Film",
+    name: "The Full Day Edit",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "8 hours",
@@ -221,7 +221,7 @@ const VIDEO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-video",
-    name: "Multi Day Film",
+    name: "The Destination Feature",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",

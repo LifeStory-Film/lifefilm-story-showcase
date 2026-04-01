@@ -160,7 +160,7 @@ export function PhotographyPackages() {
                   }}
                   className="w-full bg-purple-600 text-white py-2 px-4 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
                 >
-                  Book Now
+                  Book My Date
                 </button>
                 <button
                   onClick={() => {
@@ -169,9 +169,12 @@ export function PhotographyPackages() {
                       element.scrollIntoView({ behavior: 'smooth' })
                     }
                   }}
-                  className="w-full border border-gray-600 text-gray-300 py-2 px-4 rounded-full text-sm font-medium hover:border-white hover:text-white transition-colors"
+                  className="w-full text-center text-sm transition-colors"
+                  style={{ color: '#BFA181', background: 'none', border: 'none' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = '#d4b896' }}
+                  onMouseLeave={e => { e.currentTarget.style.color = '#BFA181' }}
                 >
-                  Customize +
+                  or customize →
                 </button>
               </div>
             </AnimatedSection>

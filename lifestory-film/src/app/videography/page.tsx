@@ -9,7 +9,7 @@ import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
 
 export const metadata = {
-  title: "Wedding Videography | LifeStory.Film - Luxury Wedding Films",
+  title: "Wedding Videographer Los Angeles | LifeStory.Film",
   description: "Luxury wedding videography that transforms your most precious moments into cinematic art. Professional wedding films with Hollywood-quality production.",
   keywords: "wedding videography, luxury wedding films, wedding cinematography, wedding filmmaker, cinematic wedding videos",
 }

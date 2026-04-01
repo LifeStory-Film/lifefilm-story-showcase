@@ -5,19 +5,19 @@ import { AnimatedSection } from '../AnimatedSection'
 export function ReviewStats() {
   const stats = [
     {
-      number: "489",
-      label: "Five star reviews",
-      description: "Across all platforms"
+      number: "78",
+      label: "Five Star Reviews",
+      description: "Verified on The Knot"
+    },
+    {
+      number: "7x",
+      label: "Best of Weddings",
+      description: "Consecutive years — The Knot"
     },
     {
       number: "15+",
-      label: "Years of experience",
-      description: "Capturing love stories"
-    },
-    {
-      number: "1,247",
-      label: "Weddings shot",
-      description: "Cinematic perfection"
+      label: "Years of Experience",
+      description: "Capturing love stories since 2010"
     }
   ]
 
@@ -33,20 +33,14 @@ export function ReviewStats() {
               className="text-center"
             >
               <div className="relative">
-                {/* Large outlined number */}
-                <h2 className="text-8xl md:text-9xl font-bold text-transparent text-stroke-white mb-4">
+                <h2
+                  className="font-extrabold text-white mb-4"
+                  style={{ fontSize: 'clamp(64px, 8vw, 96px)', letterSpacing: '-0.02em' }}
+                >
                   {stat.number}
                 </h2>
-
-                {/* Label */}
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                  {stat.label}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-lg">
-                  {stat.description}
-                </p>
+                <h3 className="text-xl font-semibold text-white mb-2">{stat.label}</h3>
+                <p className="text-white/40 text-sm font-light">{stat.description}</p>
               </div>
             </AnimatedSection>
           ))}
