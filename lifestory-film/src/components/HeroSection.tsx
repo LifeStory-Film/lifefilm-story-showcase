@@ -93,9 +93,10 @@ export function HeroSection() {
         {/* Stat row — plain, no cards */}
         <div className="flex flex-wrap gap-10 md:gap-16 mb-10">
           {[
-            { number: '1,000+', label: 'Couples Filmed' },
+            { number: '1,500+', label: 'Weddings Filmed' },
             { number: '15+',    label: 'Years Experience' },
-            { number: '5.0',    label: 'Google Rating' },
+            { number: '5.0',    label: 'The Knot & Google' },
+            { number: '7x',     label: 'Best of Weddings' },
           ].map((stat) => (
             <div key={stat.label}>
               <div

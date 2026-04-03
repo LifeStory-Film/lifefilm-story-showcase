@@ -114,6 +114,18 @@ export function Navigation() {
           <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/reviews">Reviews</NavLink>
           <NavLink href="/faq">FAQ</NavLink>
+          <a
+            href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative text-sm font-normal transition-all duration-500 group"
+            style={{ color: 'rgba(255,255,255,0.90)' }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
+          >
+            Schedule a Call
+            <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[hsl(var(--luxury-gold))] to-transparent transition-all duration-500 group-hover:w-full" />
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -166,6 +178,17 @@ export function Navigation() {
               <NavLink href="/pricing">Pricing</NavLink>
               <NavLink href="/reviews">Reviews</NavLink>
               <NavLink href="/faq">FAQ</NavLink>
+              <a
+                href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm font-normal transition-all duration-300"
+                style={{ color: 'rgba(255,255,255,0.90)' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
+              >
+                Schedule a Call
+              </a>
             </div>
 
             {/* Mobile CTA */}

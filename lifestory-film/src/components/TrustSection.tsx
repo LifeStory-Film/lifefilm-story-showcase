@@ -3,9 +3,10 @@
 import { SmoothReveal } from './SimpleAnimations'
 
 const STATS = [
-  { number: '1,000+', label: 'Couples Filmed' },
+  { number: '1,500+', label: 'Weddings Filmed' },
   { number: '15+',    label: 'Years Experience' },
-  { number: '5.0',    label: 'Google Rating' },
+  { number: '5.0',    label: 'The Knot & Google' },
+  { number: '7x',     label: 'Best of Weddings' },
 ]
 
 const TRUST_ITEMS = [

@@ -26,6 +26,10 @@ export function CinematicBreak() {
           </blockquote>
 
           <div className="w-12 h-px bg-[#BFA181]/60 mx-auto mt-8" />
+
+          <p className="mt-6 text-[#BFA181]/70 text-sm tracking-[0.18em] uppercase font-light">
+            — The LifeStory.Film approach
+          </p>
         </div>
       </div>
     </div>

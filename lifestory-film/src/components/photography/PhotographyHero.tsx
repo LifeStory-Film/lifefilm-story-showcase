@@ -31,16 +31,16 @@ export function PhotographyHero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         <div className={`transition-all duration-1000 ${isLoaded ? 'fade-in-up' : 'opacity-0'}`}>
-          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-6 font-light">The Gallery</p>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-6 font-light">Wedding Photography</p>
           <h1
             className="font-extrabold text-white leading-tight mb-6 text-shadow"
             style={{ fontSize: 'clamp(48px, 7vw, 80px)', letterSpacing: '-0.02em' }}
           >
-            Wedding Photography
+            Every Frame. Every Feeling.
           </h1>
 
           <p className="font-light text-white/75 mb-10 max-w-[600px] mx-auto" style={{ fontSize: '20px' }}>
-            Fine art photography with a documentary soul — every frame composed with intention.
+            Fine art wedding photography with a documentary soul — captured by a team that's been doing this since 2010.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -55,12 +55,9 @@ export function PhotographyHero() {
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
-              style={{ background: 'transparent', border: '1px solid #BFA181', color: '#BFA181' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#BFA181'; e.currentTarget.style.color = '#0f0e0c' }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#BFA181' }}
+              className="text-white/60 hover:text-white text-sm tracking-wide transition-colors duration-200 flex items-center gap-1.5"
             >
-              Book Your Session
+              Check Date Availability →
             </button>
           </div>
         </div>

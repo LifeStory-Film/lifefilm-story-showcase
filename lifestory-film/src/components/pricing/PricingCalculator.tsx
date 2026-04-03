@@ -20,11 +20,17 @@ interface Package {
   team: string
 }
 
+const WEEKEND_PRICES: Record<string, number> = {
+  'essential': 4399,
+  'signature': 7698,
+  'multi-day': 14299,
+}
+
 const BASE_PACKAGES: Package[] = [
   {
     id: 'essential',
-    name: 'The Story Film',
-    basePrice: 3999,
+    name: 'Essential',
+    basePrice: 3959,
     duration: '5 hours',
     team: '1 photographer + 1 videographer',
     features: [
@@ -39,9 +45,9 @@ const BASE_PACKAGES: Package[] = [
   },
   {
     id: 'signature',
-    name: 'The Full Day Edit',
-    basePrice: 6998,
-    duration: 'Full day',
+    name: 'Signature',
+    basePrice: 6928,
+    duration: '8 Hours',
     team: '2 photographers + 2 videographers',
     features: [
       '600+ edited photos',
@@ -58,8 +64,8 @@ const BASE_PACKAGES: Package[] = [
   },
   {
     id: 'multi-day',
-    name: 'The Destination Feature',
-    basePrice: 12999,
+    name: 'Multi Day',
+    basePrice: 12869,
     duration: 'Multi day',
     team: '2 photographers + 2 videographers',
     features: [
@@ -112,16 +118,19 @@ const ADD_ONS: AddOn[] = [
 export function PricingCalculator() {
   const [selectedPackage, setSelectedPackage] = useState<Package>(BASE_PACKAGES[1])
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([])
+  const [isWeekend, setIsWeekend] = useState(false)
   const [totalPrice, setTotalPrice] = useState(selectedPackage.basePrice)
 
   useEffect(() => {
+    const basePrice = isWeekend && WEEKEND_PRICES[selectedPackage.id]
+      ? WEEKEND_PRICES[selectedPackage.id]
+      : selectedPackage.basePrice
     const addOnTotal = selectedAddOns.reduce((total, addOnId) => {
       const addOn = ADD_ONS.find(a => a.id === addOnId)
       return total + (addOn?.price || 0)
     }, 0)
-
-    setTotalPrice(selectedPackage.basePrice + addOnTotal)
-  }, [selectedPackage, selectedAddOns])
+    setTotalPrice(basePrice + addOnTotal)
+  }, [selectedPackage, selectedAddOns, isWeekend])
 
   const toggleAddOn = (addOnId: string) => {
     setSelectedAddOns(prev =>
@@ -158,6 +167,24 @@ export function PricingCalculator() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Package Selection */}
             <div className="space-y-8">
+              {/* Weekend toggle */}
+              <div className="flex items-center justify-between p-4 rounded-xl border-2 border-[#BFA181]/30 bg-[#211f1c]/30">
+                <div>
+                  <div className="text-white font-medium">Weekend Wedding?</div>
+                  <div className="text-sm text-white/50">Saturday or Sunday adds a weekend premium</div>
+                </div>
+                <button
+                  onClick={() => setIsWeekend(prev => !prev)}
+                  className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300"
+                  style={{ backgroundColor: isWeekend ? '#BFA181' : '#374151' }}
+                >
+                  <span
+                    className="inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300"
+                    style={{ transform: isWeekend ? 'translateX(22px)' : 'translateX(4px)' }}
+                  />
+                </button>
+              </div>
+
               <div>
                 <h3 className="text-2xl text-heading font-semibold mb-6">Choose Your Base Package</h3>
                 <div className="space-y-4">

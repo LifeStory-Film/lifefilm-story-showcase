@@ -75,6 +75,34 @@ const films = {
       'Watch Michelle & Jason\'s Indian-Jewish wedding film in Los Angeles. Cinematic multicultural wedding videography by LifeStory.Film.',
     ogImage: `https://img.youtube.com/vi/z_6rqvk2tAs/maxresdefault.jpg`,
   },
+  'jazza-and-naim': {
+    title: 'Jazza & Naim',
+    subtitle: 'Palos Verdes',
+    location: 'Palos Verdes, CA',
+    date: 'May 2024',
+    category: 'Indian',
+    videoId: 'ETxaM39nn4E',
+    embedUrl: 'https://www.youtube.com/embed/ETxaM39nn4E?si=1iWNkH4CHI1EkXKt',
+    description:
+      'Jazza and Naim celebrated their Indian wedding on the dramatic cliffs of Palos Verdes, with sweeping coastal views that made every frame cinematic by default. We worked to match the scale of the setting with the warmth of the ceremony — and the result speaks for itself.',
+    metaDescription:
+      'Watch Jazza & Naim\'s Palos Verdes Indian wedding film. Cinematic coastal wedding videography by LifeStory.Film.',
+    ogImage: `https://img.youtube.com/vi/ETxaM39nn4E/maxresdefault.jpg`,
+  },
+  'serena-and-daniel': {
+    title: 'Serena & Daniel',
+    subtitle: 'Los Angeles',
+    location: 'Los Angeles, CA',
+    date: 'February 2024',
+    category: 'Classic',
+    videoId: 'vvYnUEuwOGM',
+    embedUrl: 'https://www.youtube.com/embed/vvYnUEuwOGM',
+    description:
+      'Serena and Daniel\'s Los Angeles wedding was all old-world charm and timeless elegance. Their ceremony had the kind of atmosphere that films itself — and we made sure nothing was missed.',
+    metaDescription:
+      'Watch Serena & Daniel\'s elegant Los Angeles wedding film. Cinematic wedding videography by LifeStory.Film.',
+    ogImage: `https://img.youtube.com/vi/vvYnUEuwOGM/maxresdefault.jpg`,
+  },
   'ayaka-and-kyan-palos-verdes': {
     title: 'Ayaka & Kyan',
     subtitle: 'Palos Verdes',

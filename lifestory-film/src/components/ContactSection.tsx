@@ -127,6 +127,9 @@ export function ContactSection() {
             <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
               We respond within 24 hours. Tell us about your day and we'll reach out to check availability.
             </p>
+            <p className="mt-4" style={{ fontSize: '14px', color: '#BFA181', textAlign: 'center', marginBottom: '24px', fontWeight: 400 }}>
+              Packages from $3,959 — 30-month payment plans available
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -157,14 +160,55 @@ export function ContactSection() {
 
             {/* Contact Form */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
-              {submitStatus === 'success' && (
-                <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                  <p className="text-green-400 text-center">
-                    Thank you! Your inquiry has been sent successfully. We'll get back to you within 24 hours.
-                  </p>
+              {submitStatus === 'success' ? (
+                <div className="flex flex-col items-center text-center py-8 gap-6 animate-fade-in" style={{ animation: 'fadeIn 0.5s ease-in-out' }}>
+                  <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+                  {/* Gold checkmark */}
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="30" stroke="#BFA181" strokeWidth="2" fill="none" />
+                    <path d="M18 33l10 10 18-20" stroke="#BFA181" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <div>
+                    <h3 className="text-white font-extrabold mb-2" style={{ fontSize: '28px', letterSpacing: '-0.02em' }}>We got it — thank you.</h3>
+                    <p className="text-white/55 font-light" style={{ fontSize: '16px' }}>
+                      Expect a reply within 24 hours. In the meantime, here's one of our most watched films:
+                    </p>
+                  </div>
+                  {/* Film thumbnail */}
+                  <a
+                    href="https://www.youtube.com/watch?v=cp3PmoI9nio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-full rounded-xl overflow-hidden group"
+                    style={{ aspectRatio: '16/9', display: 'block' }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="https://img.youtube.com/vi/cp3PmoI9nio/maxresdefault.jpg"
+                      alt="Ryan & Victoria — Pelican Hill Wedding Film"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/20">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: '#BFA181' }}>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="#0f0e0c" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M6 4l12 6-12 6V4z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-3 left-3 right-3 text-white text-sm font-light opacity-90">Ryan & Victoria — Pelican Hill</div>
+                  </a>
+                  <a
+                    href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: '#BFA181', fontSize: '15px' }}
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    Or schedule a call if you'd prefer to talk first →
+                  </a>
                 </div>
-              )}
-
+              ) : (
+              <>
               {submitStatus === 'error' && (
                 <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
                   <p className="text-red-400 text-center">
@@ -293,11 +337,25 @@ export function ContactSection() {
                     {isSubmitting ? 'Sending My Inquiry...' : 'Send My Inquiry'}
                   </button>
 
+                  <div className="text-center">
+                    <a
+                      href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontSize: '14px', color: '#BFA181' }}
+                      className="hover:opacity-80 transition-opacity"
+                    >
+                      Or schedule a 15-min call →
+                    </a>
+                  </div>
+
                   <p className="text-sm text-white/40 text-center leading-relaxed">
                     By submitting this form, you agree to our privacy policy. We respect your privacy and will never share your information with third parties. Your inquiry will be handled with complete confidentiality.
                   </p>
                 </div>
               </form>
+              </>
+              )}
             </div>
           </div>
         </div>

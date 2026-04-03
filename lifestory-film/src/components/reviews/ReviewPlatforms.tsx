@@ -53,9 +53,6 @@ export function ReviewPlatforms() {
                 {platform.badge && (
                   <div className="text-[#BFA181] text-xs font-medium tracking-wide">{platform.badge}</div>
                 )}
-                {platform.reviews && (
-                  <div className="text-gray-400 text-sm mt-1">{platform.reviews} reviews</div>
-                )}
               </div>
 
               <div className="flex items-center gap-3 mb-5">

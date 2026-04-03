@@ -5,10 +5,9 @@ import { AnimatedSection } from '../AnimatedSection'
 export function PhotographyPackages() {
   const packages = [
     {
-      code: "P1",
       name: "Essential",
-      price: "$2,499",
-      priceValue: 2499,
+      price: "$2,199",
+      priceValue: 2199,
       duration: "5 hours",
       team: "1 photographer",
       description: "Perfect for intimate ceremonies and smaller celebrations.",
@@ -21,10 +20,9 @@ export function PhotographyPackages() {
       popular: false
     },
     {
-      code: "P2",
       name: "8 Hours",
-      price: "$2,999",
-      priceValue: 2999,
+      price: "$2,799",
+      priceValue: 2799,
       duration: "8 hours",
       team: "1 photographer",
       description: "Complete wedding day coverage from preparation to reception.",
@@ -37,7 +35,6 @@ export function PhotographyPackages() {
       popular: false
     },
     {
-      code: "P3",
       name: "Signature",
       price: "$3,999",
       priceValue: 3999,
@@ -54,7 +51,6 @@ export function PhotographyPackages() {
       popular: true
     },
     {
-      code: "P4",
       name: "Multi Day",
       price: "$6,999",
       priceValue: 6999,
@@ -92,7 +88,16 @@ export function PhotographyPackages() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Professional wedding photography packages designed to capture every precious moment of your special day.
           </p>
-          <p className="text-sm text-gray-400 mt-4">30-month payment plans available</p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs tracking-wide transition-opacity hover:opacity-75"
+              style={{ borderColor: '#BFA181', color: '#BFA181' }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Pay as low as $73/mo — 0% interest plans available
+            </a>
+          </div>
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -117,14 +122,13 @@ export function PhotographyPackages() {
 
               {pkg.limited && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-red-600 text-white px-4 py-1 rounded-full text-xs font-medium">
+                  <div className="px-4 py-1 rounded-full text-xs font-medium" style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}>
                     Limited Availability
                   </div>
                 </div>
               )}
 
               <div className="text-center mb-6">
-                <div className="text-purple-400 font-bold text-lg mb-1">{pkg.code}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{pkg.name}</h3>
                 <div className="text-2xl font-bold text-white mb-1">{pkg.price}</div>
                 <div className="text-sm text-gray-400 mb-2">Pay as low as ${calculateMonthlyPayment(pkg.priceValue)} / month</div>
@@ -158,7 +162,10 @@ export function PhotographyPackages() {
                       element.scrollIntoView({ behavior: 'smooth' })
                     }
                   }}
-                  className="w-full bg-purple-600 text-white py-2 px-4 rounded-full text-sm font-medium hover:bg-purple-700 transition-colors"
+                  className="w-full py-2 px-4 rounded-full text-sm font-semibold transition-colors"
+                  style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                  onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#d4b896' }}
+                  onMouseLeave={e => { e.currentTarget.style.backgroundColor = '#BFA181' }}
                 >
                   Book My Date
                 </button>

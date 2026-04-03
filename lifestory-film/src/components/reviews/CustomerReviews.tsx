@@ -6,27 +6,27 @@ export function CustomerReviews() {
   const reviews = [
     {
       name: "Sarah W.",
-      review: "Choosing LifeStory.Film for our wedding was one of the best decisions we made! Their photographers and videographers blended seamlessly into the background, yet were always in the right place at the right time. The final video was a cinematic masterpiece."
+      review: "Choosing LifeStory.Film was one of the best decisions we made. Their photographers and videographers blended seamlessly into the background, yet were always in the right place at the right time. The final video was a cinematic masterpiece."
     },
     {
       name: "Maggie A.",
-      review: "Rick and his team were amazing to work with and our photos came out beautifully! They inconspicuously took candid pictures which was great, worked with us when it was raining and quickly came up with an alternative location. The photos turned out awesome."
+      review: "Rick and his team were amazing. They inconspicuously captured candid moments, worked around challenges on the day, and the photos turned out awesome. We and our families will cherish them for years to come."
     },
     {
       name: "Jennifer R.",
-      review: "Rick was our main contact and he was extremely responsive and helpful throughout the planning process. We used LifeStory.Film for photography and videography. The whole team really made us feel comfortable. We just got our photos and videos back and they look amazing!"
+      review: "Rick was extremely responsive throughout planning. We used LifeStory.Film for photography and videography. The whole team made us feel completely comfortable. We just got our photos and videos back and they look amazing."
     },
     {
       name: "Merle S.",
-      review: "We had the most non-traditional, ethnic-fusion wedding and they rolled with all our punches. The photos and video were the perfect blend of spontaneous emotional moments and artistic images you'd see in a high-end glossy. Our family keeps saying our wedding could be from a magazine."
+      review: "We had the most non-traditional, ethnic-fusion wedding and they rolled with everything. The photos and video were the perfect blend of spontaneous emotional moments and artistic imagery. Our family keeps saying our wedding could be from a magazine."
     },
     {
       name: "Kaitlyn W.",
-      review: "lifestory.film is the best! Beautifully creative! You will definitely be blessed to have them capture your milestones and specially weddings!"
+      review: "lifestory.film is the best! Beautifully creative. You will definitely be blessed to have them capture your milestones and especially your wedding."
     },
     {
       name: "Alexandra F.",
-      review: "I'm so glad we have this video to look back on — it's something we'll cherish forever. If you're on the fence about booking lifestory.film, don't hesitate. You'll be in great hands!"
+      review: "I'm so glad we have this video to look back on — it's something we'll cherish forever. If you're on the fence about booking lifestory.film, don't hesitate. You'll be in great hands."
     }
   ]
 

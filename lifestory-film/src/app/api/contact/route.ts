@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
 
           <div style="padding: 20px 32px; background: #f0ede8; text-align: center;">
             <p style="margin: 0; color: #999; font-size: 12px;">
-              © LifeStory.Film · Los Angeles, CA ·
+              © LifeStory.Film · California & Worldwide ·
               <a href="https://lifestory.film" style="color: #BFA181; text-decoration: none;">lifestory.film</a>
             </p>
           </div>

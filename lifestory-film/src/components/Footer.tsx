@@ -18,7 +18,8 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li><a href="#films" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="#packages" className="text-gray-400 hover:text-white transition-colors">Packages</a></li>
+              <li><a href="/pricing" className="text-gray-400 hover:text-white transition-colors">Packages</a></li>
+              <li><a href="/south-asian-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">South Asian Weddings</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>

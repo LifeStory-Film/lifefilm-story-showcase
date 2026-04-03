@@ -34,7 +34,7 @@ interface CustomFeature {
 const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
-    name: "The Story Film",
+    name: "Essential",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "5 hours",
@@ -53,10 +53,10 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "signature",
-    name: "The Full Day Edit",
+    name: "Signature",
     basePrice: 6998,
     monthlyPrice: 1750,
-    duration: "Full day",
+    duration: "8 Hours",
     team: "2 photographers + 2 videographers",
     description: "Our most popular package with dual teams for comprehensive coverage.",
     features: [
@@ -75,7 +75,7 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day",
-    name: "The Destination Feature",
+    name: "Multi Day",
     basePrice: 12999,
     monthlyPrice: 3250,
     duration: "Multi day",
@@ -102,7 +102,7 @@ const COMBO_PACKAGES: Package[] = [
 const PHOTO_PACKAGES: Package[] = [
   {
     id: "essential-photo",
-    name: "Essential Photography",
+    name: "Essential",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -134,7 +134,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "signature-photo",
-    name: "Signature Photography",
+    name: "Signature",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "8 hours",
@@ -151,7 +151,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-photo",
-    name: "Multi Day Photography",
+    name: "Multi Day",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",
@@ -172,7 +172,7 @@ const PHOTO_PACKAGES: Package[] = [
 const VIDEO_PACKAGES: Package[] = [
   {
     id: "essential-video",
-    name: "Essential Film",
+    name: "Essential",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -187,27 +187,11 @@ const VIDEO_PACKAGES: Package[] = [
     popular: false
   },
   {
-    id: "full-day-video",
-    name: "Full Day Film",
-    basePrice: 2999,
-    monthlyPrice: 750,
-    duration: "8 hours",
-    team: "1 videographer",
-    description: "Complete wedding day videography coverage from start to finish.",
-    features: [
-      "3-5 min highlight film",
-      "Color correction",
-      "Music license",
-      "Online delivery"
-    ],
-    popular: false
-  },
-  {
     id: "signature-video",
-    name: "Signature Film",
+    name: "Signature",
     basePrice: 3999,
     monthlyPrice: 1000,
-    duration: "8 hours",
+    duration: "8 Hours",
     team: "2 videographers",
     description: "Our most popular videography package with dual camera coverage.",
     features: [
@@ -221,7 +205,7 @@ const VIDEO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-video",
-    name: "Multi Day Film",
+    name: "Multi Day",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",
@@ -397,7 +381,16 @@ export function PackagesSection() {
               : 'Cinematic wedding videography packages to tell your love story through beautiful moving images.'
             }
           </p>
-          <p className="text-sm text-white/35 mt-4 tracking-wide">30-month payment plans available</p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs tracking-wide transition-opacity hover:opacity-75"
+              style={{ borderColor: '#BFA181', color: '#BFA181' }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Pay as low as $132/mo — 0% interest plans available
+            </a>
+          </div>
         </div>
 
         {/* Package Type Toggle */}
@@ -627,9 +620,12 @@ export function PackagesSection() {
                                 </div>
                               )}
                               <div className="text-[36px] font-bold text-[#BFA181]">
-                                {formatPrice(dynamicPrice)}
+                                {pkg.id === 'multi-day' ? 'From ' : ''}{formatPrice(dynamicPrice)}
                               </div>
-                              <div className="text-sm text-[#EAE7DD]/70 mt-2">
+                              {pkg.id === 'multi-day' && (
+                                <div className="text-xs text-[#EAE7DD]/45 mt-1">Custom quoted for destination & multi-day events</div>
+                              )}
+                              <div style={{ fontSize: '15px', color: '#BFA181' }} className="mt-2">
                                 Pay as low as ${monthly30Payment} / month
                               </div>
                             </div>

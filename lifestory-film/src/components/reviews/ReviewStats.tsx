@@ -5,19 +5,19 @@ import { AnimatedSection } from '../AnimatedSection'
 export function ReviewStats() {
   const stats = [
     {
-      number: "78",
-      label: "Five Star Reviews",
-      description: "Verified on The Knot"
+      number: "5.0",
+      label: "Five Star Rating",
+      description: "Across all platforms"
     },
     {
       number: "7x",
-      label: "Best of Weddings",
+      label: "Best of Weddings Winner",
       description: "Consecutive years — The Knot"
     },
     {
-      number: "15+",
-      label: "Years of Experience",
-      description: "Capturing love stories since 2010"
+      number: "1,500+",
+      label: "Weddings Filmed",
+      description: "Since 2010"
     }
   ]
 

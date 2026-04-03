@@ -6,7 +6,7 @@ export function ReviewsCTA() {
   const platforms = [
     {
       name: "The Knot",
-      detail: "78 reviews · Best of Weddings 7x",
+      detail: "Best of Weddings 7x Winner",
       rating: 5.0,
       link: "https://www.theknot.com/marketplace/lifestoryfilm-los-angeles-ca-2082602"
     },

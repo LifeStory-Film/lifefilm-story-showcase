@@ -20,9 +20,12 @@ export function TeamSection() {
             <div className="relative">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-zinc-800/50">
                 <img
-                  src="https://photos.smugmug.com/LifeStoryFilm-Production/Desert-Wedding/Desert-Wedding-Day-2/i-HSB4Rp7/0/NT95vfXC9T5RscjGdcpLWvDKmt4d4BmVzgvdrQw28/4K/Life.Film-100-4K.jpg"
+                  src="https://photos.smugmug.com/LifeStoryFilm-Production/Desert-Wedding/Desert-Wedding-Day-2/i-HSB4Rp7/0/NT95vfXC9T5RscjGdcpLWvDKmt4d4BmVzgvdrQw28/L/Life.Film-100-L.jpg"
                   alt="LifeStory.Film team — cinematographers and photographers at work"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  loading="lazy"
+                  width={800}
+                  height={1067}
                 />
               </div>
               {/* Gold accent line */}

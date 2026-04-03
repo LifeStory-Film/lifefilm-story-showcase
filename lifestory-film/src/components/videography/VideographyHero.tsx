@@ -34,16 +34,16 @@ export function VideographyHero() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         <div className={`transition-all duration-1000 ${isLoaded ? 'fade-in-up' : 'opacity-0'}`}>
-          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-6 font-light">Our Films</p>
+          <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-6 font-light">Wedding Videography</p>
           <h1
             className="font-extrabold text-white leading-tight mb-6 text-shadow"
             style={{ fontSize: 'clamp(48px, 7vw, 80px)', letterSpacing: '-0.02em' }}
           >
-            Wedding Videography
+            Films That Feel Like Memory
           </h1>
 
           <p className="font-light text-white/75 mb-10 max-w-[600px] mx-auto" style={{ fontSize: '20px' }}>
-            Cinematic wedding films that tell your story — not just document it.
+            Cinematic wedding films and same-day teasers for couples who want more than a highlight reel.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -54,16 +54,13 @@ export function VideographyHero() {
               onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#d4b896')}
               onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#BFA181')}
             >
-              View Our Films
+              Watch Our Films
             </button>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 rounded-full font-semibold text-base transition-all duration-300 hover:scale-105"
-              style={{ background: 'transparent', border: '1px solid #BFA181', color: '#BFA181' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#BFA181'; e.currentTarget.style.color = '#0f0e0c' }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#BFA181' }}
+              className="text-white/60 hover:text-white text-sm tracking-wide transition-colors duration-200 flex items-center gap-1.5"
             >
-              Check Date Availability
+              Check Date Availability →
             </button>
           </div>
         </div>

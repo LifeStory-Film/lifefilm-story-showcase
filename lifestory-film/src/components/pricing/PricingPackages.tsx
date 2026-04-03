@@ -31,12 +31,18 @@ interface CustomFeature {
   description: string
 }
 
+const COMBO_WEEKEND_PRICES: Record<string, number> = {
+  'essential': 4399,
+  'signature': 7698,
+  'multi-day': 14299,
+}
+
 const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
-    name: "The Story Film",
-    basePrice: 3999,
-    monthlyPrice: 1000,
+    name: "Essential",
+    basePrice: 3959,
+    monthlyPrice: 990,
     duration: "5 hours",
     team: "1 photographer + 1 videographer",
     description: "Perfect for intimate ceremonies with photo and video coverage.",
@@ -53,10 +59,10 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "signature",
-    name: "The Full Day Edit",
-    basePrice: 6998,
-    monthlyPrice: 1750,
-    duration: "Full day",
+    name: "Signature",
+    basePrice: 6928,
+    monthlyPrice: 1732,
+    duration: "8 Hours",
     team: "2 photographers + 2 videographers",
     description: "Our most popular package with dual teams for comprehensive coverage.",
     features: [
@@ -75,9 +81,9 @@ const COMBO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day",
-    name: "The Destination Feature",
-    basePrice: 12999,
-    monthlyPrice: 3250,
+    name: "Multi Day",
+    basePrice: 12869,
+    monthlyPrice: 3217,
     duration: "Multi day",
     team: "2 photographers + 2 videographers",
     description: "Perfect for destination weddings and multi-day celebrations.",
@@ -102,7 +108,7 @@ const COMBO_PACKAGES: Package[] = [
 const PHOTO_PACKAGES: Package[] = [
   {
     id: "essential-photo",
-    name: "The Story Film Photography",
+    name: "Essential",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -134,7 +140,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "signature-photo",
-    name: "The Full Day Edit Photography",
+    name: "Signature",
     basePrice: 3999,
     monthlyPrice: 1000,
     duration: "8 hours",
@@ -151,7 +157,7 @@ const PHOTO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-photo",
-    name: "The Destination Feature Photography",
+    name: "Multi Day",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",
@@ -172,7 +178,7 @@ const PHOTO_PACKAGES: Package[] = [
 const VIDEO_PACKAGES: Package[] = [
   {
     id: "essential-video",
-    name: "The Story Film",
+    name: "Essential",
     basePrice: 2499,
     monthlyPrice: 625,
     duration: "5 hours",
@@ -187,27 +193,11 @@ const VIDEO_PACKAGES: Package[] = [
     popular: false
   },
   {
-    id: "full-day-video",
-    name: "Full Day Film",
-    basePrice: 2999,
-    monthlyPrice: 750,
-    duration: "8 hours",
-    team: "1 videographer",
-    description: "Complete wedding day videography coverage from start to finish.",
-    features: [
-      "3-5 min highlight film",
-      "Color correction",
-      "Music license",
-      "Online delivery"
-    ],
-    popular: false
-  },
-  {
     id: "signature-video",
-    name: "The Full Day Edit",
+    name: "Signature",
     basePrice: 3999,
     monthlyPrice: 1000,
-    duration: "8 hours",
+    duration: "8 Hours",
     team: "2 videographers",
     description: "Our most popular videography package with dual camera coverage.",
     features: [
@@ -221,7 +211,7 @@ const VIDEO_PACKAGES: Package[] = [
   },
   {
     id: "multi-day-video",
-    name: "The Destination Feature",
+    name: "Multi Day",
     basePrice: 6999,
     monthlyPrice: 1750,
     duration: "Multi day",
@@ -290,45 +280,14 @@ export function PricingPackages() {
     }
   }
 
-  const calculateDynamicPrice = (basePrice: number) => {
-    let finalPrice = basePrice
+  const isWeekendDate = selectedDate
+    ? [0, 6].includes(new Date(selectedDate + 'T12:00:00').getDay())
+    : false
 
-    // Apply location factor
-    const locationFactor = PRICING_FACTORS.find(f => f.id === selectedLocation)
-    if (locationFactor) {
-      finalPrice *= locationFactor.multiplier
-    }
-
-    // Apply date-based factors
-    if (selectedDate) {
-      const date = new Date(selectedDate)
-      const month = date.getMonth()
-      const dayOfWeek = date.getDay()
-
-      // Peak season (May-October)
-      if (month >= 4 && month <= 9) {
-        const peakFactor = PRICING_FACTORS.find(f => f.id === 'peak-season')
-        if (peakFactor) {
-          finalPrice *= peakFactor.multiplier
-          if (!pricingFactors.includes('peak-season')) {
-            setPricingFactors(prev => [...prev, 'peak-season'])
-          }
-        }
-      }
-
-      // Weekday discount
-      if (dayOfWeek >= 1 && dayOfWeek <= 4) {
-        const weekdayFactor = PRICING_FACTORS.find(f => f.id === 'weekday')
-        if (weekdayFactor) {
-          finalPrice *= weekdayFactor.multiplier
-          if (!pricingFactors.includes('weekday')) {
-            setPricingFactors(prev => [...prev, 'weekday'])
-          }
-        }
-      }
-    }
-
-    return Math.round(finalPrice)
+  const calculateDynamicPrice = (basePrice: number, pkgId?: string) => {
+    if (!selectedDate || !isWeekendDate) return basePrice
+    if (pkgId && COMBO_WEEKEND_PRICES[pkgId] !== undefined) return COMBO_WEEKEND_PRICES[pkgId]
+    return Math.round(basePrice * 1.111)
   }
 
   const calculateCustomPrice = () => {
@@ -337,7 +296,7 @@ export function PricingPackages() {
     const basePackage = getCurrentPackages().find(p => p.id === selectedPackage)
     if (!basePackage) return 0
 
-    let price = calculateDynamicPrice(basePackage.basePrice)
+    let price = calculateDynamicPrice(basePackage.basePrice, basePackage.id)
 
     // Add custom features
     selectedFeatures.forEach(featureId => {
@@ -372,12 +331,6 @@ export function PricingPackages() {
     )
   }
 
-  useEffect(() => {
-    if (selectedDate || selectedLocation !== 'local') {
-      // Reset pricing factors when inputs change
-      setPricingFactors([])
-    }
-  }, [selectedDate, selectedLocation])
 
   const scrollToContact = () => {
     const element = document.getElementById('contact')
@@ -405,7 +358,16 @@ export function PricingPackages() {
               : 'Cinematic wedding videography packages to tell your love story through beautiful moving images.'
             }
           </p>
-          <p className="text-sm text-primary/70 mt-4">30-month payment plans available</p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs tracking-wide transition-opacity hover:opacity-75"
+              style={{ borderColor: '#BFA181', color: '#BFA181' }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Pay as low as $132/mo — 0% interest plans available
+            </a>
+          </div>
         </div>
 
         {/* Package Type Toggle */}
@@ -510,23 +472,9 @@ export function PricingPackages() {
               </div>
             </div>
 
-            {pricingFactors.length > 0 && (
+            {isWeekendDate && selectedDate && (
               <div className="mt-4 p-4 bg-[#BFA181]/10 rounded-lg">
-                <p className="text-[#BFA181] font-medium mb-2">Applied Pricing Factors:</p>
-                <div className="flex flex-wrap gap-2">
-                  {pricingFactors.map(factorId => {
-                    const factor = PRICING_FACTORS.find(f => f.id === factorId)
-                    if (!factor) return null
-                    return (
-                      <span
-                        key={factorId}
-                        className="px-3 py-1 bg-[#BFA181]/20 text-[#EAE7DD] rounded-full text-sm"
-                      >
-                        {factor.name} ({factor.multiplier > 1 ? '+' : ''}{Math.round((factor.multiplier - 1) * 100)}%)
-                      </span>
-                    )
-                  })}
-                </div>
+                <p className="font-medium" style={{ color: '#BFA181' }}>Weekend Premium Applied</p>
               </div>
             )}
           </div>
@@ -564,7 +512,7 @@ export function PricingPackages() {
             {/* Packages Grid */}
             <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {getCurrentPackages().map((pkg, index) => {
-                const dynamicPrice = calculateDynamicPrice(pkg.basePrice)
+                const dynamicPrice = calculateDynamicPrice(pkg.basePrice, pkg.id)
                 const dynamicMonthlyPrice = Math.round(dynamicPrice / 4)
                 const monthly30Payment = (dynamicPrice / 30).toFixed(2)
 
@@ -589,21 +537,8 @@ export function PricingPackages() {
                     {/* Limited Availability Ribbon */}
                     {pkg.limited && (
                       <div className="absolute top-0 left-0 right-0 z-10">
-                        <div className="bg-red-600 text-white text-center py-3 font-medium text-sm">
+                        <div className="text-center py-3 font-medium text-sm" style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}>
                           Limited Availability
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Price Change Indicator */}
-                    {dynamicPrice !== pkg.basePrice && (
-                      <div className="absolute top-0 right-0 z-10 m-4">
-                        <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          dynamicPrice > pkg.basePrice
-                            ? 'bg-orange-500/20 text-orange-400'
-                            : 'bg-green-500/20 text-green-400'
-                        }`}>
-                          {dynamicPrice > pkg.basePrice ? '+' : ''}{formatPrice(dynamicPrice - pkg.basePrice)}
                         </div>
                       </div>
                     )}
@@ -629,15 +564,23 @@ export function PricingPackages() {
                             </div>
                           ) : (
                             <div>
-                              {dynamicPrice !== pkg.basePrice && (
+                              {isWeekendDate && dynamicPrice !== pkg.basePrice && (
                                 <div className="text-[#EAE7DD]/60 text-lg line-through mb-1">
                                   {formatPrice(pkg.basePrice)}
                                 </div>
                               )}
                               <div className="text-[36px] font-bold text-[#BFA181]">
-                                {formatPrice(dynamicPrice)}
+                                {pkg.id === 'multi-day' ? 'From ' : ''}{formatPrice(dynamicPrice)}
                               </div>
-                              <div className="text-sm text-[#EAE7DD]/70 mt-2">
+                              {pkg.id === 'multi-day' && (
+                                <div className="text-xs text-[#EAE7DD]/45 mt-1">Custom quoted for destination & multi-day events</div>
+                              )}
+                              {isWeekendDate && dynamicPrice !== pkg.basePrice && (
+                                <div className="mt-2 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}>
+                                  Weekend Date +{formatPrice(dynamicPrice - pkg.basePrice)}
+                                </div>
+                              )}
+                              <div style={{ fontSize: '15px', color: '#BFA181' }} className="mt-2">
                                 Pay as low as ${monthly30Payment} / month
                               </div>
                             </div>
@@ -717,7 +660,7 @@ export function PricingPackages() {
                         <div className={pkg.popular ? 'mt-6' : ''}>
                           <div className="text-lg font-bold mb-2">{pkg.name}</div>
                           <div className="text-2xl font-bold text-[#BFA181] mb-1">
-                            {formatPrice(calculateDynamicPrice(pkg.basePrice))}
+                            {formatPrice(calculateDynamicPrice(pkg.basePrice, pkg.id))}
                           </div>
                           <div className="text-sm text-[#EAE7DD]/70">{pkg.duration}</div>
                         </div>
@@ -795,7 +738,7 @@ export function PricingPackages() {
                                 <div className="text-sm text-[#EAE7DD]/70">{pkg.description}</div>
                               </div>
                               <div className="text-lg font-bold text-[#BFA181]">
-                                {formatPrice(calculateDynamicPrice(pkg.basePrice))}
+                                {formatPrice(calculateDynamicPrice(pkg.basePrice, pkg.id))}
                               </div>
                             </div>
                           </div>
@@ -870,7 +813,7 @@ export function PricingPackages() {
                           <div className="text-sm text-[#EAE7DD]/70">Base package</div>
                         </div>
                         <div className="text-[#BFA181] font-semibold">
-                          {formatPrice(calculateDynamicPrice(getCurrentPackages().find(p => p.id === selectedPackage)?.basePrice || 0))}
+                          {formatPrice(calculateDynamicPrice(getCurrentPackages().find(p => p.id === selectedPackage)?.basePrice || 0, selectedPackage))}
                         </div>
                       </div>
 

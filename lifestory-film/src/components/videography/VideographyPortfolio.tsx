@@ -56,6 +56,30 @@ export function VideographyPortfolio() {
       duration: "5:30",
       videoId: "SoXEpK1tGYo",
       slug: "carrie-and-grant"
+    },
+    {
+      id: 7,
+      title: "Jazza & Naim",
+      location: "Palos Verdes, CA",
+      duration: "4:45",
+      videoId: "ETxaM39nn4E",
+      slug: "jazza-and-naim"
+    },
+    {
+      id: 8,
+      title: "Charlotte & John",
+      location: "San Francisco, CA",
+      duration: "5:30",
+      videoId: "D_vIC41fA4U",
+      slug: "charlotte-and-john"
+    },
+    {
+      id: 9,
+      title: "Serena & Daniel",
+      location: "Los Angeles, CA",
+      duration: "4:58",
+      videoId: "vvYnUEuwOGM",
+      slug: "serena-and-daniel"
     }
   ]
 
@@ -101,9 +125,13 @@ export function VideographyPortfolio() {
               onClick={() => openVideoModal(index)}
             >
               {/* YouTube Thumbnail */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('https://img.youtube.com/vi/${film.videoId}/maxresdefault.jpg')` }}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://img.youtube.com/vi/${film.videoId}/maxresdefault.jpg`}
+                alt={`${film.title} wedding film`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                onError={e => { e.currentTarget.src = `https://img.youtube.com/vi/${film.videoId}/hqdefault.jpg` }}
               />
 
               {/* Dark Overlay */}

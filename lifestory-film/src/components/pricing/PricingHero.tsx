@@ -29,6 +29,17 @@ export function PricingHero({ selectedType = 'photo+video', onTypeChange }: Pric
           <p className="font-light text-white/55 max-w-[600px] mx-auto" style={{ fontSize: '18px' }}>
             Every package includes professional editing, color correction, and our signature cinematic style.
           </p>
+          <p className="mt-6 text-center">
+            <a
+              href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#BFA181', fontSize: '15px' }}
+              className="hover:opacity-80 transition-opacity"
+            >
+              Prefer to talk first? Schedule a 15-min call →
+            </a>
+          </p>
         </div>
       </div>
     </section>
