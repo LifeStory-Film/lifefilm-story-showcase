@@ -4,31 +4,31 @@ import Link from 'next/link'
 const SHOWCASE_PHOTOS = [
   {
     src: 'https://ext.same-assets.com/613934530/2159466363.jpeg',
-    alt: 'Classic bridal portrait with bouquet and natural light',
+    alt: 'Bridal portrait wedding photography Los Angeles',
   },
   {
     src: 'https://ext.same-assets.com/613934530/2180482571.webp',
-    alt: 'Bouquet toss reception moment with guests',
+    alt: 'Wedding reception guests wedding photography California',
   },
   {
     src: 'https://ext.same-assets.com/613934530/2202004677.jpeg',
-    alt: 'Traditional wedding ceremony in garden setting',
+    alt: 'Garden wedding ceremony photography',
   },
   {
     src: 'https://ext.same-assets.com/613934530/2357869345.webp',
-    alt: 'Romantic couple portrait with eucalyptus bouquet',
+    alt: 'Couple portrait wedding photography Malibu',
   },
   {
     src: 'https://ext.same-assets.com/613934530/4005707773.jpeg',
-    alt: 'Luxury crystal wedding shoes with dramatic lighting',
+    alt: 'Wedding detail photography luxury shoes',
   },
   {
     src: 'https://ext.same-assets.com/613934530/24522886.webp',
-    alt: 'Window light bridal portrait with soft shadows',
+    alt: 'Window light bridal portrait wedding photography',
   },
   {
     src: 'https://ext.same-assets.com/613934530/1996507150.webp',
-    alt: 'Traditional South Asian bridal portrait with intricate henna',
+    alt: 'South Asian bride wedding photography Los Angeles',
   },
 ]
 

@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata = {
   title: "FAQ | Wedding Photography & Videography | LifeStory.Film",
-  description: "Get answers to frequently asked questions about wedding videography, pricing, timelines, and our services. Everything you need to know about LifeStory.Film.",
+  description: "Frequently asked questions about wedding photography and videography with LifeStory.Film. Pricing, packages, process, and delivery timelines explained.",
   keywords: "wedding videography FAQ, LifeStory.Film questions, wedding film pricing, wedding videographer questions, wedding video timeline",
 }
 
@@ -102,10 +102,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do you travel for destination weddings?",
+      "name": "What is your travel policy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we love destination weddings! We've filmed in locations across California, other US states, and internationally. Travel fees depend on the location and duration. For destination weddings, we typically require coverage of travel expenses and accommodation. Contact us with your location for a detailed quote."
+        "text": "We're based in Los Angeles and cover all of Southern California with no travel fee. For weddings within California, a flat travel fee applies depending on distance. For destination weddings — domestic or international — we ask that travel, accommodation, and meals are covered. We've filmed in Hawaii, Mexico, Europe, and across the US. Contact us with your location and we'll send a travel quote within 24 hours."
       }
     },
     {
@@ -113,7 +113,7 @@ const faqSchema = {
       "name": "What equipment do you use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We use professional 4K cinema cameras, premium lenses, and advanced stabilization systems. Our audio setup includes wireless microphones for crystal-clear vows and speeches. We also carry backup equipment for every critical component to ensure nothing is missed on your wedding day."
+        "text": "We shoot on professional cinema-grade camera systems with a range of prime and zoom lenses suited for low light, documentary, and portrait work. Every setup includes broadcast-quality wireless audio for vows and speeches, and we carry full backup systems for every critical piece of gear. You'll never know we're there — but you'll see everything in the final film."
       }
     },
     {
@@ -166,10 +166,18 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do you offer engagement session videos?",
+      "name": "Do you offer engagement sessions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! Engagement sessions are a great way to get comfortable with our team and create beautiful content for save-the-dates or wedding websites. These are available as add-ons starting at $800, and we often incorporate engagement footage into your wedding film for a complete love story."
+        "text": "Yes! Engagement sessions are available as a photo add-on starting at $800 and can be added to any photography or combined photo+video package. It's a great way to get comfortable in front of the camera before your wedding day, and the images work beautifully for save-the-dates, wedding websites, and your final gallery. We can also film a short engagement video to incorporate into your wedding film."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we request specific shots or moments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We send every couple a shot list and planning questionnaire 4–6 weeks before the wedding. You can request specific family groupings, detail shots, meaningful locations, or moments you don't want missed. We treat your list as a floor — then we go beyond it. The best frames are often the ones no one planned."
       }
     }
   ]

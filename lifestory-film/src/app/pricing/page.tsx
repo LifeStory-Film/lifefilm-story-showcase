@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { PricingHero } from '@/components/pricing/PricingHero'
 import { PricingPackages } from '@/components/pricing/PricingPackages'
@@ -9,7 +10,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata = {
   title: "Wedding Photography & Video Pricing | LifeStory.Film",
-  description: "Transparent pricing for luxury wedding photo + video packages starting at $3,959. 0% interest payment plans available. View complete package details.",
+  description: "Transparent wedding photography and videography pricing. Combined photo+video packages from $3,959. 30-month payment plans available. Based in Los Angeles.",
   keywords: "wedding photography pricing, wedding videography cost, LifeStory.Film packages, luxury wedding packages, photo video pricing",
   openGraph: {
     title: "Wedding Photography & Video Pricing | LifeStory.Film",
@@ -29,6 +30,15 @@ export default function PricingPage() {
       <Navigation />
       <PricingHero />
       <PricingPackages />
+      <div className="bg-[#0f0e0c] py-4 text-center">
+        <p className="text-white/35 text-sm">
+          Also available:{' '}
+          <Link href="/photography" className="text-[#BFA181] hover:text-white transition-colors duration-200">photography-only packages</Link>
+          {' '}from $2,199 and{' '}
+          <Link href="/videography" className="text-[#BFA181] hover:text-white transition-colors duration-200">videography-only packages</Link>
+          {' '}from $1,999.
+        </p>
+      </div>
       <PricingCalculator />
       <PricingStats />
       <PricingFAQs />

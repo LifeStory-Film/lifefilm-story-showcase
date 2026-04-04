@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Four Seasons Wedding Videographer | LifeStory.Film',
   description:
-    'Cinematic wedding films at Four Seasons properties in Los Angeles and Beverly Hills. LifeStory.Film brings the same level of detail to every shoot as the venue brings to every event.',
+    'Wedding videographer and photographer at Four Seasons Los Angeles. Cinematic films and fine art photography at one of LA\'s most prestigious venues.',
   keywords:
     'Four Seasons wedding videographer, Four Seasons Los Angeles wedding film, Four Seasons Beverly Hills wedding videography, luxury hotel wedding videography LA',
   openGraph: {

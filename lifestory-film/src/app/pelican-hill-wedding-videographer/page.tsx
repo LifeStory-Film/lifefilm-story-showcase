@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Pelican Hill Wedding Videographer | LifeStory.Film',
   description:
-    'Cinematic wedding films at The Resort at Pelican Hill in Newport Beach. LifeStory.Film has been filming luxury weddings at Pelican Hill since 2010 — we know every corner of this venue.',
+    'Wedding videographer and photographer at The Resort at Pelican Hill. Cinematic films and fine art photography at Newport Beach\'s most iconic venue. LifeStory.Film since 2010.',
   keywords:
     'Pelican Hill wedding videographer, Resort at Pelican Hill wedding film, Newport Beach wedding videography, luxury wedding videography Orange County',
   openGraph: {

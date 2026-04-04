@@ -35,8 +35,8 @@ const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
     name: "Essential",
-    basePrice: 3999,
-    monthlyPrice: 1000,
+    basePrice: 3959,
+    monthlyPrice: 990,
     duration: "5 hours",
     team: "1 photographer + 1 videographer",
     description: "Perfect for intimate ceremonies with photo and video coverage.",
@@ -54,8 +54,8 @@ const COMBO_PACKAGES: Package[] = [
   {
     id: "signature",
     name: "Signature",
-    basePrice: 6998,
-    monthlyPrice: 1750,
+    basePrice: 6928,
+    monthlyPrice: 1732,
     duration: "8 Hours",
     team: "2 photographers + 2 videographers",
     description: "Our most popular package with dual teams for comprehensive coverage.",
@@ -625,8 +625,8 @@ export function PackagesSection() {
                               {pkg.id === 'multi-day' && (
                                 <div className="text-xs text-[#EAE7DD]/45 mt-1">Custom quoted for destination & multi-day events</div>
                               )}
-                              <div style={{ fontSize: '15px', color: '#BFA181' }} className="mt-2">
-                                Pay as low as ${monthly30Payment} / month
+                              <div style={{ fontSize: '14px', color: '#BFA181' }} className="mt-2">
+                                Pay as low as ${monthly30Payment} / month — 0% interest
                               </div>
                             </div>
                           )}

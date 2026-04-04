@@ -9,6 +9,8 @@ import { useLuxuryCursor } from './LuxuryCursor'
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSpecialtiesOpen, setIsSpecialtiesOpen] = useState(false)
+  const [isSpecialtiesMobileOpen, setIsSpecialtiesMobileOpen] = useState(false)
   const pathname = usePathname()
   const cursorProps = useLuxuryCursor('pointer')
 
@@ -111,9 +113,64 @@ export function Navigation() {
         <div className="hidden lg:flex items-center space-x-8">
           <NavLink href="/photography">Photography</NavLink>
           <NavLink href="/videography">Videography</NavLink>
+
+          {/* Specialties dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsSpecialtiesOpen(true)}
+            onMouseLeave={() => setIsSpecialtiesOpen(false)}
+          >
+            <button
+              className="relative text-sm font-normal transition-all duration-500 group flex items-center gap-1"
+              style={{ color: isSpecialtiesOpen ? '#BFA181' : 'rgba(255,255,255,0.90)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
+            >
+              Specialties
+              <svg className={`w-3 h-3 transition-transform duration-200 ${isSpecialtiesOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div
+              className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${isSpecialtiesOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-1'}`}
+              style={{ minWidth: '200px' }}
+            >
+              <div className="rounded-lg border border-white/10 overflow-hidden" style={{ backgroundColor: '#0f0e0c' }}>
+                <Link
+                  href="/south-asian-wedding-videographer"
+                  className="block px-5 py-3 text-sm transition-colors duration-200 hover:bg-white/5"
+                  style={{ color: 'rgba(255,255,255,0.80)' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.80)')}
+                >
+                  South Asian Weddings
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="block px-5 py-3 text-sm transition-colors duration-200 hover:bg-white/5"
+                  style={{ color: 'rgba(255,255,255,0.80)' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.80)')}
+                >
+                  Destination Weddings
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="block px-5 py-3 text-sm transition-colors duration-200 hover:bg-white/5"
+                  style={{ color: 'rgba(255,255,255,0.80)' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#BFA181')}
+                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.80)')}
+                >
+                  Venue Packages
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/reviews">Reviews</NavLink>
           <NavLink href="/faq">FAQ</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
           <a
             href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
             target="_blank"
@@ -175,9 +232,32 @@ export function Navigation() {
             <div className="space-y-4">
               <NavLink href="/photography">Photography</NavLink>
               <NavLink href="/videography">Videography</NavLink>
+
+              {/* Specialties mobile accordion */}
+              <div>
+                <button
+                  onClick={() => setIsSpecialtiesMobileOpen(!isSpecialtiesMobileOpen)}
+                  className="flex items-center gap-2 text-sm font-normal transition-all duration-300 w-full text-left"
+                  style={{ color: 'rgba(255,255,255,0.90)' }}
+                >
+                  Specialties
+                  <svg className={`w-3 h-3 transition-transform duration-200 ${isSpecialtiesMobileOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${isSpecialtiesMobileOpen ? 'max-h-40 mt-3' : 'max-h-0'}`}>
+                  <div className="pl-4 space-y-3 border-l border-white/10">
+                    <Link href="/south-asian-wedding-videographer" className="block text-sm" style={{ color: 'rgba(255,255,255,0.70)' }} onClick={() => setIsMobileMenuOpen(false)}>South Asian Weddings</Link>
+                    <Link href="/pricing" className="block text-sm" style={{ color: 'rgba(255,255,255,0.70)' }} onClick={() => setIsMobileMenuOpen(false)}>Destination Weddings</Link>
+                    <Link href="/pricing" className="block text-sm" style={{ color: 'rgba(255,255,255,0.70)' }} onClick={() => setIsMobileMenuOpen(false)}>Venue Packages</Link>
+                  </div>
+                </div>
+              </div>
+
               <NavLink href="/pricing">Pricing</NavLink>
               <NavLink href="/reviews">Reviews</NavLink>
               <NavLink href="/faq">FAQ</NavLink>
+              <NavLink href="/blog">Blog</NavLink>
               <a
                 href="https://calendar.app.google/QSmtnnjfvghb5HtSA"
                 target="_blank"

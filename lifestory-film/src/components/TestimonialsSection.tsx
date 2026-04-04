@@ -80,6 +80,15 @@ export function TestimonialsSection() {
                     <div>
                       <div className="text-white font-semibold text-sm">{review.coupleName}</div>
                       <div className="text-gray-400 text-xs">{review.location} · {review.date}</div>
+                      <a
+                        href="https://www.theknot.com/marketplace/lifestoryfilm-los-angeles-ca-2082602"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="no-underline hover:opacity-75 transition-opacity"
+                        style={{ fontSize: '12px', color: '#BFA181' }}
+                      >
+                        Verified · The Knot →
+                      </a>
                     </div>
                   </div>
                   {/* Google link */}

@@ -2,17 +2,24 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { OptimizedImage } from '../OptimizedImage'
-import { GALLERY_IMAGES } from '@/constants/photography'
 
 interface GalleryImage {
   id: string
   src: string
   alt: string
-  category?: string
-  title?: string
 }
 
-
+const GALLERY_IMAGES: GalleryImage[] = [
+  { id: '1', src: 'https://ext.same-assets.com/613934530/2159466363.jpeg', alt: 'Classic bridal portrait with bouquet and natural light' },
+  { id: '2', src: 'https://ext.same-assets.com/613934530/2180482571.webp', alt: 'Bouquet toss — pure celebration' },
+  { id: '3', src: 'https://ext.same-assets.com/613934530/2202004677.jpeg', alt: 'Traditional wedding ceremony in a garden setting' },
+  { id: '4', src: 'https://ext.same-assets.com/613934530/2357869345.webp', alt: 'Romantic couple portrait with eucalyptus bouquet' },
+  { id: '5', src: 'https://ext.same-assets.com/613934530/4005707773.jpeg', alt: 'Luxury crystal wedding shoes — every detail matters' },
+  { id: '6', src: 'https://ext.same-assets.com/613934530/24522886.webp', alt: 'Window light bridal portrait with soft shadows' },
+  { id: '7', src: 'https://ext.same-assets.com/613934530/1996507150.webp', alt: 'Traditional South Asian bridal portrait with intricate henna' },
+  { id: '8', src: 'https://ext.same-assets.com/613934530/1122270631.jpeg', alt: 'Emotional father-daughter moment before the ceremony' },
+  { id: '9', src: 'https://ext.same-assets.com/613934530/755836774.jpeg', alt: 'Wedding ceremony — a timeless moment' },
+]
 
 export function PhotographyGallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false)

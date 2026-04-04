@@ -207,16 +207,17 @@ export async function generateMetadata({
   if (!film) return { title: 'Film Not Found | LifeStory.Film' }
 
   const title = `${film.title} — ${film.subtitle} Wedding Film | LifeStory.Film`
+  const description = `Watch the ${film.title} wedding film by LifeStory.Film, filmed at ${film.subtitle}. Cinematic wedding videography in ${film.location} — luxury coverage since 2010.`
 
   return {
     title,
-    description: film.metaDescription,
+    description,
     alternates: {
       canonical: `https://lifestory.film/films/${slug}`,
     },
     openGraph: {
       title,
-      description: film.metaDescription,
+      description,
       type: 'video.other',
       images: [{ url: film.ogImage, width: 1280, height: 720, alt: `${film.title} wedding film` }],
       siteName: 'LifeStory.Film',
@@ -224,7 +225,7 @@ export async function generateMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description: film.metaDescription,
+      description,
       images: [film.ogImage],
     },
   }
@@ -240,8 +241,41 @@ export default async function FilmPage({
 
   if (!film) notFound()
 
+  function parseFilmDate(dateStr: string): string {
+    const months: Record<string, string> = {
+      January: '01', February: '02', March: '03', April: '04',
+      May: '05', June: '06', July: '07', August: '08',
+      September: '09', October: '10', November: '11', December: '12',
+    }
+    const parts = dateStr.split(' ')
+    if (parts.length === 2) {
+      const month = months[parts[0]] || '01'
+      return `${parts[1]}-${month}-01`
+    }
+    return '2024-01-01'
+  }
+
+  const videoSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: `${film.title} Wedding Film`,
+    description: `Cinematic wedding film by LifeStory.Film, filmed at ${film.subtitle}.`,
+    thumbnailUrl: `https://img.youtube.com/vi/${film.videoId}/maxresdefault.jpg`,
+    uploadDate: parseFilmDate(film.date),
+    embedUrl: `https://www.youtube.com/embed/${film.videoId}`,
+    publisher: {
+      '@type': 'Organization',
+      name: 'LifeStory.Film',
+      url: 'https://lifestory.film',
+    },
+  }
+
   return (
     <main className="min-h-screen bg-[#0f0e0c] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
+      />
       <Navigation />
 
       <article className="pt-24 pb-32">

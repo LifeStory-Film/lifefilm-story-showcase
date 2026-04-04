@@ -10,7 +10,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata = {
   title: "Wedding Videographer Los Angeles | LifeStory.Film",
-  description: "Cinematic wedding films and same-day teasers for couples who want more than a highlight reel. Based in California, serving worldwide since 2010.",
+  description: "Wedding videographer in Los Angeles creating cinematic films since 2010. Same-day teasers, 4K coverage, and a team trained in narrative filmmaking. Packages from $1,999.",
   keywords: "wedding videography, luxury wedding films, wedding cinematography, wedding filmmaker, cinematic wedding videos",
   openGraph: {
     title: "Wedding Videographer Los Angeles | LifeStory.Film",

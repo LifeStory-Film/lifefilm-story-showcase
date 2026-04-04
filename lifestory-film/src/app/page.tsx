@@ -1,4 +1,20 @@
+import type { Metadata } from 'next'
 import { Navigation } from '@/components/Navigation'
+
+export const metadata: Metadata = {
+  title: "Wedding Photography & Videography Los Angeles | LifeStory.Film",
+  description: "Luxury wedding photography and videography in Los Angeles. Cinematic films and fine art photos for couples who want more than a highlight reel. Serving California and worldwide since 2010.",
+  openGraph: {
+    title: "Wedding Photography & Videography Los Angeles | LifeStory.Film",
+    description: "Luxury wedding photography and videography in Los Angeles. Cinematic films and fine art photos for couples who want more than a highlight reel. Serving California and worldwide since 2010.",
+    images: [{ url: 'https://img.youtube.com/vi/cp3PmoI9nio/maxresdefault.jpg', width: 1280, height: 720, alt: 'LifeStory.Film — luxury wedding photography and videography Los Angeles' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Wedding Photography & Videography Los Angeles | LifeStory.Film",
+    images: ['https://img.youtube.com/vi/cp3PmoI9nio/maxresdefault.jpg'],
+  },
+}
 import { HeroSection } from '@/components/HeroSection'
 import { FeaturedFilms } from '@/components/FeaturedFilms'
 import { BehindTheScenes } from '@/components/BehindTheScenes'
@@ -7,6 +23,7 @@ import { SocialProofSection } from '@/components/SocialProofSection'
 import { TrustSection } from '@/components/TrustSection'
 import { TeamSection } from '@/components/TeamSection'
 import { PhotoShowcase } from '@/components/PhotoShowcase'
+import { EngagementSection } from '@/components/EngagementSection'
 import { PackagesSection } from '@/components/PackagesSection'
 import { CinematicBreak } from '@/components/CinematicBreak'
 import { StickyMobileBar } from '@/components/StickyMobileBar'
@@ -30,6 +47,9 @@ export default function Home() {
 
         {/* 3. Photography showcase */}
         <PhotoShowcase />
+
+        {/* 3b. Engagement sessions */}
+        <EngagementSection />
 
         {/* 4. Testimonials + trust metrics */}
         <TestimonialsSection />

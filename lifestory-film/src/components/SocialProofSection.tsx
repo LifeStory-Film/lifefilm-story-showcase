@@ -17,49 +17,49 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
     image: 'https://ext.same-assets.com/613934530/2159466363.jpeg',
     caption: 'Classic bridal portrait with bouquet and natural light',
     likes: 487,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/C-GKqpPPyBX/'
   },
   {
     id: '2',
     image: 'https://ext.same-assets.com/613934530/2180482571.webp',
     caption: 'Bouquet toss — pure celebration',
     likes: 542,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/DDsJeccyU8o/'
   },
   {
     id: '3',
     image: 'https://ext.same-assets.com/613934530/2202004677.jpeg',
     caption: 'Traditional wedding ceremony in a garden setting',
     likes: 629,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/C0cbvjpSuQT/'
   },
   {
     id: '4',
     image: 'https://ext.same-assets.com/613934530/2357869345.webp',
     caption: 'Romantic couple portrait with eucalyptus bouquet',
     likes: 734,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/DI1s2VWPu71/'
   },
   {
     id: '5',
     image: 'https://ext.same-assets.com/613934530/4005707773.jpeg',
     caption: 'Luxury crystal wedding shoes — every detail matters',
     likes: 618,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/DEGEuQLSx0T/'
   },
   {
     id: '6',
     image: 'https://ext.same-assets.com/613934530/24522886.webp',
     caption: 'Window light bridal portrait with soft shadows',
     likes: 425,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/DDp3C7gTEp6/'
   },
   {
     id: '7',
     image: 'https://ext.same-assets.com/613934530/1996507150.webp',
     caption: 'Traditional South Asian bridal portrait with intricate henna',
     likes: 329,
-    url: 'https://www.instagram.com/lifestoryfilm/'
+    url: 'https://www.instagram.com/p/C-gKgdCSSng/'
   },
   {
     id: '8',

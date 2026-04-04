@@ -150,7 +150,7 @@ export function FeaturedFilms() {
               {/* Optimized Video Thumbnail */}
               <OptimizedImage
                 src={film.thumbnail}
-                alt={`${film.title} - ${film.location} Wedding Film`}
+                alt={`${film.title} wedding film at ${film.location} — LifeStory.Film`}
                 className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
                 fallbackSrc={`https://img.youtube.com/vi/${film.videoId}/hqdefault.jpg`}
               />
@@ -204,6 +204,19 @@ export function FeaturedFilms() {
               </div>
             </AnimatedSection>
           ))}
+        </div>
+
+        {/* Internal links */}
+        <div className="text-center mb-8">
+          <p className="text-white/35 text-sm leading-relaxed">
+            Looking for a specific style? Browse our{' '}
+            <Link href="/south-asian-wedding-videographer" className="text-[#BFA181] hover:text-white transition-colors duration-200">South Asian wedding films</Link>
+            , explore{' '}
+            <Link href="/photography" className="text-[#BFA181] hover:text-white transition-colors duration-200">wedding photography</Link>
+            , or visit our{' '}
+            <Link href="/pelican-hill-wedding-videographer" className="text-[#BFA181] hover:text-white transition-colors duration-200">Pelican Hill venue page</Link>
+            .
+          </p>
         </div>
 
         {/* CTA Section */}

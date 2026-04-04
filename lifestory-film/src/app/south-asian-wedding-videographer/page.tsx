@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { PackagesSection } from '@/components/PackagesSection'
 import { ContactSection } from '@/components/ContactSection'
@@ -92,8 +93,20 @@ export default function SouthAsianWeddingVideographer() {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden">
+        {/* Background image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://ext.same-assets.com/613934530/1996507150.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15,14,12,0.6)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0e0c]/60 via-transparent to-[#0f0e0c]/80" />
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="text-[#BFA181] text-[11px] tracking-widest uppercase mb-5 font-light">South Asian Weddings</p>
           <h1
             className="font-extrabold text-white leading-tight mb-6"
@@ -101,7 +114,7 @@ export default function SouthAsianWeddingVideographer() {
           >
             Your Traditions. Your Story. On Film.
           </h1>
-          <p className="font-light text-white/55 max-w-[680px] mx-auto mb-10" style={{ fontSize: '18px' }}>
+          <p className="font-light text-white/70 max-w-[680px] mx-auto mb-10" style={{ fontSize: '18px' }}>
             We've documented over 200 South Asian weddings across Southern California — multi-day celebrations, multiple outfits, multiple ceremonies. We know how to be everywhere at once.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -121,6 +134,43 @@ export default function SouthAsianWeddingVideographer() {
               Check date availability →
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="py-16 bg-[#0f0e0c] border-b border-white/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="grid grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="font-extrabold text-white mb-1" style={{ fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-0.02em' }}>200+</div>
+              <div className="text-white/45 text-sm font-light">South Asian Weddings</div>
+            </div>
+            <div>
+              <div className="font-extrabold text-white mb-1" style={{ fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-0.02em' }}>15+</div>
+              <div className="text-white/45 text-sm font-light">Years Experience</div>
+            </div>
+            <div>
+              <div className="font-extrabold text-white mb-1" style={{ fontSize: 'clamp(32px, 4vw, 48px)', letterSpacing: '-0.02em' }}>5.0</div>
+              <div className="text-white/45 text-sm font-light">The Knot &amp; Google</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="py-20 bg-[#0f0e0c]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="w-12 h-px mx-auto mb-8" style={{ backgroundColor: '#BFA181' }} />
+          <blockquote
+            className="text-white font-light italic leading-relaxed"
+            style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontFamily: 'Playfair Display, Georgia, serif' }}
+          >
+            "From the Mehndi to the Baraat to the reception — we treat every ceremony as its own story, worthy of its own film."
+          </blockquote>
+          <div className="w-12 h-px mx-auto mt-8" style={{ backgroundColor: '#BFA181' }} />
+          <p className="mt-6 text-sm tracking-widest uppercase font-light" style={{ color: 'rgba(191,161,129,0.6)' }}>
+            — The LifeStory.Film approach
+          </p>
         </div>
       </section>
 
@@ -145,6 +195,19 @@ export default function SouthAsianWeddingVideographer() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Internal links */}
+      <section className="py-8 bg-[#1a1916] px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-white/35 text-sm">
+            Explore our{' '}
+            <Link href="/photography" className="text-[#BFA181] hover:text-white transition-colors duration-200">wedding photography portfolio</Link>
+            {' '}or learn about our{' '}
+            <Link href="/pricing" className="text-[#BFA181] hover:text-white transition-colors duration-200">multi-day packages</Link>
+            .
+          </p>
         </div>
       </section>
 

@@ -9,7 +9,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata = {
   title: "Reviews & Testimonials | LifeStory.Film",
-  description: "Read authentic reviews from couples who chose LifeStory.Film for their wedding photography and videography. 5.0 stars on The Knot and Google, 7x Best of Weddings winner.",
+  description: "5-star wedding photography and videography reviews. The Knot Best of Weddings winner 7 consecutive years. Read what couples say about LifeStory.Film.",
   keywords: "wedding reviews, client testimonials, LifeStory.Film reviews, wedding photographer reviews, wedding videographer reviews, five star reviews",
   openGraph: {
     title: "Reviews & Testimonials | LifeStory.Film",

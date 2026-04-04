@@ -3,7 +3,7 @@ export function CinematicBreak() {
     <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
       {/* Full-bleed still */}
       <img
-        src="https://images.unsplash.com/photo-1519741497674-611481863552?w=2000&h=1200&fit=crop&q=80"
+        src="https://ext.same-assets.com/613934530/2357869345.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"

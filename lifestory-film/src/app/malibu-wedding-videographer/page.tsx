@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Malibu Wedding Videographer | LifeStory.Film',
   description:
-    'Cinematic wedding films in Malibu, CA. LifeStory.Film specializes in beachside and coastal estate weddings along the Malibu coastline — from Malibu Rocky Oaks to private blufftop estates.',
+    'Malibu wedding videographer and photographer. Coastal wedding films and photography along the Pacific Coast Highway. LifeStory.Film — luxury coverage since 2010.',
   keywords:
     'Malibu wedding videographer, Malibu beach wedding film, Malibu Rocky Oaks wedding videography, coastal wedding videography Los Angeles',
   openGraph: {

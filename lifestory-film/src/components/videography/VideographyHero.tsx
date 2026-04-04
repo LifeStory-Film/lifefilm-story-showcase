@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { OptimizedYouTubeEmbed } from '../OptimizedYouTubeEmbed'
 
 export function VideographyHero() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -12,21 +11,21 @@ export function VideographyHero() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* YouTube Video Background - Optimized */}
+      {/* Static BTS Thumbnail Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <OptimizedYouTubeEmbed
-          videoId="YzK1dHhkZTU"
-          title="LifeStory.Film Wedding Videography Background"
-          autoplay={true}
-          muted={true}
-          loop={true}
-          controls={false}
-          placeholderQuality="maxres"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://img.youtube.com/vi/tocAcQrJNlE/maxresdefault.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
         />
 
-        {/* Video Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(15,14,12,0.65)' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
         {/* Top gradient for nav readability */}
         <div className="absolute top-0 left-0 right-0 h-[120px] pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(15,14,12,0.75) 0%, transparent 100%)' }} />
       </div>
