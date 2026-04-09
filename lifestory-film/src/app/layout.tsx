@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { LuxuryCursor } from '@/components/LuxuryCursor'
+import { ThemeProvider } from '@/components/ThemeProvider'
+import MetaPixel from '@/components/MetaPixel'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -71,8 +73,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
       <head>
+        {/* Anti-FOUC: set theme class before first paint */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('lifestory-theme');document.documentElement.classList.add(t==='light'?'light':'dark');}catch(e){document.documentElement.classList.add('dark');}})()` }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -110,6 +114,8 @@ export default function RootLayout({
         />
       </head>
       <body className="font-inter antialiased luxury-gradient min-h-screen">
+        <MetaPixel />
+        <ThemeProvider>
         <LuxuryCursor />
         {children}
 
@@ -154,6 +160,7 @@ export default function RootLayout({
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[hsl(var(--luxury-gold)/0.03)] rounded-full blur-[100px]" />
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[hsl(var(--luxury-gold)/0.02)] rounded-full blur-[120px]" />
         </div>
+        </ThemeProvider>
       </body>
     </html>
   )
