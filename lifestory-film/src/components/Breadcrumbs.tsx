@@ -81,7 +81,7 @@ export function Breadcrumbs() {
   const breadcrumbs = generateBreadcrumbs()
 
   return (
-    <nav className="pt-24 pb-6 bg-black" aria-label="Breadcrumb">
+    <nav className="pt-24 pb-6 bg-[#0f0e0c]" aria-label="Breadcrumb">
       <div className="container mx-auto px-6">
         <ol className="flex items-center space-x-2 text-sm">
           {breadcrumbs.map((breadcrumb, index) => (

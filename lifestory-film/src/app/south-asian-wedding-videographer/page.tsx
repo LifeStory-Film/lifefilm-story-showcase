@@ -97,7 +97,7 @@ export default function SouthAsianWeddingVideographer() {
         {/* Background image */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://ext.same-assets.com/613934530/1996507150.webp"
+          src="https://ext.same-assets.com/613934530/2159466363.jpeg"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
@@ -188,7 +188,7 @@ export default function SouthAsianWeddingVideographer() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {WHY_US.map((item) => (
-              <div key={item.heading} className="p-8 rounded-2xl" style={{ backgroundColor: '#211f1c' }}>
+              <div key={item.heading} className="p-8 rounded-2xl bg-[#211f1c]">
                 <div className="w-8 h-px mb-4" style={{ backgroundColor: '#BFA181' }} />
                 <h3 className="text-white font-semibold text-lg mb-3">{item.heading}</h3>
                 <p className="text-white/55 font-light leading-relaxed">{item.body}</p>

@@ -13,14 +13,17 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Specialties */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-4">Specialties</h4>
             <ul className="space-y-2">
-              <li><a href="#films" className="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
-              <li><a href="/pricing" className="text-gray-400 hover:text-white transition-colors">Packages</a></li>
               <li><a href="/south-asian-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">South Asian Weddings</a></li>
-              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/persian-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">Persian Weddings</a></li>
+              <li><a href="/jewish-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">Jewish Weddings</a></li>
+              <li><a href="/chinese-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">Chinese Weddings</a></li>
+              <li><a href="/african-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">African Weddings</a></li>
+              <li><a href="/armenian-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">Armenian Weddings</a></li>
+              <li><a href="/filipino-wedding-videographer" className="text-gray-400 hover:text-white transition-colors">Filipino Weddings</a></li>
             </ul>
           </div>
 

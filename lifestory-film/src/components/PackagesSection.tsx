@@ -556,8 +556,7 @@ export function PackagesSection() {
                 return (
                   <div
                     key={pkg.id}
-                    className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105"
-                    style={{ backgroundColor: '#211f1c' }}
+                    className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105 bg-[#211f1c]"
                   >
                     {/* Most Popular Ribbon */}
                     {pkg.popular && (

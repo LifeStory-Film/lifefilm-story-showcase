@@ -52,6 +52,222 @@
   --luxury-pearl: 46 24% 91%;
 }
 
+/* ============================================================
+   THEME VARIABLES
+   ============================================================ */
+
+:root, html.dark {
+  --t-bg-primary:   #0f0e0c;
+  --t-bg-secondary: #1a1916;
+  --t-bg-card:      rgba(255,255,255,0.04);
+  --t-bg-card-solid:#211f1c;
+  --t-text-primary: #ffffff;
+  --t-text-secondary: rgba(255,255,255,0.65);
+  --t-text-muted:   rgba(255,255,255,0.40);
+  --t-accent:       #BFA181;
+  --t-border:       rgba(255,255,255,0.08);
+  --t-border-strong:rgba(255,255,255,0.14);
+  --t-nav-bg:       rgba(15,14,12,0.95);
+  --t-input-bg:     transparent;
+  --t-input-border: rgba(255,255,255,0.15);
+  --t-input-text:   rgba(255,255,255,0.75);
+  --t-form-bg:      rgba(255,255,255,0.05);
+}
+
+html.light {
+  --t-bg-primary:   #faf9f7;
+  --t-bg-secondary: #f5f3f0;
+  --t-bg-card:      rgba(0,0,0,0.02);
+  --t-bg-card-solid:#ffffff;
+  --t-text-primary: #1a1a1a;
+  --t-text-secondary: rgba(0,0,0,0.60);
+  --t-text-muted:   rgba(0,0,0,0.38);
+  --t-accent:       #8a6a3a;
+  --t-border:       rgba(0,0,0,0.08);
+  --t-border-strong:rgba(0,0,0,0.14);
+  --t-nav-bg:       rgba(250,249,247,0.95);
+  --t-input-bg:     #ffffff;
+  --t-input-border: rgba(0,0,0,0.18);
+  --t-input-text:   #1a1a1a;
+  --t-form-bg:      rgba(0,0,0,0.03);
+}
+
+/* ============================================================
+   SMOOTH THEME TRANSITIONS
+   ============================================================ */
+
+*:not(img):not(video):not(iframe):not(canvas):not(svg *) {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+/* Never transition transforms, animations, or opacity of special elements */
+img, video, iframe,
+.parallax-element,
+.parallax-container *,
+[class*="animate-"],
+[class*="transition-"] {
+  transition: none !important;
+}
+
+/* ============================================================
+   LIGHT MODE OVERRIDES
+   ============================================================ */
+
+/* Body & page background */
+html.light body {
+  background: var(--t-bg-primary);
+  color: var(--t-text-primary);
+}
+
+/* Kill the dark ambient overlays in light mode */
+html.light body > .fixed.inset-0.pointer-events-none.z-0 { display: none; }
+
+/* Luxury gradient (body class) */
+html.light .luxury-gradient {
+  background: linear-gradient(135deg, #faf9f7 0%, #f5f3f0 50%, #ece9e4 100%);
+}
+
+/* Glass nav backdrop */
+html.light .glass-luxury {
+  background: rgba(250,249,247,0.92);
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* Diagonal / alt-section gradient */
+html.light .diagonal-gradient-bg,
+html.light .bg-gradient-diagonal { background: var(--t-bg-secondary); }
+
+/* ---- Section backgrounds via Tailwind class matching ---- */
+/* Primary (page-level) dark bg → light cream */
+html.light [class~="bg-[#0f0e0c]"]  { background-color: var(--t-bg-primary)   !important; }
+/* Secondary (alternate rows) dark bg → slightly off-white */
+html.light [class~="bg-[#1a1916]"]  { background-color: var(--t-bg-secondary) !important; }
+/* Footer bg → stays near-black */
+html.light [class~="bg-[#0a0908]"]  { background-color: #1a1a1a              !important; }
+
+/* ---- Specific sections — white background ---- */
+html.light #testimonials             { background-color: #ffffff !important; }
+html.light #team                     { background-color: #ffffff !important; }
+html.light #packages                 { background-color: #ffffff !important; }
+html.light #contact                  { background-color: #ffffff !important; }
+
+/* ---- Specific sections — off-white (#f5f3f0) ---- */
+/* BTS, TrustSection, SocialProof, LeadMagnet already get --t-bg-secondary via class override */
+
+/* ---- Dark cards (bg-[#211f1c]) → white with shadow in light mode ---- */
+html.light [class*="bg-[#211f1c]"] {
+  background-color: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* ---- Card / glass backgrounds ---- */
+html.light [class~="bg-white\/5"]  { background-color: rgba(0,0,0,0.025) !important; }
+html.light [class~="bg-white\/3"]  { background-color: rgba(0,0,0,0.015) !important; }
+html.light [class~="bg-white\/10"] { background-color: rgba(0,0,0,0.04)  !important; }
+html.light [class~="bg-white\/8"]  { background-color: rgba(0,0,0,0.03)  !important; }
+
+/* ---- Borders ---- */
+html.light [class~="border-white\/10"] { border-color: rgba(0,0,0,0.08) !important; }
+html.light [class~="border-white\/5"]  { border-color: rgba(0,0,0,0.05) !important; }
+html.light [class~="border-white\/8"]  { border-color: rgba(0,0,0,0.06) !important; }
+html.light [class~="border-zinc-700"]  { border-color: rgba(0,0,0,0.15) !important; }
+
+/* ---- Text colors ---- */
+/* Override text-white in content areas */
+html.light .text-white                 { color: var(--t-text-primary)   !important; }
+html.light [class*="text-white\/"]     { color: var(--t-text-secondary) !important; }
+html.light .text-gray-300,
+html.light .text-gray-400              { color: var(--t-text-secondary) !important; }
+
+/* Restore white text inside always-dark zones */
+html.light .parallax-container .text-white,
+html.light .parallax-container [class*="text-white\/"],
+html.light footer .text-white,
+html.light footer [class*="text-white\/"],
+html.light footer .text-gray-300,
+html.light footer .text-gray-400,
+html.light [class~="from-black"] .text-white,
+html.light [class~="from-black"] [class*="text-white\/"] { color: white !important; }
+
+/* CinematicBreak — always dark, all text stays white */
+html.light .cinematic-break .text-white,
+html.light .cinematic-break [class*="text-white\/"] { color: white !important; }
+
+/* ---- Gold / accent labels — darker in light mode for readability ---- */
+html.light [class~="text-[#BFA181]"]   { color: var(--t-accent) !important; }
+html.light [class*="text-\\[#BFA181\\]"] { color: var(--t-accent) !important; }
+
+/* ---- Form inputs in light mode ---- */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: var(--t-input-bg)     !important;
+  border-color:     var(--t-input-border) !important;
+  color:            var(--t-input-text)   !important;
+}
+html.light input::placeholder,
+html.light textarea::placeholder { color: rgba(0,0,0,0.35) !important; }
+
+/* Contact form card */
+html.light #contact .bg-white\/5 {
+  background-color: #ffffff !important;
+  border-color: rgba(0,0,0,0.10) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* ---- TeamSection quote block ---- */
+html.light blockquote.border-l-2  { border-color: var(--t-accent) !important; }
+html.light blockquote.border-l-2 p { color: rgba(0,0,0,0.65) !important; }
+
+/* ---- PhotoShowcase — add shadows to images in light mode ---- */
+html.light .photo-showcase-item {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+html.light .photo-showcase-item img {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+/* ---- bg-black cards/sections → light in light mode ----
+   Uses :not([class~="fixed"]) and :not([class~="absolute"]) to
+   preserve modal backdrops and image-overlay divs             */
+html.light [class~="bg-black"]:not([class~="fixed"]):not([class~="absolute"]) {
+  background-color: var(--t-bg-card-solid) !important;
+}
+
+/* zinc dark backgrounds (FineArtAlbums album showcase, CinemaEquipment) */
+html.light [class~="bg-zinc-800"]:not([class~="absolute"]) { background-color: var(--t-bg-secondary) !important; }
+html.light [class~="bg-zinc-900"]:not([class~="absolute"]) { background-color: var(--t-bg-secondary) !important; }
+
+/* border-white buttons in light mode */
+html.light [class~="border-white"] { border-color: rgba(0,0,0,0.20) !important; }
+
+/* text-[#EAE7DD] warm off-white → dark text in light mode */
+html.light [class*="text-[#EAE7DD]"] { color: var(--t-text-primary) !important; }
+
+/* bg-gradient from dark purple (BehindTheScenes CTA box) */
+html.light [class*="from-[#4F0341]"] { background: var(--t-bg-secondary) !important; }
+
+/* ---- Blog content in light mode ---- */
+html.light .blog-content p,
+html.light .blog-content li    { color: rgba(0,0,0,0.72) !important; }
+html.light .blog-content h2    { color: #1a1a1a !important; }
+html.light .blog-content h3    { color: #2a2a2a !important; }
+html.light .blog-content strong { color: var(--t-accent) !important; }
+html.light .blog-content td,
+html.light .blog-content table  { color: rgba(0,0,0,0.65) !important; }
+html.light .blog-content blockquote { color: rgba(0,0,0,0.50) !important; border-color: var(--t-accent) !important; }
+html.light .blog-cta            { background-color: #f5f1ec; border-color: var(--t-accent); }
+html.light .blog-cta h2         { color: var(--t-accent) !important; }
+html.light .blog-cta p,
+html.light .blog-cta em         { color: rgba(0,0,0,0.55) !important; }
+
+/* ============================================================
+   END THEME OVERRIDES
+   ============================================================ */
+
 * {
   border-color: hsl(var(--border));
   box-sizing: border-box;
@@ -613,4 +829,137 @@ body {
 .btn-luxury-filled:hover {
   transform: scale(1.03);
   filter: brightness(1.1);
+}
+
+/* Blog article typography */
+.blog-content {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blog-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: rgba(255, 255, 255, 0.97);
+  letter-spacing: -0.03em;
+}
+.blog-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+.blog-content h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+.blog-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.4rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+.blog-content ul,
+.blog-content ol {
+  margin-bottom: 1.4rem;
+  padding-left: 1.5rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+.blog-content ul { list-style-type: disc; }
+.blog-content ol { list-style-type: decimal; }
+.blog-content li {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+.blog-content strong {
+  font-weight: 700;
+  color: #BFA181;
+}
+.blog-content a {
+  color: #BFA181;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+.blog-content a:hover { opacity: 0.75; text-decoration: none; }
+.blog-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(191,161,129,0.3), transparent);
+  margin: 3rem 0;
+  opacity: 0.3;
+}
+.blog-content blockquote {
+  border-left: 3px solid #BFA181;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.50);
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.70);
+}
+.blog-content th {
+  text-align: left;
+  padding: 0.6rem 1rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #BFA181;
+  border-bottom: 1px solid rgba(191,161,129,0.3);
+}
+.blog-content td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+/* Embedded videos from markdown HTML */
+.blog-content iframe {
+  border-radius: 12px;
+}
+
+/* CTA card — appears after the last <hr> in each post */
+.blog-cta {
+  background-color: #1a1916;
+  border: 0.5px solid #BFA181;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+.blog-cta h2 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #BFA181 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.75rem !important;
+}
+.blog-cta p {
+  font-size: 1rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  margin-bottom: 0.75rem !important;
+}
+.blog-cta a {
+  color: #BFA181 !important;
+  font-weight: 600;
+}
+.blog-cta a:hover { opacity: 0.8; }
+.blog-cta em {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.40) !important;
+  font-style: italic;
 }

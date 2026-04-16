@@ -9,13 +9,13 @@ export function FineArtAlbums() {
   const albumCoverImage = GALLERY_IMAGES[1] // Classic bridal portrait with bouquet
 
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Album Image */}
           <AnimatedSection direction="left" delay={0.2}>
             <div className="relative">
-              <div className="bg-zinc-800 rounded-2xl p-8 aspect-square flex items-center justify-center">
+              <div className="bg-[#1a1916] rounded-2xl p-8 aspect-square flex items-center justify-center">
                 <div className="relative">
                   {/* Album mockup with actual gallery image */}
                   <div className="w-64 h-64 bg-gradient-to-br from-gray-100 to-gray-300 rounded-lg shadow-2xl transform rotate-3 overflow-hidden">

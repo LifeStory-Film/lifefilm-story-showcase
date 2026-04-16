@@ -59,7 +59,7 @@ export function PhotoShowcase() {
           {SHOWCASE_PHOTOS.map((photo, index) => (
             <div
               key={index}
-              className="break-inside-avoid mb-5 overflow-hidden rounded-lg group"
+              className="photo-showcase-item break-inside-avoid mb-5 overflow-hidden rounded-lg group"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -76,7 +76,9 @@ export function PhotoShowcase() {
         <div className="text-center mt-12">
           <Link
             href="/photography"
-            className="inline-flex items-center gap-1.5 text-white/50 hover:text-white text-sm tracking-wide transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-sm tracking-wide transition-colors duration-200"
+            style={{ color: 'var(--t-text-muted)' }}
+            onMouseEnter={undefined}
           >
             View Photography Portfolio
             <span aria-hidden="true">→</span>

@@ -2,7 +2,7 @@ import { AnimatedSection } from './AnimatedSection'
 
 export function TeamSection() {
   return (
-    <section className="py-32 bg-[#0f0e0c]">
+    <section id="team" className="py-32 bg-[#0f0e0c]">
       <div className="container mx-auto px-6">
         <AnimatedSection direction="fade" className="max-w-5xl mx-auto">
           <div className="text-center mb-12">

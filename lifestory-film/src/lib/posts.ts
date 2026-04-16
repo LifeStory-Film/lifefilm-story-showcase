@@ -12,6 +12,9 @@ export interface PostMeta {
   date: string
   author: string
   keyword: string
+  category: string
+  coverImage: string
+  excerpt: string
   wordCount: number
 }
 
@@ -21,6 +24,21 @@ export interface Post extends PostMeta {
 
 function estimateWordCount(content: string): number {
   return content.trim().split(/\s+/).length
+}
+
+/** Strip markdown/HTML tags and return plain text excerpt */
+function makeExcerpt(content: string, maxChars = 150): string {
+  const plain = content
+    .replace(/^---[\s\S]*?---/m, '')         // remove frontmatter if any
+    .replace(/<[^>]+>/g, '')                  // strip HTML tags
+    .replace(/!\[.*?\]\(.*?\)/g, '')          // strip images
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links → link text
+    .replace(/#{1,6}\s+/g, '')               // headings
+    .replace(/[*_`~]/g, '')                  // emphasis
+    .replace(/\n+/g, ' ')                    // newlines → space
+    .trim()
+
+  return plain.length > maxChars ? plain.slice(0, maxChars).trimEnd() + '…' : plain
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -41,6 +59,9 @@ export function getAllPosts(): PostMeta[] {
         date: data.date ?? '',
         author: data.author ?? '',
         keyword: data.keyword ?? '',
+        category: data.category ?? 'Advice',
+        coverImage: data.coverImage ?? '',
+        excerpt: makeExcerpt(content),
         wordCount: estimateWordCount(content),
       }
     })
@@ -60,6 +81,9 @@ export function getPost(slug: string): Post {
     date: data.date ?? '',
     author: data.author ?? '',
     keyword: data.keyword ?? '',
+    category: data.category ?? 'Advice',
+    coverImage: data.coverImage ?? '',
+    excerpt: makeExcerpt(content),
     wordCount: estimateWordCount(content),
     content,
   }

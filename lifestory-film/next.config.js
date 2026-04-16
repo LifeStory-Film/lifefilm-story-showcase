@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ["*.preview.same-app.com"],
+  async redirects() {
+    return [
+      {
+        source: '/nigerian-wedding-videographer',
+        destination: '/african-wedding-videographer',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     unoptimized: true,
     domains: [

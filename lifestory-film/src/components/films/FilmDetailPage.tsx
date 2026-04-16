@@ -68,9 +68,9 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[#0f0e0c]">
       {/* Hero Section */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#0f0e0c]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Film Video */}
@@ -132,7 +132,10 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
                   </button>
                   <button
                     onClick={() => setActiveSection('behind-scenes')}
-                    className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300"
+                    className="px-8 py-3 rounded-full font-medium transition-all duration-300"
+                    style={{ border: '1px solid var(--t-border-strong)', color: 'var(--t-text-primary)', backgroundColor: 'transparent' }}
+                    onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--t-accent)'; e.currentTarget.style.color = '#0f0e0c'; e.currentTarget.style.borderColor = 'var(--t-accent)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--t-text-primary)'; e.currentTarget.style.borderColor = 'var(--t-border-strong)'; }}
                   >
                     Behind the Scenes
                   </button>
@@ -147,7 +150,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
       <section className="py-8 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <div className="flex justify-center">
-            <div className="flex bg-black rounded-full p-2">
+            <div className="flex bg-[#211f1c] rounded-full p-2">
               <button
                 onClick={() => setActiveSection('overview')}
                 className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -306,7 +309,7 @@ export function FilmDetailPage({ film }: FilmDetailPageProps) {
       </section>
 
       {/* Related Films */}
-      <section className="py-16 bg-black">
+      <section className="py-16 bg-[#1a1916]">
         <div className="container mx-auto px-6">
           <AnimatedSection direction="fade" delay={0.2}>
             <h3 className="text-3xl font-bold text-white mb-8 text-center">More Wedding Films</h3>

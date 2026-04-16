@@ -1,6 +1,6 @@
 export function CinematicBreak() {
   return (
-    <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+    <div className="cinematic-break relative h-[60vh] md:h-[70vh] overflow-hidden">
       {/* Full-bleed still */}
       <img
         src="https://ext.same-assets.com/613934530/2357869345.webp"

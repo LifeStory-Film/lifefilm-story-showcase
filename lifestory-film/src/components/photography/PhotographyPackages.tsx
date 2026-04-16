@@ -106,9 +106,9 @@ export function PhotographyPackages() {
               key={index}
               direction="up"
               delay={index * 0.1}
-              className={`relative bg-black border rounded-2xl p-6 transition-all duration-300 hover:scale-105 ${
+              className={`relative bg-[#0f0e0c] border rounded-2xl p-6 transition-all duration-300 hover:scale-105 ${
                 pkg.popular
-                  ? 'border-white shadow-2xl transform scale-105'
+                  ? 'border-[#BFA181] shadow-2xl transform scale-105'
                   : 'border-gray-700 hover:border-gray-500'
               }`}
             >
@@ -195,7 +195,10 @@ export function PhotographyPackages() {
           <div className="flex justify-center">
             <button
               onClick={() => window.location.href = '/pricing'}
-              className="border border-white text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-white hover:text-black transition-all duration-300"
+              className="px-8 py-4 rounded-full font-medium text-lg transition-all duration-300"
+              style={{ border: '1px solid var(--t-border-strong)', color: 'var(--t-text-primary)', backgroundColor: 'transparent' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'var(--t-accent)'; e.currentTarget.style.color = '#0f0e0c'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = 'var(--t-text-primary)'; }}
             >
               View Photography + Video Packages
             </button>
