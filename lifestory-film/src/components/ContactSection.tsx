@@ -3,6 +3,12 @@
 import { useState } from 'react'
 import { PrimaryCTA } from './PrimaryCTA'
 
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void
+  }
+}
+
 interface FormData {
   firstName: string
   lastName: string
@@ -87,6 +93,10 @@ export function ContactSection() {
       }
 
       setSubmitStatus('success')
+
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Lead')
+      }
 
       setFormData({
         firstName: '',
