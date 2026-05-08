@@ -47,6 +47,9 @@ const plannerData: Record<string, { name: string; instagram?: string; email?: st
 'eventsxo': { name: 'Events XO', instagram: '@eventsxo_collective' },
 'embraceu': { name: 'Embrace U', instagram: '@embraceu_weddings' },
 'dreamsindetail': { name: 'Dreams in Detail', instagram: '@dreamsindetail' },
+'eventsbytyler': { name: 'Events by Tyler', instagram: '@eventsbytyler' },
+'rossievents': { name: 'Rossi Events and Weddings', instagram: '@rossievents' },
+
 
   // TEMPLATE fallback (do not delete)
   template: { name: '[PLANNER NAME]', instagram: '' },
