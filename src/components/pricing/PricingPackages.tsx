@@ -35,8 +35,8 @@ const COMBO_PACKAGES: Package[] = [
   {
     id: "essential",
     name: "Essential",
-    basePrice: 5200,
-    monthlyPrice: 1300,
+    basePrice: 3959,
+    monthlyPrice: 990,
     duration: "5 hours",
     team: "1 photographer + 1 videographer",
     description: "Perfect for intimate ceremonies with photo and video coverage.",
@@ -54,8 +54,8 @@ const COMBO_PACKAGES: Package[] = [
   {
     id: "signature",
     name: "Signature",
-    basePrice: 8400,
-    monthlyPrice: 2100,
+    basePrice: 6928,
+    monthlyPrice: 1732,
     duration: "Full day",
     team: "2 photographers + 2 videographers",
     description: "Our most popular package with dual teams for comprehensive coverage.",
@@ -76,8 +76,8 @@ const COMBO_PACKAGES: Package[] = [
   {
     id: "multi-day",
     name: "Multi Day",
-    basePrice: 13400,
-    monthlyPrice: 3350,
+    basePrice: 12869,
+    monthlyPrice: 3217,
     duration: "Multi day",
     team: "2 photographers + 2 videographers",
     description: "Perfect for destination weddings and multi-day celebrations.",
@@ -225,13 +225,15 @@ const VIDEO_PACKAGES: Package[] = [
   }
 ]
 
+const SF_SURCHARGE = 1000
+
 const PRICING_FACTORS: PricingFactor[] = [
   { id: 'peak-season', name: 'Peak Season (May-October)', multiplier: 1.2, description: 'Higher demand during peak wedding season' },
   { id: 'holiday', name: 'Holiday Weekend', multiplier: 1.3, description: 'Premium for holiday weekends' },
   { id: 'destination', name: 'Destination Wedding', multiplier: 1.4, description: 'Travel and accommodation costs' },
-  { id: 'weekday', name: 'Weekday Wedding', multiplier: 0.9, description: 'Discount for weekday celebrations' },
-  { id: 'local', name: 'Local LA Area', multiplier: 1.0, description: 'Standard pricing for local venues' },
-  { id: 'bay-area', name: 'Bay Area', multiplier: 1.15, description: 'Additional travel to Bay Area' },
+  { id: 'weekend', name: 'Weekend Premium', multiplier: 1.10, description: 'Premium for Friday-Sunday weddings' },
+  { id: 'local', name: 'Southern California', multiplier: 1.0, description: 'Standard pricing for Southern California venues' },
+  { id: 'bay-area', name: 'Northern California', multiplier: 1.0, description: 'Northern California travel surcharge' },
   { id: 'last-minute', name: 'Last Minute Booking (<60 days)', multiplier: 1.1, description: 'Rush service premium' }
 ]
 
@@ -278,10 +280,20 @@ export function PricingPackages() {
   const calculateDynamicPrice = (basePrice: number) => {
     let finalPrice = basePrice
 
-    // Apply location factor
-    const locationFactor = PRICING_FACTORS.find(f => f.id === selectedLocation)
-    if (locationFactor) {
-      finalPrice *= locationFactor.multiplier
+    // SF surcharge applied as flat amount before other calculations
+    if (selectedLocation === 'bay-area') {
+      finalPrice += SF_SURCHARGE
+      if (!pricingFactors.includes('bay-area')) {
+        setPricingFactors(prev => [...prev, 'bay-area'])
+      }
+    }
+
+    // Apply other location multipliers (e.g., destination)
+    if (selectedLocation !== 'bay-area' && selectedLocation !== 'local') {
+      const locationFactor = PRICING_FACTORS.find(f => f.id === selectedLocation)
+      if (locationFactor) {
+        finalPrice *= locationFactor.multiplier
+      }
     }
 
     // Apply date-based factors
@@ -301,14 +313,11 @@ export function PricingPackages() {
         }
       }
 
-      // Weekday discount
-      if (dayOfWeek >= 1 && dayOfWeek <= 4) {
-        const weekdayFactor = PRICING_FACTORS.find(f => f.id === 'weekday')
-        if (weekdayFactor) {
-          finalPrice *= weekdayFactor.multiplier
-          if (!pricingFactors.includes('weekday')) {
-            setPricingFactors(prev => [...prev, 'weekday'])
-          }
+      // Weekend premium (Fri/Sat/Sun): 10% of original base price
+      if (dayOfWeek === 5 || dayOfWeek === 6 || dayOfWeek === 0) {
+        finalPrice += basePrice * 0.10
+        if (!pricingFactors.includes('weekend')) {
+          setPricingFactors(prev => [...prev, 'weekend'])
         }
       }
     }
@@ -485,27 +494,58 @@ export function PricingPackages() {
                   onChange={(e) => setSelectedLocation(e.target.value)}
                   className="w-full bg-[#002349] border border-[#002349] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 >
-                  <option value="local">Los Angeles Area</option>
-                  <option value="bay-area">San Francisco Bay Area</option>
+                  <option value="local">Southern California</option>
+                  <option value="bay-area">Northern California</option>
                   <option value="destination">Destination Wedding</option>
                 </select>
               </div>
             </div>
 
-            {pricingFactors.length > 0 && (
+            {selectedDate && pricingFactors.length > 0 && (
               <div className="mt-4 p-4 bg-[#BFA181]/10 rounded-lg">
-                <p className="text-[#BFA181] font-medium mb-2">Applied Pricing Factors:</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="text-[#BFA181] font-medium mb-3">Applied Pricing Factors:</p>
+                <div className="space-y-2 mb-4">
                   {pricingFactors.map(factorId => {
+                    if (factorId === 'bay-area') {
+                      return (
+                        <div key={factorId} className="flex justify-between items-center text-sm">
+                          <span className="text-[#EAE7DD]">Northern California</span>
+                          <span className="text-[#BFA181] font-semibold">+{formatPrice(SF_SURCHARGE)}</span>
+                        </div>
+                      )
+                    }
+                    if (factorId === 'weekend') {
+                      return (
+                        <div key={factorId} className="flex justify-between items-center text-sm">
+                          <span className="text-[#EAE7DD]">Weekend Premium</span>
+                          <span className="text-[#BFA181] font-semibold">+10%</span>
+                        </div>
+                      )
+                    }
                     const factor = PRICING_FACTORS.find(f => f.id === factorId)
-                    if (!factor) return null
+                    if (!factor || factor.multiplier === 1) return null
                     return (
-                      <span
-                        key={factorId}
-                        className="px-3 py-1 bg-[#BFA181]/20 text-[#EAE7DD] rounded-full text-sm"
-                      >
-                        {factor.name} ({factor.multiplier > 1 ? '+' : ''}{Math.round((factor.multiplier - 1) * 100)}%)
-                      </span>
+                      <div key={factorId} className="flex justify-between items-center text-sm">
+                        <span className="text-[#EAE7DD]">{factor.name}</span>
+                        <span className="text-[#BFA181] font-semibold">
+                          {factor.multiplier > 1 ? '+' : ''}{Math.round((factor.multiplier - 1) * 100)}%
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div className="pt-3 border-t border-[#BFA181]/20 space-y-1">
+                  {getCurrentPackages().map(pkg => {
+                    const newPrice = calculateDynamicPrice(pkg.basePrice)
+                    if (newPrice === pkg.basePrice) return null
+                    return (
+                      <div key={pkg.id} className="flex justify-between items-center text-sm">
+                        <span className="text-[#EAE7DD]/80">{pkg.name}</span>
+                        <span>
+                          <span className="text-[#EAE7DD]/50 line-through mr-2">{formatPrice(pkg.basePrice)}</span>
+                          <span className="text-[#BFA181] font-bold">{formatPrice(newPrice)}</span>
+                        </span>
+                      </div>
                     )
                   })}
                 </div>
@@ -546,8 +586,16 @@ export function PricingPackages() {
             {/* Packages Grid */}
             <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {getCurrentPackages().map((pkg, index) => {
+                const showDynamic = selectedDate !== ''
                 const dynamicPrice = calculateDynamicPrice(pkg.basePrice)
-                const dynamicMonthlyPrice = Math.round(dynamicPrice / 4)
+                const displayPrice = showDynamic ? dynamicPrice : pkg.basePrice
+                const dynamicMonthlyPrice = Math.round(displayPrice / 4)
+                const weekendPremium = Math.round(pkg.basePrice * 0.10)
+                let dayType: 'weekday' | 'weekend' | null = null
+                if (showDynamic) {
+                  const dow = new Date(selectedDate).getDay()
+                  dayType = (dow === 5 || dow === 6 || dow === 0) ? 'weekend' : 'weekday'
+                }
 
                 return (
                   <div
@@ -576,19 +624,6 @@ export function PricingPackages() {
                       </div>
                     )}
 
-                    {/* Price Change Indicator */}
-                    {dynamicPrice !== pkg.basePrice && (
-                      <div className="absolute top-0 right-0 z-10 m-4">
-                        <div className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          dynamicPrice > pkg.basePrice
-                            ? 'bg-orange-500/20 text-orange-400'
-                            : 'bg-green-500/20 text-green-400'
-                        }`}>
-                          {dynamicPrice > pkg.basePrice ? '+' : ''}{formatPrice(dynamicPrice - pkg.basePrice)}
-                        </div>
-                      </div>
-                    )}
-
                     <div className={`p-8 ${pkg.popular || pkg.limited ? 'pt-16' : ''}`}>
                       {/* Package Header */}
                       <div className="text-center mb-8">
@@ -605,10 +640,10 @@ export function PricingPackages() {
                                 / month for 4 months
                               </div>
                               <div className="text-[#BFA181] text-lg mt-2">
-                                Total: {formatPrice(dynamicPrice)}
+                                Total: {formatPrice(displayPrice)}
                               </div>
                             </div>
-                          ) : (
+                          ) : showDynamic ? (
                             <div>
                               {dynamicPrice !== pkg.basePrice && (
                                 <div className="text-[#EAE7DD]/60 text-lg line-through mb-1">
@@ -617,6 +652,16 @@ export function PricingPackages() {
                               )}
                               <div className="text-[36px] font-bold text-[#BFA181]">
                                 {formatPrice(dynamicPrice)}
+                              </div>
+                            </div>
+                          ) : (
+                            <div>
+                              <div className="text-[#EAE7DD]/70 text-sm mb-1">Starting at</div>
+                              <div className="text-[36px] font-bold text-[#BFA181]">
+                                {formatPrice(pkg.basePrice)}
+                              </div>
+                              <div className="text-[#EAE7DD]/50 text-xs mt-2">
+                                Select date and location for exact pricing
                               </div>
                             </div>
                           )}
@@ -629,6 +674,29 @@ export function PricingPackages() {
                           </svg>
                           {pkg.team}
                         </div>
+
+                        {showDynamic && (
+                          <div className="mt-3 flex flex-wrap gap-2 justify-center">
+                            {selectedLocation === 'bay-area' && (
+                              <span className="inline-block text-xs font-medium text-[#BFA181] border border-[#BFA181]/40 rounded-full px-3 py-1">
+                                Northern CA +{formatPrice(SF_SURCHARGE)}
+                              </span>
+                            )}
+                            {dayType === 'weekend' && (
+                              <span className="inline-block text-xs font-medium text-orange-400 bg-orange-500/15 border border-orange-500/40 rounded-full px-3 py-1">
+                                Weekend Date +{formatPrice(weekendPremium)}
+                              </span>
+                            )}
+                            {dayType === 'weekday' && (
+                              <span
+                                className="inline-block text-xs font-medium text-white rounded-full px-3 py-1"
+                                style={{ backgroundColor: '#2d5a27' }}
+                              >
+                                Save {formatPrice(weekendPremium)} — Weekday Discount
+                              </span>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       {/* Description */}
@@ -694,8 +762,11 @@ export function PricingPackages() {
                         )}
                         <div className={pkg.popular ? 'mt-6' : ''}>
                           <div className="text-lg font-bold mb-2">{pkg.name}</div>
+                          {!selectedDate && (
+                            <div className="text-[#EAE7DD]/70 text-xs">Starting at</div>
+                          )}
                           <div className="text-2xl font-bold text-[#BFA181] mb-1">
-                            {formatPrice(calculateDynamicPrice(pkg.basePrice))}
+                            {formatPrice(selectedDate ? calculateDynamicPrice(pkg.basePrice) : pkg.basePrice)}
                           </div>
                           <div className="text-sm text-[#EAE7DD]/70">{pkg.duration}</div>
                         </div>
@@ -872,8 +943,26 @@ export function PricingPackages() {
                       {/* Pricing Factors */}
                       {pricingFactors.map(factorId => {
                         const factor = PRICING_FACTORS.find(f => f.id === factorId)
-                        if (!factor || factor.multiplier === 1) return null
+                        if (!factor) return null
+                        if (factorId === 'bay-area') {
+                          return (
+                            <div key={factorId} className="flex justify-between items-center text-sm">
+                              <div className="text-[#EAE7DD]/80">Northern California</div>
+                              <div className="text-orange-400">+{formatPrice(SF_SURCHARGE)}</div>
+                            </div>
+                          )
+                        }
                         const basePrice = getCurrentPackages().find(p => p.id === selectedPackage)?.basePrice || 0
+                        if (factorId === 'weekend') {
+                          const adjustment = Math.round(basePrice * 0.10)
+                          return (
+                            <div key={factorId} className="flex justify-between items-center text-sm">
+                              <div className="text-[#EAE7DD]/80">Weekend Premium</div>
+                              <div className="text-orange-400">+{formatPrice(adjustment)}</div>
+                            </div>
+                          )
+                        }
+                        if (factor.multiplier === 1) return null
                         const adjustment = Math.round(basePrice * (factor.multiplier - 1))
                         return (
                           <div key={factorId} className="flex justify-between items-center text-sm">
