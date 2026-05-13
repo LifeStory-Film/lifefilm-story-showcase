@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
-import { PackagesSection } from '@/components/PackagesSection'
+import { PricingPackages } from '@/components/pricing/PricingPackages'
 import { ContactSection } from '@/components/ContactSection'
 import { Footer } from '@/components/Footer'
 
@@ -223,7 +223,7 @@ export default function JewishWeddingVideographer() {
         </div>
       </section>
 
-      <PackagesSection />
+      <PricingPackages />
       <ContactSection />
       <Footer />
     </main>

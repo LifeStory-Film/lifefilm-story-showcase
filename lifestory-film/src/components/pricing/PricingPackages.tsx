@@ -20,6 +20,7 @@ interface PricingFactor {
   id: string
   name: string
   multiplier: number
+  surcharge?: number
   description: string
 }
 
@@ -236,7 +237,7 @@ const PRICING_FACTORS: PricingFactor[] = [
   { id: 'destination', name: 'Destination Wedding', multiplier: 1.4, description: 'Travel and accommodation costs' },
   { id: 'weekday', name: 'Weekday Wedding', multiplier: 0.9, description: 'Discount for weekday celebrations' },
   { id: 'local', name: 'Local LA Area', multiplier: 1.0, description: 'Standard pricing for local venues' },
-  { id: 'bay-area', name: 'Bay Area', multiplier: 1.15, description: 'Additional travel to Bay Area' },
+  { id: 'bay-area', name: 'Northern California', surcharge: 1000, multiplier: 1, description: 'Northern California +$1,000' },
   { id: 'last-minute', name: 'Last Minute Booking (<60 days)', multiplier: 1.1, description: 'Rush service premium' }
 ]
 
@@ -285,9 +286,16 @@ export function PricingPackages() {
     : false
 
   const calculateDynamicPrice = (basePrice: number, pkgId?: string) => {
-    if (!selectedDate || !isWeekendDate) return basePrice
-    if (pkgId && COMBO_WEEKEND_PRICES[pkgId] !== undefined) return COMBO_WEEKEND_PRICES[pkgId]
-    return Math.round(basePrice * 1.111)
+    let price = basePrice
+    // Add Northern California surcharge
+    if (selectedLocation === 'bay-area') {
+      price += 1000
+    }
+    // Add weekend premium (10% of base price only)
+    if (selectedDate && isWeekendDate) {
+      price += Math.round(basePrice * 0.1)
+    }
+    return price
   }
 
   const calculateCustomPrice = () => {
@@ -465,8 +473,8 @@ export function PricingPackages() {
                   onChange={(e) => setSelectedLocation(e.target.value)}
                   className="w-full bg-[#211f1c] border border-[#211f1c] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 >
-                  <option value="local">Los Angeles Area</option>
-                  <option value="bay-area">San Francisco Bay Area</option>
+                  <option value="local">Southern California</option>
+                  <option value="bay-area">Northern California</option>
                   <option value="destination">Destination Wedding</option>
                 </select>
               </div>
@@ -549,7 +557,16 @@ export function PricingPackages() {
 
                         {/* Price Display */}
                         <div className="mb-4">
-                          {showPaymentOptions ? (
+                          {selectedLocation === 'destination' ? (
+                            <div>
+                              <div style={{ fontSize: '28px', fontWeight: 700, color: '#BFA181' }}>
+                                Custom Quote
+                              </div>
+                              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', fontWeight: 300 }} className="mt-2">
+                                Destination pricing is tailored to your location and coverage needs.
+                              </div>
+                            </div>
+                          ) : showPaymentOptions ? (
                             <div>
                               <div className="text-[36px] font-bold text-[#BFA181] leading-none">
                                 {formatPrice(dynamicMonthlyPrice)}
@@ -616,22 +633,35 @@ export function PricingPackages() {
 
                       {/* CTA Button */}
                       <div className="space-y-4">
-                        <PrimaryCTA variant="primary" className="w-full">
-                          Book My Date
-                        </PrimaryCTA>
+                        {selectedLocation === 'destination' ? (
+                          <button
+                            type="button"
+                            onClick={scrollToContact}
+                            className="w-full inline-flex items-center justify-center h-12 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 shadow-lg hover:shadow-xl"
+                            style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                          >
+                            Contact Us →
+                          </button>
+                        ) : (
+                          <>
+                            <PrimaryCTA variant="primary" className="w-full">
+                              Book My Date
+                            </PrimaryCTA>
 
-                        <PrimaryCTA
-                          variant="secondary"
-                          onClick={() => {
-                            const element = document.getElementById('contact')
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                            }
-                          }}
-                          className="w-full"
-                        >
-                          Build Your Coverage Plan
-                        </PrimaryCTA>
+                            <PrimaryCTA
+                              variant="secondary"
+                              onClick={() => {
+                                const element = document.getElementById('contact')
+                                if (element) {
+                                  element.scrollIntoView({ behavior: 'smooth' })
+                                }
+                              }}
+                              className="w-full"
+                            >
+                              Build Your Coverage Plan
+                            </PrimaryCTA>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -853,7 +883,7 @@ export function PricingPackages() {
                       <div className="flex justify-between items-center pt-4 border-t border-[#BFA181]/20">
                         <div className="text-xl font-bold text-[#EAE7DD]">Total Investment</div>
                         <div className="text-2xl font-bold text-[#BFA181]">
-                          {formatPrice(calculateCustomPrice())}
+                          {selectedLocation === 'destination' ? 'Custom Quote' : formatPrice(calculateCustomPrice())}
                         </div>
                       </div>
 
@@ -874,21 +904,34 @@ export function PricingPackages() {
 
                       {/* Action Buttons */}
                       <div className="space-y-3 mt-8">
-                        <PrimaryCTA variant="primary" className="w-full">
-                          Request This Package
-                        </PrimaryCTA>
-                        <PrimaryCTA
-                          variant="secondary"
-                          onClick={() => {
-                            const element = document.getElementById('contact')
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' })
-                            }
-                          }}
-                          className="w-full"
-                        >
-                          Discuss Customizations
-                        </PrimaryCTA>
+                        {selectedLocation === 'destination' ? (
+                          <button
+                            type="button"
+                            onClick={scrollToContact}
+                            className="w-full inline-flex items-center justify-center h-12 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 shadow-lg hover:shadow-xl"
+                            style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                          >
+                            Contact Us →
+                          </button>
+                        ) : (
+                          <>
+                            <PrimaryCTA variant="primary" className="w-full">
+                              Request This Package
+                            </PrimaryCTA>
+                            <PrimaryCTA
+                              variant="secondary"
+                              onClick={() => {
+                                const element = document.getElementById('contact')
+                                if (element) {
+                                  element.scrollIntoView({ behavior: 'smooth' })
+                                }
+                              }}
+                              className="w-full"
+                            >
+                              Discuss Customizations
+                            </PrimaryCTA>
+                          </>
+                        )}
                       </div>
                     </div>
                   ) : (

@@ -488,8 +488,8 @@ export function PackagesSection() {
                   onChange={(e) => setSelectedLocation(e.target.value)}
                   className="w-full bg-[#211f1c] border border-[#211f1c] rounded-lg px-4 py-3 text-[#EAE7DD] focus:border-[#178582] focus:outline-none transition-colors"
                 >
-                  <option value="local">Los Angeles Area</option>
-                  <option value="bay-area">San Francisco Bay Area</option>
+                  <option value="local">Southern California</option>
+                  <option value="bay-area">Northern California</option>
                   <option value="destination">Destination Wedding</option>
                 </select>
               </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { PrimaryCTA } from '../PrimaryCTA'
 
 interface AddOn {
@@ -20,11 +20,7 @@ interface Package {
   team: string
 }
 
-const WEEKEND_PRICES: Record<string, number> = {
-  'essential': 4399,
-  'signature': 7698,
-  'multi-day': 14299,
-}
+type Location = '' | 'local' | 'bay-area' | 'destination'
 
 const BASE_PACKAGES: Package[] = [
   {
@@ -118,19 +114,33 @@ const ADD_ONS: AddOn[] = [
 export function PricingCalculator() {
   const [selectedPackage, setSelectedPackage] = useState<Package>(BASE_PACKAGES[1])
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([])
-  const [isWeekend, setIsWeekend] = useState(false)
-  const [totalPrice, setTotalPrice] = useState(selectedPackage.basePrice)
+  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedLocation, setSelectedLocation] = useState<Location>('')
 
-  useEffect(() => {
-    const basePrice = isWeekend && WEEKEND_PRICES[selectedPackage.id]
-      ? WEEKEND_PRICES[selectedPackage.id]
-      : selectedPackage.basePrice
-    const addOnTotal = selectedAddOns.reduce((total, addOnId) => {
-      const addOn = ADD_ONS.find(a => a.id === addOnId)
-      return total + (addOn?.price || 0)
-    }, 0)
-    setTotalPrice(basePrice + addOnTotal)
-  }, [selectedPackage, selectedAddOns, isWeekend])
+  const today = new Date().toISOString().split('T')[0]
+
+  const isWeekend = selectedDate
+    ? [0, 5, 6].includes(new Date(selectedDate + 'T12:00:00').getDay())
+    : false
+
+  const weekendPremium = isWeekend ? Math.round(selectedPackage.basePrice * 0.1) : 0
+  const locationSurcharge = selectedLocation === 'bay-area' ? 1000 : 0
+  const packageDisplayPrice = selectedPackage.basePrice + weekendPremium + locationSurcharge
+
+  const getDisplayPrice = (basePrice: number) => {
+    let price = basePrice
+    if (selectedLocation === 'bay-area') price += 1000
+    if (isWeekend) price += Math.round(basePrice * 0.1)
+    return price
+  }
+  const addOnTotal = selectedAddOns.reduce((total, addOnId) => {
+    const addOn = ADD_ONS.find(a => a.id === addOnId)
+    return total + (addOn?.price || 0)
+  }, 0)
+  const totalPrice = packageDisplayPrice + addOnTotal
+
+  const isDestination = selectedLocation === 'destination'
+  const isPriceReady = !!selectedDate && !!selectedLocation && !isDestination
 
   const toggleAddOn = (addOnId: string) => {
     setSelectedAddOns(prev =>
@@ -167,22 +177,37 @@ export function PricingCalculator() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Package Selection */}
             <div className="space-y-8">
-              {/* Weekend toggle */}
+              {/* Wedding Date */}
               <div className="flex items-center justify-between p-4 rounded-xl border-2 border-[#BFA181]/30 bg-[#211f1c]/30">
                 <div>
-                  <div className="text-white font-medium">Weekend Wedding?</div>
-                  <div className="text-sm text-white/50">Saturday or Sunday adds a weekend premium</div>
+                  <div className="text-white font-medium">Wedding Date</div>
+                  <div className="text-sm text-white/50">Weekend dates (Fri/Sat/Sun) include a 10% premium</div>
                 </div>
-                <button
-                  onClick={() => setIsWeekend(prev => !prev)}
-                  className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300"
-                  style={{ backgroundColor: isWeekend ? '#BFA181' : '#374151' }}
+                <input
+                  type="date"
+                  value={selectedDate}
+                  min={today}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                  className="bg-[#0f0e0c] border border-[#BFA181]/40 rounded-lg px-3 py-2 text-white text-sm focus:border-[#BFA181] focus:outline-none transition-colors"
+                />
+              </div>
+
+              {/* Location selector */}
+              <div className="flex items-center justify-between p-4 rounded-xl border-2 border-[#BFA181]/30 bg-[#211f1c]/30">
+                <div>
+                  <div className="text-white font-medium">Wedding Location</div>
+                  <div className="text-sm text-white/50">Affects travel and pricing</div>
+                </div>
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value as Location)}
+                  className="bg-[#0f0e0c] border border-[#BFA181]/40 rounded-lg px-3 py-2 text-white text-sm focus:border-[#BFA181] focus:outline-none transition-colors"
                 >
-                  <span
-                    className="inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300"
-                    style={{ transform: isWeekend ? 'translateX(22px)' : 'translateX(4px)' }}
-                  />
-                </button>
+                  <option value="" disabled>Select location</option>
+                  <option value="local">Southern California</option>
+                  <option value="bay-area">Northern California</option>
+                  <option value="destination">Destination Wedding</option>
+                </select>
               </div>
 
               <div>
@@ -204,7 +229,9 @@ export function PricingCalculator() {
                           <p className="text-primary/80">{pkg.duration} • {pkg.team}</p>
                         </div>
                         <div className="text-2xl font-bold text-heading">
-                          ${pkg.basePrice.toLocaleString()}
+                          {isDestination
+                            ? 'Custom Quote'
+                            : `$${getDisplayPrice(pkg.basePrice).toLocaleString()}`}
                         </div>
                       </div>
                       <div className="text-sm text-primary/80 space-y-1">
@@ -254,55 +281,103 @@ export function PricingCalculator() {
               <div className="glass-luxury rounded-2xl p-8">
                 <h3 className="text-2xl text-heading font-semibold mb-6">Your Package</h3>
 
-                <div className="space-y-4 mb-8">
-                  <div className="flex justify-between items-center pb-4 border-b border-gray-600">
-                    <div>
-                      <h4 className="text-lg text-heading font-medium">{selectedPackage.name} Package</h4>
-                      <p className="text-primary/80 text-sm">{selectedPackage.duration}</p>
-                    </div>
-                    <div className="text-xl font-semibold text-heading">
-                      ${selectedPackage.basePrice.toLocaleString()}
-                    </div>
-                  </div>
-
-                  {selectedAddOns.map((addOnId) => {
-                    const addOn = ADD_ONS.find(a => a.id === addOnId)
-                    if (!addOn) return null
-
-                    return (
-                      <div key={addOnId} className="flex justify-between items-center">
+                {isDestination ? (
+                  <>
+                    <div className="space-y-4 mb-8">
+                      <div className="flex justify-between items-center pb-4 border-b border-gray-600">
                         <div>
-                          <span className="text-primary">{addOn.name}</span>
-                        </div>
-                        <div className="text-heading font-medium">
-                          +${addOn.price}
+                          <h4 className="text-lg text-heading font-medium">{selectedPackage.name} Package</h4>
+                          <p className="text-primary/80 text-sm">{selectedPackage.duration}</p>
                         </div>
                       </div>
-                    )
-                  })}
-                </div>
-
-                <div className="border-t border-gray-600 pt-6 mb-8">
-                  <div className="flex justify-between items-center">
-                    <h4 className="text-2xl text-heading font-bold">Total</h4>
-                    <div className="text-3xl font-bold text-heading">
-                      ${totalPrice.toLocaleString()}
+                      <p
+                        className="text-center py-4"
+                        style={{ color: 'rgba(255,255,255,0.6)', fontStyle: 'italic' }}
+                      >
+                        Destination pricing is tailored to your location and coverage needs.
+                      </p>
                     </div>
-                  </div>
-                </div>
 
-                <div className="space-y-4">
-                  <PrimaryCTA
-                    onClick={scrollToContact}
-                    className="w-full"
+                    <div className="border-t border-gray-600 pt-6 mb-8">
+                      <div className="flex justify-between items-center">
+                        <h4 className="text-2xl text-heading font-bold">Total</h4>
+                        <div className="text-3xl font-bold text-heading">Custom Quote</div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <a
+                        href="#contact"
+                        onClick={(e) => { e.preventDefault(); scrollToContact() }}
+                        className="w-full inline-flex items-center justify-center h-12 px-4 rounded-lg font-medium transition-all duration-300 ease-out hover:scale-105 shadow-lg hover:shadow-xl"
+                        style={{ backgroundColor: '#BFA181', color: '#0f0e0c' }}
+                      >
+                        Contact Us →
+                      </a>
+                    </div>
+                  </>
+                ) : isPriceReady ? (
+                  <>
+                    <div className="space-y-4 mb-8">
+                      <div className="flex justify-between items-center pb-4 border-b border-gray-600">
+                        <div>
+                          <h4 className="text-lg text-heading font-medium">{selectedPackage.name} Package</h4>
+                          <p className="text-primary/80 text-sm">
+                            {selectedPackage.duration}
+                          </p>
+                        </div>
+                        <div className="text-xl font-semibold text-heading">
+                          ${packageDisplayPrice.toLocaleString()}
+                        </div>
+                      </div>
+
+                      {selectedAddOns.map((addOnId) => {
+                        const addOn = ADD_ONS.find(a => a.id === addOnId)
+                        if (!addOn) return null
+
+                        return (
+                          <div key={addOnId} className="flex justify-between items-center">
+                            <div>
+                              <span className="text-primary">{addOn.name}</span>
+                            </div>
+                            <div className="text-heading font-medium">
+                              +${addOn.price}
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                    <div className="border-t border-gray-600 pt-6 mb-8">
+                      <div className="flex justify-between items-center">
+                        <h4 className="text-2xl text-heading font-bold">Total</h4>
+                        <div className="text-3xl font-bold text-heading">
+                          ${totalPrice.toLocaleString()}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <PrimaryCTA
+                        onClick={scrollToContact}
+                        className="w-full"
+                      >
+                        Book My Package
+                      </PrimaryCTA>
+
+                      <button className="w-full py-3 px-6 border border-gray-600 text-primary rounded-lg hover:border-pale-gold hover:text-pale-gold transition-colors">
+                        Save My Quote
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <p
+                    className="text-center py-12"
+                    style={{ color: 'rgba(255,255,255,0.4)', fontStyle: 'italic' }}
                   >
-                    Book My Package
-                  </PrimaryCTA>
-
-                  <button className="w-full py-3 px-6 border border-gray-600 text-primary rounded-lg hover:border-pale-gold hover:text-pale-gold transition-colors">
-                    Save My Quote
-                  </button>
-                </div>
+                    Select your date and location to see pricing
+                  </p>
+                )}
 
                 <div className="mt-6 p-4 bg-royal-blue/50 rounded-lg">
                   <p className="text-primary/80 text-sm text-center">
