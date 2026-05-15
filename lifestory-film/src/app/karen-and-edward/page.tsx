@@ -8,12 +8,16 @@ import { PrimaryCTA } from '@/components/PrimaryCTA'
 const WHATSAPP = 'https://wa.me/13235564362'
 const CALENDAR = 'https://calendar.app.google/QSmtnnjfvghb5HtSA'
 
-const FILMS = [
+const FEATURED_FILM = {
+  videoId: 'oi3fY-wRW9M',
+  label: 'Full Catholic Mass — Feature Wedding Film',
+}
+
+const HIGHLIGHT_FILMS = [
   { videoId: 'cAmjboBcwHM', label: 'Filipino Catholic Wedding Film' },
   { videoId: 'dS3CpwNcQP8', label: 'Filipino Catholic Wedding Film' },
   { videoId: 'aWcoxt-yC1Q', label: 'Filipino Catholic Wedding Film' },
   { videoId: 'zOziSBTmCVM', label: 'Filipino Catholic Wedding Film' },
-  { videoId: 'oi3fY-wRW9M', label: 'Feature Wedding Film' },
 ]
 
 // Real photos live in /public/karen-edward/photos/{slot}.jpg.
@@ -91,10 +95,11 @@ const PACKAGE_FEATURES: { text: string; highlight?: boolean }[] = [
   { text: 'Color correction' },
   { text: 'Music license' },
   { text: 'Professional cinema cameras' },
+  { text: 'Drone coverage' },
   { text: 'Online gallery' },
 ]
 
-function VideoCard({ film }: { film: (typeof FILMS)[number] }) {
+function VideoCard({ film }: { film: { videoId: string; label: string } }) {
   const [playing, setPlaying] = useState(false)
 
   return (
@@ -288,14 +293,35 @@ export default function KarenAndEdwardPage() {
               Weddings We&apos;ve Filmed
             </h2>
             <p className="mt-4 text-[#EAE7DD]/55 font-light">
-              Four films from the church to the reception — tap any film to play.
+              The full Catholic mass at the top — plus four highlight films. Tap any film to play.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {FILMS.map((film) => (
-              <VideoCard key={film.videoId} film={film} />
-            ))}
+          {/* Featured: Full Catholic Mass */}
+          <div className="mb-16 max-w-5xl mx-auto">
+            <div className="text-center mb-5">
+              <p className="text-[11px] text-[#BFA181] tracking-[0.28em] uppercase font-semibold">
+                Full Catholic Mass — Feature Wedding Film
+              </p>
+            </div>
+            <div className="relative rounded-2xl bg-[#1a1916] p-3 sm:p-5 border-t-2 border-[#BFA181] shadow-2xl shadow-black/40 ring-1 ring-[#BFA181]/15">
+              <VideoCard film={FEATURED_FILM} />
+              <p className="mt-5 mb-1 text-center text-[#EAE7DD]/75 font-light italic">
+                The complete ceremony, start to finish — exactly what you asked to see.
+              </p>
+            </div>
+          </div>
+
+          {/* Highlight Films */}
+          <div>
+            <div className="text-center mb-8">
+              <h3 className="text-xl md:text-2xl font-light font-serif text-white">Highlight Films</h3>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {HIGHLIGHT_FILMS.map((film) => (
+                <VideoCard key={film.videoId} film={film} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -408,10 +434,6 @@ export default function KarenAndEdwardPage() {
                 {/* Price */}
                 <div className="mb-4">
                   <div className="text-[36px] font-bold text-[#BFA181] leading-none">$7,621</div>
-                  <div className="text-[#EAE7DD]/60 text-sm mt-1">weekday date</div>
-                  <div className="mt-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#BFA181] text-[#0f0e0c]">
-                    Weekend Date +$693
-                  </div>
                 </div>
 
                 <div className="text-[#EAE7DD]/80 text-sm mb-2">8 hours of coverage</div>
