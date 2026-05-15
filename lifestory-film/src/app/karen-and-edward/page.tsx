@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Navigation } from '@/components/Navigation'
 import { PrimaryCTA } from '@/components/PrimaryCTA'
 
 const WHATSAPP = 'https://wa.me/13235564362'
@@ -195,28 +196,7 @@ export default function KarenAndEdwardPage() {
 
   return (
     <div className="min-h-screen bg-[#0f0e0c] text-[#EAE7DD]">
-      {/* Brand gradient bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0f0e0c] via-[#BFA181] to-[#0f0e0c] z-[60]" />
-
-      {/* Minimal navigation */}
-      <nav className="fixed top-1 left-0 right-0 z-50 bg-[rgba(15,14,12,0.95)] backdrop-blur-md border-b border-white/8">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="group">
-            <span className="text-xl tracking-tight">
-              <span className="text-white group-hover:text-[#BFA181] transition-colors">LifeStory</span>
-              <span className="text-white/45">.Film</span>
-            </span>
-          </Link>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm bg-[#BFA181] text-[#0f0e0c] px-6 py-2.5 rounded-full hover:bg-[#cdb591] transition-colors font-medium"
-          >
-            Message Us
-          </a>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero */}
       <section className="pt-40 pb-24 px-6">
@@ -293,12 +273,24 @@ export default function KarenAndEdwardPage() {
               Weddings We&apos;ve Filmed
             </h2>
             <p className="mt-4 text-[#EAE7DD]/55 font-light">
-              The full Catholic mass at the top — plus four highlight films. Tap any film to play.
+              Four highlight films — and below them, the full Catholic mass, start to finish.
             </p>
           </div>
 
+          {/* Highlight Films */}
+          <div className="mb-20">
+            <div className="text-center mb-8">
+              <h3 className="text-xl md:text-2xl font-light font-serif text-white">Highlight Films</h3>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {HIGHLIGHT_FILMS.map((film) => (
+                <VideoCard key={film.videoId} film={film} />
+              ))}
+            </div>
+          </div>
+
           {/* Featured: Full Catholic Mass */}
-          <div className="mb-16 max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-center mb-5">
               <p className="text-[11px] text-[#BFA181] tracking-[0.28em] uppercase font-semibold">
                 Full Catholic Mass — Feature Wedding Film
@@ -309,18 +301,6 @@ export default function KarenAndEdwardPage() {
               <p className="mt-5 mb-1 text-center text-[#EAE7DD]/75 font-light italic">
                 The complete ceremony, start to finish — exactly what you asked to see.
               </p>
-            </div>
-          </div>
-
-          {/* Highlight Films */}
-          <div>
-            <div className="text-center mb-8">
-              <h3 className="text-xl md:text-2xl font-light font-serif text-white">Highlight Films</h3>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {HIGHLIGHT_FILMS.map((film) => (
-                <VideoCard key={film.videoId} film={film} />
-              ))}
             </div>
           </div>
         </div>
@@ -491,7 +471,7 @@ export default function KarenAndEdwardPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-28 px-6 bg-[#0f0e0c]">
+      <section id="contact" className="py-28 px-6 bg-[#0f0e0c]">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-4 font-serif text-white">
             We&apos;d love to film your day.
