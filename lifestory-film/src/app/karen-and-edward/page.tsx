@@ -13,17 +13,42 @@ const FILMS = [
   { videoId: 'dS3CpwNcQP8', label: 'Filipino Catholic Wedding Film' },
   { videoId: 'aWcoxt-yC1Q', label: 'Filipino Catholic Wedding Film' },
   { videoId: 'zOziSBTmCVM', label: 'Filipino Catholic Wedding Film' },
+  { videoId: 'oi3fY-wRW9M', label: 'Feature Wedding Film' },
 ]
 
-// Placeholder slots — real photos drop into /public/karen-edward/photos/ later.
-const PHOTO_SLOTS = Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0'))
-const PHOTO_ASPECTS = [
-  'aspect-[3/4]',
-  'aspect-[4/3]',
-  'aspect-[4/5]',
-  'aspect-[1/1]',
-  'aspect-[3/4]',
-  'aspect-[4/3]',
+// Real photos live in /public/karen-edward/photos/{slot}.jpg.
+// Aspect is set per-photo so landscape and portrait shots are never center-cropped.
+const PHOTOS: { slot: string; aspect: string }[] = [
+  { slot: '01', aspect: 'aspect-[3/2]' },
+  { slot: '02', aspect: 'aspect-[3/2]' },
+  { slot: '03', aspect: 'aspect-[2/3]' },
+  { slot: '04', aspect: 'aspect-[3/2]' },
+  { slot: '05', aspect: 'aspect-[2/3]' },
+  { slot: '06', aspect: 'aspect-[3/2]' },
+  { slot: '07', aspect: 'aspect-[3/2]' },
+  { slot: '08', aspect: 'aspect-[2/3]' },
+  { slot: '09', aspect: 'aspect-[2/3]' },
+  { slot: '10', aspect: 'aspect-[3/2]' },
+  { slot: '11', aspect: 'aspect-[3/2]' },
+  { slot: '12', aspect: 'aspect-[3/2]' },
+  { slot: '13', aspect: 'aspect-[3/2]' },
+  { slot: '14', aspect: 'aspect-[3/2]' },
+  { slot: '15', aspect: 'aspect-[2/3]' },
+  { slot: '16', aspect: 'aspect-[2/3]' },
+  { slot: '17', aspect: 'aspect-[2/3]' },
+  { slot: '18', aspect: 'aspect-[3/2]' },
+  { slot: '19', aspect: 'aspect-[3/2]' },
+  { slot: '20', aspect: 'aspect-[3/2]' },
+  { slot: '21', aspect: 'aspect-[2/3]' },
+  { slot: '22', aspect: 'aspect-[3/2]' },
+  { slot: '23', aspect: 'aspect-[3/2]' },
+  { slot: '24', aspect: 'aspect-[3/2]' },
+  { slot: '25', aspect: 'aspect-[2/3]' },
+  { slot: '26', aspect: 'aspect-[3/2]' },
+  { slot: '27', aspect: 'aspect-[3/2]' },
+  { slot: '28', aspect: 'aspect-[2/3]' },
+  { slot: '29', aspect: 'aspect-[3/2]' },
+  { slot: '30', aspect: 'aspect-[3/2]' },
 ]
 
 const MASS_COVERAGE = [
@@ -62,7 +87,7 @@ const PACKAGE_FEATURES: { text: string; highlight?: boolean }[] = [
   },
   { text: '600+ edited photos' },
   { text: '3–5 min cinematic highlight film' },
-  { text: 'Ceremony & speeches edit' },
+  { text: 'Ceremony edit' },
   { text: 'Color correction' },
   { text: 'Music license' },
   { text: 'Professional cinema cameras' },
@@ -204,12 +229,13 @@ export default function KarenAndEdwardPage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-[#EAE7DD]/90 font-light leading-relaxed font-serif italic mb-8">
-            A Filipino Catholic wedding film that honors every prayer, every promise, every tradition.
+            Filipino Catholic wedding photography and cinematography that honors every prayer, every
+            promise, every tradition.
           </p>
 
           <p className="text-base text-[#EAE7DD]/55 font-light leading-relaxed max-w-xl mx-auto">
-            California-based luxury cinematography, specializing in Filipino weddings and full
-            Catholic masses.
+            California-based luxury photography and cinematography, specializing in Filipino weddings
+            and full Catholic masses.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -259,7 +285,7 @@ export default function KarenAndEdwardPage() {
           <div className="text-center mb-12">
             <p className="text-xs text-[#BFA181] tracking-[0.2em] uppercase font-medium mb-4">Our Work</p>
             <h2 className="text-3xl md:text-4xl font-light font-serif text-white">
-              Filipino Catholic Weddings We&apos;ve Filmed
+              Weddings We&apos;ve Filmed
             </h2>
             <p className="mt-4 text-[#EAE7DD]/55 font-light">
               Four films from the church to the reception — tap any film to play.
@@ -290,9 +316,9 @@ export default function KarenAndEdwardPage() {
           </div>
 
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
-            {PHOTO_SLOTS.map((slot, index) => (
-              <div key={slot} className="mb-4 break-inside-avoid">
-                <PhotoSlot slot={slot} aspect={PHOTO_ASPECTS[index % PHOTO_ASPECTS.length]} />
+            {PHOTOS.map((photo) => (
+              <div key={photo.slot} className="mb-4 break-inside-avoid">
+                <PhotoSlot slot={photo.slot} aspect={photo.aspect} />
               </div>
             ))}
           </div>
@@ -436,7 +462,7 @@ export default function KarenAndEdwardPage() {
               rel="noopener noreferrer"
               className="text-[#BFA181] hover:opacity-75 transition-opacity"
             >
-              Message Rick directly &rarr;
+              Message Rich directly &rarr;
             </a>
           </p>
         </div>
