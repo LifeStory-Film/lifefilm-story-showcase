@@ -96,14 +96,15 @@ const PACKAGE_FEATURES: { text: string; highlight?: boolean }[] = [
   { text: 'Color correction' },
   { text: 'Music license' },
   { text: 'Professional cinema cameras' },
+  { text: '4K Resolution' },
   { text: 'Drone coverage' },
   { text: 'Online gallery' },
 ]
 
-const PACKAGES: { id: string; hours: number; price: string; recommended: boolean }[] = [
+const PACKAGES: { id: string; hours: number; price: string; recommended: boolean; extras?: string[] }[] = [
   { id: 'signature-8hr', hours: 8, price: '$7,621', recommended: false },
   { id: 'signature-9hr', hours: 9, price: '$9,021', recommended: false },
-  { id: 'signature-10hr', hours: 10, price: '$10,221', recommended: true },
+  { id: 'signature-10hr', hours: 10, price: '$10,221', recommended: true, extras: ['Raw Video Footage'] },
 ]
 
 function VideoCard({ film }: { film: { videoId: string; label: string } }) {
@@ -461,6 +462,20 @@ export default function KarenAndEdwardPage() {
                         <span className={feature.highlight ? 'text-[#BFA181] font-medium' : 'text-[#EAE7DD]'}>
                           {feature.text}
                         </span>
+                      </li>
+                    ))}
+                    {pkg.extras?.map((text) => (
+                      <li key={text} className="flex items-start">
+                        <div className="flex-shrink-0 mt-1 mr-3">
+                          <svg className="w-5 h-5 text-[#BFA181]" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <span className="text-[#EAE7DD]">{text}</span>
                       </li>
                     ))}
                   </ul>
