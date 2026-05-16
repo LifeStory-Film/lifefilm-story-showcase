@@ -100,6 +100,12 @@ const PACKAGE_FEATURES: { text: string; highlight?: boolean }[] = [
   { text: 'Online gallery' },
 ]
 
+const PACKAGES: { id: string; hours: number; price: string; recommended: boolean }[] = [
+  { id: 'signature-8hr', hours: 8, price: '$7,621', recommended: false },
+  { id: 'signature-9hr', hours: 9, price: '$9,021', recommended: false },
+  { id: 'signature-10hr', hours: 10, price: '$10,221', recommended: true },
+]
+
 function VideoCard({ film }: { film: { videoId: string; label: string } }) {
   const [playing, setPlaying] = useState(false)
 
@@ -381,7 +387,7 @@ export default function KarenAndEdwardPage() {
 
       {/* The package */}
       <section className="py-28 px-6 bg-gradient-diagonal">
-        <div className="max-w-md mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-xs text-[#BFA181] tracking-[0.2em] uppercase font-medium mb-4">
               Your Package
@@ -390,73 +396,89 @@ export default function KarenAndEdwardPage() {
               Photo + Video, Together
             </h2>
             <p className="mt-4 text-[#EAE7DD]/55 font-light">
-              One complete package, built for your day.
+              Choose the coverage that matches your day.
             </p>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl bg-[#211f1c] transition-all duration-300 hover:scale-[1.02]">
-            {/* Most Popular ribbon */}
-            <div className="absolute top-0 left-0 right-0 z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-5 lg:items-start">
+            {PACKAGES.map((pkg) => (
               <div
-                className="text-center py-3 font-medium text-sm"
-                style={{ backgroundColor: '#4F0341', color: '#957C3D' }}
+                key={pkg.id}
+                className={`relative rounded-2xl bg-[#211f1c] transition-all duration-300 hover:scale-[1.02] ${
+                  pkg.recommended
+                    ? 'ring-2 ring-[#4F0341] shadow-[0_0_40px_rgba(79,3,65,0.35)]'
+                    : 'border border-white/8'
+                }`}
               >
-                Most Popular
-              </div>
-            </div>
+                {pkg.recommended && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+                    <div
+                      className="px-4 py-1.5 rounded-full text-xs font-medium tracking-[0.18em] uppercase whitespace-nowrap"
+                      style={{ backgroundColor: '#4F0341', color: '#957C3D' }}
+                    >
+                      Most chosen
+                    </div>
+                  </div>
+                )}
 
-            <div className="p-8 pt-16">
-              {/* Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-[#EAE7DD] mb-1">Signature</h3>
-                <p className="text-[#EAE7DD]/55 text-sm mb-5">Photo + Video for Karen &amp; Edward</p>
+                <div className="p-8">
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold text-[#EAE7DD] mb-1">Signature</h3>
+                    <p className="text-[#EAE7DD]/55 text-sm mb-5">{pkg.hours}-Hour Coverage</p>
 
-                {/* Price */}
-                <div className="mb-4">
-                  <div className="text-[36px] font-bold text-[#BFA181] leading-none">$7,621</div>
-                </div>
+                    {/* Price */}
+                    <div className="mb-4">
+                      <div className="text-[36px] font-bold text-[#BFA181] leading-none">{pkg.price}</div>
+                    </div>
 
-                <div className="text-[#EAE7DD]/80 text-sm mb-2">8 hours of coverage</div>
-                <div className="text-[#EAE7DD]/70 text-sm flex items-center justify-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  2 photographers + 2 videographers
-                </div>
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-4 mb-8">
-                {PACKAGE_FEATURES.map((feature) => (
-                  <li key={feature.text} className="flex items-start">
-                    <div className="flex-shrink-0 mt-1 mr-3">
-                      <svg className="w-5 h-5 text-[#BFA181]" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="text-[#EAE7DD]/80 text-sm mb-2">{pkg.hours} hours of coverage</div>
+                    <div className="text-[#EAE7DD]/70 text-sm flex items-center justify-center">
+                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                           clipRule="evenodd"
                         />
                       </svg>
+                      2 photographers + 2 videographers
                     </div>
-                    <span className={feature.highlight ? 'text-[#BFA181] font-medium' : 'text-[#EAE7DD]'}>
-                      {feature.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                  </div>
 
-              {/* CTA */}
-              <PrimaryCTA variant="primary" href={CALENDAR} className="w-full">
-                Book This Date
-              </PrimaryCTA>
-            </div>
+                  {/* Features */}
+                  <ul className="space-y-4 mb-8">
+                    {PACKAGE_FEATURES.map((feature) => (
+                      <li key={feature.text} className="flex items-start">
+                        <div className="flex-shrink-0 mt-1 mr-3">
+                          <svg className="w-5 h-5 text-[#BFA181]" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        </div>
+                        <span className={feature.highlight ? 'text-[#BFA181] font-medium' : 'text-[#EAE7DD]'}>
+                          {feature.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <PrimaryCTA
+                    variant="primary"
+                    href={`${CALENDAR}?package=${pkg.id}`}
+                    className="w-full"
+                  >
+                    Book This Date
+                  </PrimaryCTA>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <p className="mt-6 text-center text-sm text-[#EAE7DD]/55 font-light">
+          <p className="mt-10 text-center text-sm text-[#EAE7DD]/55 font-light">
             Questions?{' '}
             <a
               href={WHATSAPP}
