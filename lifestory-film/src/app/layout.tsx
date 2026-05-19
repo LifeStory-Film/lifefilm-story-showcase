@@ -4,6 +4,7 @@ import './globals.css'
 import { LuxuryCursor } from '@/components/LuxuryCursor'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import MetaPixel from '@/components/MetaPixel'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -162,6 +163,7 @@ export default function RootLayout({
         </div>
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-SR6XR3NFLZ" />
     </html>
   )
 }
