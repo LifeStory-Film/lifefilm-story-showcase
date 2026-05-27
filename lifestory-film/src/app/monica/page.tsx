@@ -1,60 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { PrimaryCTA } from '@/components/PrimaryCTA'
 
 const WHATSAPP = 'https://wa.me/13235564362'
 const CALENDAR = 'https://calendar.app.google/QSmtnnjfvghb5HtSA'
-
-const FEATURED_FILM = {
-  videoId: 'oi3fY-wRW9M',
-  label: 'Featured Wedding Film',
-}
-
-const HIGHLIGHT_FILMS = [
-  { videoId: 'cAmjboBcwHM', label: 'Wedding Highlight Film' },
-  { videoId: 'dS3CpwNcQP8', label: 'Wedding Highlight Film' },
-  { videoId: 'aWcoxt-yC1Q', label: 'Wedding Highlight Film' },
-  { videoId: 'zOziSBTmCVM', label: 'Wedding Highlight Film' },
-]
-
-// Real photos live in /public/monica/photos/{slot}.jpg.
-// Aspect is set per-photo so landscape and portrait shots are never center-cropped.
-const PHOTOS: { slot: string; aspect: string }[] = [
-  { slot: '01', aspect: 'aspect-[3/2]' },
-  { slot: '02', aspect: 'aspect-[3/2]' },
-  { slot: '03', aspect: 'aspect-[2/3]' },
-  { slot: '04', aspect: 'aspect-[3/2]' },
-  { slot: '05', aspect: 'aspect-[2/3]' },
-  { slot: '06', aspect: 'aspect-[3/2]' },
-  { slot: '07', aspect: 'aspect-[3/2]' },
-  { slot: '08', aspect: 'aspect-[2/3]' },
-  { slot: '09', aspect: 'aspect-[2/3]' },
-  { slot: '10', aspect: 'aspect-[3/2]' },
-  { slot: '11', aspect: 'aspect-[3/2]' },
-  { slot: '12', aspect: 'aspect-[3/2]' },
-  { slot: '13', aspect: 'aspect-[3/2]' },
-  { slot: '14', aspect: 'aspect-[3/2]' },
-  { slot: '15', aspect: 'aspect-[2/3]' },
-  { slot: '16', aspect: 'aspect-[2/3]' },
-  { slot: '17', aspect: 'aspect-[2/3]' },
-  { slot: '18', aspect: 'aspect-[3/2]' },
-  { slot: '19', aspect: 'aspect-[3/2]' },
-  { slot: '20', aspect: 'aspect-[3/2]' },
-  { slot: '21', aspect: 'aspect-[2/3]' },
-  { slot: '22', aspect: 'aspect-[3/2]' },
-  { slot: '23', aspect: 'aspect-[3/2]' },
-  { slot: '24', aspect: 'aspect-[3/2]' },
-  { slot: '25', aspect: 'aspect-[2/3]' },
-  { slot: '26', aspect: 'aspect-[3/2]' },
-  { slot: '27', aspect: 'aspect-[3/2]' },
-  { slot: '28', aspect: 'aspect-[2/3]' },
-  { slot: '29', aspect: 'aspect-[3/2]' },
-  { slot: '30', aspect: 'aspect-[3/2]' },
-]
 
 const MASS_COVERAGE = [
   {
@@ -84,115 +36,49 @@ const MASS_COVERAGE = [
   },
 ]
 
-const PACKAGE_FEATURES: { text: string; highlight?: boolean }[] = [
-  {
-    text:
-      'Full Persian ceremony coverage — the Sofreh Aghd, the mirror and candelabra, the sugar grinding, the honey ritual, and the knife dance',
-    highlight: true,
-  },
-  { text: '600+ edited photos' },
-  { text: '3–5 min cinematic highlight film' },
-  { text: 'Ceremony edit' },
-  { text: 'Color correction' },
-  { text: 'Music license' },
-  { text: 'Professional cinema cameras' },
-  { text: '4K Resolution' },
-  { text: 'Drone coverage' },
-  { text: 'Online gallery' },
-]
+type PackageFeature = { text: string; highlight?: boolean }
 
-const PACKAGES: { id: string; hours: number; price: string; recommended: boolean; extras?: string[] }[] = [
-  { id: 'signature-8hr', hours: 8, price: '$6,400', recommended: false },
-  { id: 'signature-9hr', hours: 9, price: '$7,200', recommended: false },
-  { id: 'signature-10hr', hours: 10, price: '$7,900', recommended: true, extras: ['Raw Video Footage'] },
-]
-
-function VideoCard({ film }: { film: { videoId: string; label: string } }) {
-  const [playing, setPlaying] = useState(false)
-
-  return (
-    <div className="relative overflow-hidden rounded-xl bg-[#211f1c]" style={{ aspectRatio: '16 / 9' }}>
-      {playing ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${film.videoId}?autoplay=1&rel=0`}
-          title={film.label}
-          className="absolute inset-0 w-full h-full"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      ) : (
-        <button
-          type="button"
-          onClick={() => setPlaying(true)}
-          aria-label={`Play ${film.label}`}
-          className="group absolute inset-0 w-full h-full"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://img.youtube.com/vi/${film.videoId}/maxresdefault.jpg`}
-            alt={film.label}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/15 transition-colors duration-300" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110"
-              style={{ backgroundColor: '#BFA181' }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="#0f0e0c">
-                <path d="M6 4l12 6-12 6V4z" />
-              </svg>
-            </div>
-          </div>
-        </button>
-      )}
-    </div>
+function buildPackageFeatures(pkg: {
+  photos: string
+  ceremonyEdit: boolean
+  featureFilm: boolean
+}): PackageFeature[] {
+  const features: PackageFeature[] = [
+    {
+      text:
+        'Full Persian ceremony coverage — the Sofreh Aghd, the mirror and candelabra, the sugar grinding, the honey ritual, and the knife dance',
+      highlight: true,
+    },
+    { text: pkg.photos },
+    { text: '3–5 min cinematic highlight film' },
+  ]
+  if (pkg.featureFilm) features.push({ text: 'One-Hour Feature Film' })
+  if (pkg.ceremonyEdit) features.push({ text: 'Ceremony edit' })
+  features.push(
+    { text: 'Color correction' },
+    { text: 'Music license' },
+    { text: 'Professional cinema cameras' },
+    { text: '4K Resolution' },
+    { text: 'Drone coverage' },
+    { text: 'Online gallery' },
   )
+  return features
 }
 
-function PhotoSlot({ slot, aspect }: { slot: string; aspect: string }) {
-  const [status, setStatus] = useState<'loading' | 'loaded' | 'error'>('loading')
-
-  return (
-    <div className={`relative ${aspect} w-full overflow-hidden rounded-xl bg-[#211f1c] border border-white/5`}>
-      {/* Styled placeholder — visible until a real photo is dropped in */}
-      {status !== 'loaded' && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#211f1c] to-[#1a1916]">
-          <svg
-            className="w-7 h-7 text-[#BFA181]/40"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={1.25}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316zM16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"
-            />
-          </svg>
-          <span className="mt-2 text-[10px] tracking-[0.15em] uppercase text-white/25">
-            Monica
-          </span>
-        </div>
-      )}
-
-      <Image
-        src={`/monica/photos/${slot}.jpg`}
-        alt={`Monica wedding photograph ${slot}`}
-        fill
-        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-        className={`object-cover transition-opacity duration-700 ${
-          status === 'loaded' ? 'opacity-100' : 'opacity-0'
-        }`}
-        onLoad={() => setStatus('loaded')}
-        onError={() => setStatus('error')}
-      />
-    </div>
-  )
-}
+const PACKAGES: {
+  id: string
+  hours: number
+  price: string
+  photos: string
+  ceremonyEdit: boolean
+  featureFilm: boolean
+  recommended: boolean
+  extras?: string[]
+}[] = [
+  { id: 'signature-10hr', hours: 10, price: '$8,000', photos: '800+ edited photos', ceremonyEdit: true, featureFilm: false, recommended: false },
+  { id: 'signature-10hr-feature', hours: 10, price: '$9,000', photos: '800+ edited photos', ceremonyEdit: true, featureFilm: true, recommended: true },
+  { id: 'signature-11hr-feature', hours: 11, price: '$9,800', photos: '800+ edited photos', ceremonyEdit: true, featureFilm: true, recommended: false },
+]
 
 export default function MonicaPage() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -230,25 +116,6 @@ export default function MonicaPage() {
             photography and cinematography, specializing in Persian weddings and the full Sofreh
             Aghd ceremony.
           </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#BFA181] text-[#0f0e0c] px-9 py-4 rounded-full font-medium hover:bg-[#cdb591] transition-colors"
-            >
-              Message Us on WhatsApp
-            </a>
-            <a
-              href={CALENDAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center border border-[#BFA181]/40 text-[#EAE7DD] px-9 py-4 rounded-full font-light hover:border-[#BFA181] hover:text-[#BFA181] transition-colors"
-            >
-              Schedule a Call
-            </a>
-          </div>
         </div>
       </section>
 
@@ -268,75 +135,6 @@ export default function MonicaPage() {
             blessing. Nothing is cut for time. The full ceremony is sacred, and we treat it that
             way.
           </p>
-        </div>
-      </section>
-
-      <div className="h-px bg-gradient-to-r from-transparent via-[#BFA181]/30 to-transparent" />
-
-      {/* Video gallery */}
-      <section className="py-24 px-6 bg-[#0f0e0c]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-xs text-[#BFA181] tracking-[0.2em] uppercase font-medium mb-4">Our Work</p>
-            <h2 className="text-3xl md:text-4xl font-light font-serif text-white">
-              Weddings We&apos;ve Filmed
-            </h2>
-            <p className="mt-4 text-[#EAE7DD]/55 font-light">
-              Four highlight films — and below them, a full ceremony, start to finish.
-            </p>
-          </div>
-
-          {/* Highlight Films */}
-          <div className="mb-20">
-            <div className="text-center mb-8">
-              <h3 className="text-xl md:text-2xl font-light font-serif text-white">Highlight Films</h3>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {HIGHLIGHT_FILMS.map((film) => (
-                <VideoCard key={film.videoId} film={film} />
-              ))}
-            </div>
-          </div>
-
-          {/* Featured: Full Persian Ceremony */}
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-5">
-              <p className="text-[11px] text-[#BFA181] tracking-[0.28em] uppercase font-semibold">
-                Featured Wedding Film — Full Ceremony
-              </p>
-            </div>
-            <div className="relative rounded-2xl bg-[#1a1916] p-3 sm:p-5 border-t-2 border-[#BFA181] shadow-2xl shadow-black/40 ring-1 ring-[#BFA181]/15">
-              <VideoCard film={FEATURED_FILM} />
-              <p className="mt-5 mb-1 text-center text-[#EAE7DD]/75 font-light italic">
-                The complete ceremony, start to finish — exactly what you asked to see.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Photo gallery */}
-      <section className="py-24 px-6 bg-[#1a1916]">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="text-xs text-[#BFA181] tracking-[0.2em] uppercase font-medium mb-4">
-              Photography
-            </p>
-            <h2 className="text-3xl md:text-4xl font-light font-serif text-white">
-              Stills From the Day
-            </h2>
-            <p className="mt-4 text-[#EAE7DD]/55 font-light">
-              Timeless moments, captured with intention and artistry.
-            </p>
-          </div>
-
-          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
-            {PHOTOS.map((photo) => (
-              <div key={photo.slot} className="mb-4 break-inside-avoid">
-                <PhotoSlot slot={photo.slot} aspect={photo.aspect} />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -450,7 +248,7 @@ export default function MonicaPage() {
 
                   {/* Features */}
                   <ul className="space-y-4 mb-8">
-                    {PACKAGE_FEATURES.map((feature) => (
+                    {buildPackageFeatures(pkg).map((feature) => (
                       <li key={feature.text} className="flex items-start">
                         <div className="flex-shrink-0 mt-1 mr-3">
                           <svg className="w-5 h-5 text-[#BFA181]" fill="currentColor" viewBox="0 0 20 20">
@@ -515,28 +313,10 @@ export default function MonicaPage() {
           <h2 className="text-3xl md:text-4xl font-light mb-4 font-serif text-white">
             We&apos;d love to film your day.
           </h2>
-          <p className="text-[#EAE7DD]/60 font-light mb-10 max-w-md mx-auto">
+          <p className="text-[#EAE7DD]/60 font-light max-w-md mx-auto">
             Reach out whenever you&apos;re ready — we&apos;ll hold a conversation around your timeline,
             your venue, and your vision.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#BFA181] text-[#0f0e0c] px-9 py-4 rounded-full font-medium hover:bg-[#cdb591] transition-colors"
-            >
-              Message Us on WhatsApp
-            </a>
-            <a
-              href={CALENDAR}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center border border-[#BFA181]/40 text-[#EAE7DD] px-9 py-4 rounded-full font-light hover:border-[#BFA181] hover:text-[#BFA181] transition-colors"
-            >
-              Schedule a Call
-            </a>
-          </div>
         </div>
       </section>
 
