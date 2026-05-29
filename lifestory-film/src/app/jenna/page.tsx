@@ -38,7 +38,10 @@ const MASS_COVERAGE = [
 
 type PackageFeature = { text: string; highlight?: boolean }
 
-function buildPackageFeatures(pkg: { featureFilm: boolean }): PackageFeature[] {
+function buildPackageFeatures(pkg: {
+  featureFilm: boolean
+  ceremonyEdit: boolean
+}): PackageFeature[] {
   const features: PackageFeature[] = [
     {
       text:
@@ -48,8 +51,8 @@ function buildPackageFeatures(pkg: { featureFilm: boolean }): PackageFeature[] {
     { text: '3–5 min cinematic highlight film' },
   ]
   if (pkg.featureFilm) features.push({ text: 'One-Hour Feature Film' })
+  if (pkg.ceremonyEdit) features.push({ text: 'Ceremony edit' })
   features.push(
-    { text: 'Ceremony edit (both ceremonies)' },
     { text: 'Color correction' },
     { text: 'Music license' },
     { text: 'Professional cinema cameras' },
@@ -66,6 +69,7 @@ const PACKAGES: {
   hours: number
   price: string
   featureFilm: boolean
+  ceremonyEdit: boolean
   recommended: boolean
 }[] = [
   {
@@ -74,6 +78,7 @@ const PACKAGES: {
     hours: 10,
     price: '$8,500',
     featureFilm: false,
+    ceremonyEdit: false,
     recommended: false,
   },
   {
@@ -82,6 +87,7 @@ const PACKAGES: {
     hours: 12,
     price: '$10,500',
     featureFilm: false,
+    ceremonyEdit: true,
     recommended: true,
   },
   {
@@ -90,6 +96,7 @@ const PACKAGES: {
     hours: 12,
     price: '$13,500',
     featureFilm: true,
+    ceremonyEdit: true,
     recommended: false,
   },
 ]
@@ -126,9 +133,28 @@ export default function JennaPage() {
           </p>
 
           <p className="text-base text-[#EAE7DD]/55 font-light leading-relaxed max-w-xl mx-auto">
-            June 19, 2027 &middot; Jasna Polana, Princeton NJ. California-based luxury wedding
-            cinematography, traveling to you to capture your Hindu-Western fusion wedding in full.
+            June 19, 2027 &middot; Jasna Polana, Princeton NJ. Luxury wedding cinematography to
+            capture your Hindu-Western fusion wedding in full.
           </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-[#BFA181] text-[#0f0e0c] px-9 py-4 rounded-full font-medium hover:bg-[#cdb591] transition-colors"
+            >
+              Message Us on WhatsApp
+            </a>
+            <a
+              href={CALENDAR}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center border border-[#BFA181]/40 text-[#EAE7DD] px-9 py-4 rounded-full font-light hover:border-[#BFA181] hover:text-[#BFA181] transition-colors"
+            >
+              Schedule a Call
+            </a>
+          </div>
         </div>
       </section>
 
@@ -145,9 +171,8 @@ export default function JennaPage() {
             at Jasna Polana. We know a Hindu-Western fusion wedding holds two full ceremonies, each
             with its own meaning and rhythm — and we film both in their entirety. The baraat, the
             mandap, the saat phere, the vows, the rings, the first look, the toasts — nothing is
-            cut for time. And yes — we&apos;re California-based, but we travel to you. We&apos;ll be
-            there in Princeton, fully prepared, the day before. Capturing your day exactly as it
-            unfolds is what we do.
+            cut for time. And yes — we travel to you. We&apos;ll be there in Princeton, fully
+            prepared, the day before. Capturing your day exactly as it unfolds is what we do.
           </p>
         </div>
       </section>

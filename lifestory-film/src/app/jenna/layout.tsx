@@ -6,14 +6,14 @@ export const metadata: Metadata = {
   title:
     'Jenna — Hindu-Western Fusion Wedding Cinematography at Jasna Polana | LifeStory.Film',
   description:
-    'A custom video proposal for Jenna — Hindu-Western fusion wedding at Jasna Polana, Princeton NJ on June 19, 2027. California-based luxury wedding cinematography, traveling to New Jersey to capture both ceremonies in full.',
+    'A custom video proposal for Jenna — Hindu-Western fusion wedding at Jasna Polana, Princeton NJ on June 19, 2027. Luxury wedding cinematography, traveling to New Jersey to capture both ceremonies in full.',
   // Private couple-specific landing page — must not be indexed.
   robots: { index: false, follow: false },
   openGraph: {
     title:
       'Jenna — Hindu-Western Fusion Wedding Cinematography at Jasna Polana | LifeStory.Film',
     description:
-      'California-based luxury wedding cinematography for Hindu-Western fusion weddings — the baraat, the mandap, the saat phere, and the full Western ceremony, preserved in full.',
+      'Luxury wedding cinematography for Hindu-Western fusion weddings — the baraat, the mandap, the saat phere, and the full Western ceremony, preserved in full.',
     images: [
       {
         url: OG_IMAGE,
