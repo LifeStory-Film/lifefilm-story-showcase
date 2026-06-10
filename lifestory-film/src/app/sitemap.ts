@@ -1,6 +1,14 @@
 import { MetadataRoute } from 'next'
+import { getAllServiceSlugs } from '@/lib/services'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const serviceEntries: MetadataRoute.Sitemap = getAllServiceSlugs().map((slug) => ({
+    url: `https://lifestory.film/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
   return [
     { url: 'https://lifestory.film', lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
     { url: 'https://lifestory.film/photography', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
@@ -27,5 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: 'https://lifestory.film/films/charlotte-and-john', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
     { url: 'https://lifestory.film/films/carrie-and-grant', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
     { url: 'https://lifestory.film/films/serena-and-daniel', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
+    ...serviceEntries,
   ]
 }
