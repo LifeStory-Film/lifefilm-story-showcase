@@ -1,0 +1,224 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/nigerian-wedding-videographer",
+      "destination": "/african-wedding-videographer",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/nigerian-wedding-videographer(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/blog/[slug]",
+      "regex": "^/blog/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/films/[slug]",
+      "regex": "^/films/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/films/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/referral/[planner]",
+      "regex": "^/referral/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPplanner": "nxtPplanner"
+      },
+      "namedRegex": "^/referral/(?<nxtPplanner>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/referral-venues/[venue]",
+      "regex": "^/referral\\-venues/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPvenue": "nxtPvenue"
+      },
+      "namedRegex": "^/referral\\-venues/(?<nxtPvenue>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/african-wedding-videographer",
+      "regex": "^/african\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/african\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/apple-icon.png",
+      "regex": "^/apple\\-icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/apple\\-icon\\.png(?:/)?$"
+    },
+    {
+      "page": "/armenian-wedding-videographer",
+      "regex": "^/armenian\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/armenian\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/chinese-wedding-videographer",
+      "regex": "^/chinese\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/chinese\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/filipino-wedding-videographer",
+      "regex": "^/filipino\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/filipino\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/four-seasons-wedding-videographer",
+      "regex": "^/four\\-seasons\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/four\\-seasons\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/icon.png",
+      "regex": "^/icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.png(?:/)?$"
+    },
+    {
+      "page": "/indian-wedding-videographer",
+      "regex": "^/indian\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/indian\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/jewish-wedding-videographer",
+      "regex": "^/jewish\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/jewish\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/malibu-wedding-videographer",
+      "regex": "^/malibu\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/malibu\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/pelican-hill-wedding-videographer",
+      "regex": "^/pelican\\-hill\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pelican\\-hill\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/persian-wedding-videographer",
+      "regex": "^/persian\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/persian\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/photography",
+      "regex": "^/photography(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/photography(?:/)?$"
+    },
+    {
+      "page": "/pricing",
+      "regex": "^/pricing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pricing(?:/)?$"
+    },
+    {
+      "page": "/reviews",
+      "regex": "^/reviews(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reviews(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/south-asian-wedding-videographer",
+      "regex": "^/south\\-asian\\-wedding\\-videographer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/south\\-asian\\-wedding\\-videographer(?:/)?$"
+    },
+    {
+      "page": "/video-test",
+      "regex": "^/video\\-test(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/video\\-test(?:/)?$"
+    },
+    {
+      "page": "/videography",
+      "regex": "^/videography(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/videography(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
