@@ -50,7 +50,9 @@ const plannerData: Record<string, { name: string; instagram?: string; email?: st
 'eventsbytyler': { name: 'Events by Tyler', instagram: '@eventsbytyler' },
 'rossievents': { name: 'Rossi Events and Weddings', instagram: '@rossievents' },
 'arrowsmithevents': { name: 'Arrowsmith Events LLC', instagram: '@arrowsmithevents' },
-
+'baylaplanner': { name: 'Bayla Wedding Planner', instagram: '@baylaplanner' },
+'bespokevisions': { name: 'Bespoke Visions LLC', instagram: '@bespokevisionsllc' },
+'myrandawrightevents': { name: 'Myranda Wright Events', instagram: '@myrandawrightevents' },
 
   // TEMPLATE fallback (do not delete)
   template: { name: '[PLANNER NAME]', instagram: '' },
