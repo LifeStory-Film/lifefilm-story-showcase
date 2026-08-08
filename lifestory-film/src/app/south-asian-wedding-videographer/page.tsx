@@ -205,7 +205,7 @@ export default function SouthAsianWeddingVideographer() {
             Explore our{' '}
             <Link href="/photography" className="text-[#BFA181] hover:text-white transition-colors duration-200">wedding photography portfolio</Link>
             {' '}or learn about our{' '}
-            <Link href="/pricing" className="text-[#BFA181] hover:text-white transition-colors duration-200">multi-day packages</Link>
+            <Link href="/pricing" className="text-[#BFA181] hover:text-white transition-colors duration-200">packages and pricing</Link>
             .
           </p>
         </div>

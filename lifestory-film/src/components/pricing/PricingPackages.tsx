@@ -35,7 +35,6 @@ interface CustomFeature {
 const COMBO_WEEKEND_PRICES: Record<string, number> = {
   'essential': 4399,
   'signature': 7698,
-  'multi-day': 14299,
 }
 
 const COMBO_PACKAGES: Package[] = [
@@ -79,30 +78,6 @@ const COMBO_PACKAGES: Package[] = [
       "4-6 week delivery"
     ],
     popular: true
-  },
-  {
-    id: "multi-day",
-    name: "Multi Day",
-    basePrice: 12869,
-    monthlyPrice: 3217,
-    duration: "Multi day",
-    team: "2 photographers + 2 videographers",
-    description: "Perfect for destination weddings and multi-day celebrations.",
-    features: [
-      "800+ edited photos",
-      "Teaser photos (48 hours)",
-      "3-5 min feature film",
-      "Fine art album included",
-      "Color correction",
-      "Music license",
-      "30-minute full movie edit",
-      "Professional cinema cameras",
-      "Online gallery",
-      "Premium USB drive",
-      "4-6 week delivery"
-    ],
-    popular: false,
-    limited: true
   }
 ]
 
@@ -155,24 +130,6 @@ const PHOTO_PACKAGES: Package[] = [
       "Personal printing rights"
     ],
     popular: true
-  },
-  {
-    id: "multi-day-photo",
-    name: "Multi Day",
-    basePrice: 6999,
-    monthlyPrice: 1750,
-    duration: "Multi day",
-    team: "2 photographers",
-    description: "Perfect for destination weddings and multi-day celebrations.",
-    features: [
-      "800+ edited photos",
-      "Fine art album included",
-      "Online gallery",
-      "Color correction",
-      "Personal printing rights",
-      "Premium USB drive"
-    ],
-    popular: false
   }
 ]
 
@@ -209,25 +166,6 @@ const VIDEO_PACKAGES: Package[] = [
       "Online delivery"
     ],
     popular: true
-  },
-  {
-    id: "multi-day-video",
-    name: "Multi Day",
-    basePrice: 6999,
-    monthlyPrice: 1750,
-    duration: "Multi day",
-    team: "2 videographers",
-    description: "Perfect for destination weddings and multi-day celebrations.",
-    features: [
-      "3-5 min highlight film",
-      "30-minute full movie edit",
-      "Color correction",
-      "Music license",
-      "Professional cinema cameras",
-      "Online delivery",
-      "Premium USB drive"
-    ],
-    popular: false
   }
 ]
 

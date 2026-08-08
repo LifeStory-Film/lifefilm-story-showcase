@@ -34,7 +34,7 @@ const WHY_US = [
     body: 'African weddings are visually stunning — bold fabrics, dynamic dancing, electric energy. We do them justice on film.',
   },
   {
-    heading: 'Full day and multi-day packages',
+    heading: 'Full day and multi-day coverage',
     body: 'Traditional plus white wedding combinations covered as one cohesive story — no moment treated as secondary.',
   },
 ]

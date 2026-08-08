@@ -87,6 +87,21 @@ pm2 restart lifestory --update-env
   content/images that were live but uncommitted). Live site deploys via local `npm build` +
   `pm2 restart` — git is backup, push does not change production.
 
+## Session 3 — 2026-08-08 (pricing integrity: kill phantom prices + Multi Day)
+
+Full findings in **02-PRICING-AUDIT.md**. Summary of fixes (deployed + verified live):
+- **$1,999 and $2,199 were fabricated** ("from" lines on `/pricing` only; real floor $2,499,
+  corroborated in 5 places). Introduced in manual commit `ddd0fee` (2026-04-03). Both replaced
+  with $2,499. NOT in the CTA template — 87 posts were never affected.
+- **Multi Day package removed** from all package UI (`PricingPackages`, `PackagesSection`,
+  `PricingCalculator`), FAQ (`PricingFAQs`, `FAQPage`, `faq/page.tsx` JSON-LD — $12,869 range
+  ceiling was in rich results), and two landing-page labels. No dedicated route existed.
+- Verified live: `1,999`/`2,199`/`multiday`/`Multi Day`/`12,869` = 0 on home, /pricing,
+  /photography, /videography, /faq + 3 posts. FAQ JSON-LD parses valid. Internal links 200.
+- ⚠️ **Still open — blog-prose pass:** ~20 posts cite `$12,869`/`$14,299` and ~27 use "multi-day"
+  in prose. Left untouched (bulk content-price editing deferred). Needs one pass once owner
+  confirms final public ranges. Reproduce list: `grep -rln -e "12,869" -e "14,299" -e "multi-day" src/app/blog/posts/`.
+
 ### Still pending / next
 - **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
   prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs

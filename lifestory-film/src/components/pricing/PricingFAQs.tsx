@@ -47,7 +47,7 @@ const FAQS: FAQ[] = [
   },
   {
     question: "Do you charge extra for multi-day events?",
-    answer: "We offer dedicated multi-day packages for destination weddings and cultural celebrations spanning multiple days. These packages are priced competitively compared to booking separate days, and include coordinated coverage across all events with a cohesive storytelling approach.",
+    answer: "Yes — we cover destination weddings and cultural celebrations spanning multiple days. Multi-day coverage is quoted individually based on your schedule and the number of events, with coordinated coverage across all days and a cohesive storytelling approach.",
     category: 'pricing'
   },
   {

@@ -34,9 +34,9 @@ export default function PricingPage() {
         <p className="text-white/35 text-sm">
           Also available:{' '}
           <Link href="/photography" className="text-[#BFA181] hover:text-white transition-colors duration-200">photography-only packages</Link>
-          {' '}from $2,199 and{' '}
+          {' '}from $2,499 and{' '}
           <Link href="/videography" className="text-[#BFA181] hover:text-white transition-colors duration-200">videography-only packages</Link>
-          {' '}from $1,999.
+          {' '}from $2,499, depending on date and location.
         </p>
       </div>
       <PricingCalculator />

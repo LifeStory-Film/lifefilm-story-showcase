@@ -20,7 +20,7 @@ export function FAQPage() {
       id: 1,
       category: 'pricing',
       question: "How much does wedding videography cost?",
-      answer: "Our combined photo + video packages range from $3,959 to $12,869, depending on coverage length, team size, and deliverables. The Essential package starts at $3,959 for 5 hours of coverage, while the Signature package at $6,928 includes 8 hours of coverage with two photographers and two videographers. For exact pricing based on your wedding date and specific needs, we recommend scheduling a consultation."
+      answer: "Our combined photo + video packages range from $3,959 to $6,928, depending on coverage length, team size, and deliverables. The Essential package starts at $3,959 for 5 hours of coverage, while the Signature package at $6,928 includes 8 hours of coverage with two photographers and two videographers. Multi-day and destination weddings are quoted individually. For exact pricing based on your wedding date and specific needs, we recommend scheduling a consultation."
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ export function FAQPage() {
       id: 4,
       category: 'pricing',
       question: "What's the difference between your packages?",
-      answer: "The main differences are coverage duration, team size, and deliverables. The Essential package includes single-team coverage and core deliverables. The Signature package adds a second photographer and videographer, more comprehensive coverage, and additional edits. The Multi Day package includes multi-day coverage, rehearsal coverage, extended documentary edits, and premium delivery options."
+      answer: "The main differences are coverage duration, team size, and deliverables. The Essential package includes single-team coverage and core deliverables. The Signature package adds a second photographer and videographer, more comprehensive coverage, and additional edits. Multi-day and destination weddings are quoted individually with coverage across all events."
     },
 
     // Timeline & Process
@@ -46,7 +46,7 @@ export function FAQPage() {
       id: 5,
       category: 'timeline',
       question: "How long does it take to receive our wedding film?",
-      answer: "Delivery times vary by package. The Essential package is delivered within 6-8 weeks, while the Signature and Multi Day packages are completed within 4-6 weeks due to priority processing. We also offer a 48-hour highlight reel for Signature and above to share with friends and family immediately after your wedding."
+      answer: "Delivery times vary by package. The Essential package is delivered within 6-8 weeks, while the Signature package is completed within 4-6 weeks due to priority processing. We also offer a 48-hour highlight reel for Signature and above to share with friends and family immediately after your wedding."
     },
     {
       id: 6,
@@ -58,7 +58,7 @@ export function FAQPage() {
       id: 7,
       category: 'timeline',
       question: "Do you attend our rehearsal?",
-      answer: "Rehearsal coverage is included in our Multi-day packages and available as an add-on for other packages. We recommend rehearsal attendance for complex ceremonies, unique venues, or when you want additional coverage of pre-wedding events. This helps us understand the ceremony flow and capture better footage on your wedding day."
+      answer: "Rehearsal coverage is available as an add-on for any package. We recommend rehearsal attendance for complex ceremonies, unique venues, or when you want additional coverage of pre-wedding events. This helps us understand the ceremony flow and capture better footage on your wedding day."
     },
     {
       id: 8,
@@ -72,7 +72,7 @@ export function FAQPage() {
       id: 9,
       category: 'service',
       question: "How many videographers will be at our wedding?",
-      answer: "This depends on your package. The Essential package includes one professional videographer. The Signature and Multi Day packages include two videographers for comprehensive coverage and multiple angles. Having two videographers allows us to capture both wide ceremony shots and intimate reactions simultaneously."
+      answer: "This depends on your package. The Essential package includes one professional videographer. The Signature package includes two videographers for comprehensive coverage and multiple angles. Having two videographers allows us to capture both wide ceremony shots and intimate reactions simultaneously."
     },
     {
       id: 10,
@@ -104,7 +104,7 @@ export function FAQPage() {
       id: 14,
       category: 'technical',
       question: "Do you provide same-day highlights?",
-      answer: "Same-day highlights are included with the Signature and Multi Day packages. These are 60-90 second highlight reels delivered within 48-72 hours of your wedding, perfect for sharing on social media or with friends and family who couldn't attend."
+      answer: "Same-day highlights are included with the Signature package. These are 60-90 second highlight reels delivered within 48-72 hours of your wedding, perfect for sharing on social media or with friends and family who couldn't attend."
     },
     {
       id: 15,

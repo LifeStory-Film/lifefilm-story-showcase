@@ -57,26 +57,6 @@ const BASE_PACKAGES: Package[] = [
       'Premium USB drive',
       '4-6 week delivery'
     ]
-  },
-  {
-    id: 'multi-day',
-    name: 'Multi Day',
-    basePrice: 12869,
-    duration: 'Multi day',
-    team: '2 photographers + 2 videographers',
-    features: [
-      '800+ edited photos',
-      'Teaser photos (48 hours)',
-      '6-7 min feature film',
-      'Fine art album included',
-      'Color correction',
-      'Music license',
-      '1-2 hr full movie edit',
-      'Professional cinema cameras',
-      'Online gallery',
-      'Premium USB drive',
-      '4-6 week delivery'
-    ]
   }
 ]
 
