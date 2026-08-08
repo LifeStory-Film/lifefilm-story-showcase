@@ -137,6 +137,24 @@ dedicated pass with real tier numbers:
 **Need from owner:** real tier prices (highlight-reel / full-day / photo+video combined) so this
 can be fixed in one pass. Reproduce: `grep -rn -e "9,500" -e "6,800" -e "11,000" -e "7,500" src/app/blog/posts/`.
 
+## Session 5 — 2026-08-08 (Orange County)
+
+- **NEW `/orange-county` commercial landing** (commit `6dd55ed`): we/here/how/price/form. Confirmed
+  pricing only, embedded ContactSection form, LocalBusiness+Breadcrumb JSON-LD, links to OC venues +
+  OC best-of guide + /pricing. In sitemap (priority 0.9). Live 200, single H1, all links 200.
+- **OC best-of article → ranked 10-studio list** (commit `81a8705`): converted the essay to the LA
+  template. LifeStory #1 (confirmed facts, CTA right after #1), competitors #2–#10 real OC studios
+  with real sites + nofollow (Lin & Jirsa, One Story Weddings, Film House, Memory Machine, A Colored
+  Mind, Gaspar Film Co., Wallace Wedding Co., Rock This Moment, Shoreline). Interlinked with the
+  /orange-county landing, OC venues, and /pricing. Verified: single H1, 0 phantom prices, in sitemap.
+- **Interlinking:** /orange-county ⇄ best-wedding-videographers-orange-county ⇄ OC venue posts ⇄ /pricing.
+
+### NEXT (once GSC granted)
+- Submit sitemap + request indexing, prioritizing /orange-county, both best-of ranked articles,
+  /pricing, /contact. Then clone the city pattern (Santa Barbara/Montecito, Napa) per owner.
+- Resolve the fabricated blog pricing structures (Session 4 finding) with confirmed tier numbers.
+- Email capture (LeadMagnet + LEAD_MAGNET_URL already in repo) — still not wired in.
+
 ### Still pending / next
 - **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
   prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs
