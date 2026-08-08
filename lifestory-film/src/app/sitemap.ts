@@ -44,6 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/orange-county`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/santa-barbara`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/napa`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
   ]
 

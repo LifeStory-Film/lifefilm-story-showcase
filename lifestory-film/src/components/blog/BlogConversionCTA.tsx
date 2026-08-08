@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import InlineEmailCapture from '@/components/InlineEmailCapture'
 
 /**
  * In-article conversion block, injected high in every blog post (after the
@@ -67,6 +68,14 @@ export default function BlogConversionCTA() {
           >
             Call 323.556.4362
           </a>
+        </div>
+
+        {/* Email capture */}
+        <div className="mt-5 pt-5" style={{ borderTop: '1px solid var(--t-border)' }}>
+          <div className="text-xs font-semibold tracking-[0.14em] uppercase mb-1" style={{ color: 'var(--t-accent)' }}>
+            Not ready to book?
+          </div>
+          <InlineEmailCapture source="blog-cta" />
         </div>
 
         {/* Section links */}

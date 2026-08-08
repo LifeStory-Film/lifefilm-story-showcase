@@ -21,12 +21,23 @@ export function LeadMagnet() {
     setError('')
     setIsSubmitting(true)
 
-    // Brief pause for UX, then redirect to the film
-    setTimeout(() => {
-      setSubmitted(true)
-      setIsSubmitting(false)
-      window.location.href = PELICAN_HILL_VIDEO_URL
-    }, 800)
+    // Actually capture the lead, then reveal the film
+    try {
+      await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'lead-magnet' }),
+      })
+      const w = window as unknown as { fbq?: (...a: unknown[]) => void; gtag?: (...a: unknown[]) => void }
+      w.fbq?.('track', 'Lead', { content_name: 'lead-magnet' })
+      w.gtag?.('event', 'generate_lead', { method: 'lead_magnet' })
+    } catch {
+      /* still reveal the film even if capture fails */
+    }
+
+    setSubmitted(true)
+    setIsSubmitting(false)
+    window.open(PELICAN_HILL_VIDEO_URL, '_blank', 'noopener')
   }
 
   return (

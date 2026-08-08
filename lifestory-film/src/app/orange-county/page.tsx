@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Navigation } from '@/components/Navigation'
 import { ContactSection } from '@/components/ContactSection'
+import { LeadMagnet } from '@/components/LeadMagnet'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
@@ -153,6 +154,10 @@ export default function OrangeCountyPage() {
                 <span className="text-[#BFA181] font-semibold">from $2,499</span>
               </li>
               <li className="flex justify-between border-b border-zinc-800 pb-3">
+                <span>Combined photo + video (Essential)</span>
+                <span className="text-[#BFA181] font-semibold">from $3,959</span>
+              </li>
+              <li className="flex justify-between border-b border-zinc-800 pb-3">
                 <span>Signature collection (8 hrs, 2 photo + 2 video)</span>
                 <span className="text-[#BFA181] font-semibold">$6,928</span>
               </li>
@@ -192,6 +197,8 @@ export default function OrangeCountyPage() {
           </div>
         </div>
       </article>
+
+      <LeadMagnet />
 
       {/* Form */}
       <ContactSection />
