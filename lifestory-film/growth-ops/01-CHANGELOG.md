@@ -155,6 +155,47 @@ can be fixed in one pass. Reproduce: `grep -rn -e "9,500" -e "6,800" -e "11,000"
 - Resolve the fabricated blog pricing structures (Session 4 finding) with confirmed tier numbers.
 - Email capture (LeadMagnet + LEAD_MAGNET_URL already in repo) — still not wired in.
 
+## Session 6 — 2026-08-08 (fabricated pricing scrub) — commit `6212923`
+
+Owner: canonical grid still not provided; only $2,499 (floor) and $6,928 (Signature) confirmed.
+Applied the authorized fallback — **remove unconfirmed numbers, rewrite as prose** — everywhere
+it was safe.
+
+**Fixed (high-visibility, done):**
+- 🔴 `ContactSection.tsx` hardcoded "Packages from $3,959" → **$2,499**. This shows on EVERY page
+  with the form (home, /pricing, /videography, /photography, all landings) — biggest single fix.
+- Fabricated LifeStory price structures rewritten to prose (no figures): jen-huang (l.30/54/64),
+  wedding-videography-packages-california (52/103/105), luxury-wedding-videographer-los-angeles:62,
+  luxury-wedding-film-los-angeles-guide (16/125), luxury-vs-documentary:106, palm-springs:117,
+  wedding-videography-san-ysidro-ranch:104, best-…-packages (NorCal/destination/meta).
+- Market ranges ("in California/OC ranges from $3,959 to $14,299" = our old prices as market):
+  numbers removed / reformulated across cost-california, cost-orange-county (intro + Entry/Mid/
+  Premium tier headings), wedding-videographer-orange-county:120, los-angeles-wedding-videographer:119,
+  los-angeles-wedding-videography:74, cost-by-venue:16+meta, pricing-breakdown meta/schema/body.
+- 8 "*Packages from $3,959*" CTA lines (ethnic/advice posts) → $2,499.
+- /orange-county landing + OC ranked article: removed unconfirmed combined $3,959.
+
+**$3,959 provenance (answered):** it is the real `basePrice` of the COMBO "Essential" package in
+`src/components/pricing/PricingPackages.tsx` (and PackagesSection/PricingCalculator), live on
+`/pricing` and the home packages UI. NOT fabricated — it's the actual combined photo+video entry
+price. Left in the pricing UI pending owner confirm or the canonical grid. Removed only from the
+landing/articles per instruction #3.
+
+### 🔴 STILL LIVE — needs the canonical grid (deferred, NOT guessed)
+The 5 dedicated cost-guide articles have ~200 $ figures throughout their venue-by-venue / tier
+bodies. Headline ranges + metas + intros are fixed, but the deep bodies still contain fabricated
+LifeStory/venue prices. Blind-stripping 200 numbers would gut the guides and may contradict the
+grid. Remaining token counts in blog: 14,299×2, 9,500×14, 11,000×5, 8,500×7, 9,200×4, 6,800×4,
+5,800×2. Files: wedding-videographer-cost-california, wedding-videographer-cost-orange-county,
+wedding-videography-cost-by-venue-california, wedding-videography-pricing-breakdown-california,
+best-wedding-videography-packages-california (+ wedding-videography-services-orange-county).
+**Need:** canonical grid (name = price per real package) → then one reconciliation pass. Or an
+explicit "strip all numbers" / "noindex these guides" decision.
+
+### Deferred: Santa Barbara/Montecito + Napa
+Prioritized site-wide pricing integrity (actively-misleading fabricated prices) over new city
+pages this session. SB is queued next, to be built with confirmed-only pricing like /orange-county.
+
 ### Still pending / next
 - **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
   prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs
