@@ -196,6 +196,42 @@ explicit "strip all numbers" / "noindex these guides" decision.
 Prioritized site-wide pricing integrity (actively-misleading fabricated prices) over new city
 pages this session. SB is queued next, to be built with confirmed-only pricing like /orange-county.
 
+## Session 7 — 2026-08-08 (SB + Napa funnels, email capture) — commit `f8db9cb`
+
+Canonical grid CONFIRMED: **$2,499 Essential / $3,959 Combo / $6,928 Signature** (multi-day &
+destination quoted individually). $3,959 restored on /orange-county + OC article.
+
+- **/santa-barbara** + **/napa** commercial landings (clone of /orange-county): confirmed grid,
+  real venues, JSON-LD, ContactSection + LeadMagnet. In sitemap (0.9).
+- **best-wedding-videographers-santa-barbara** + **-napa**: ranked lists (9 studios each),
+  competitors = real firms with own sites (nofollow). SB: Film House, Hovey, Santa Barbara Wedding
+  Films, Legacy Union, Lin & Jirsa, One Story, Lulan, West Films. Napa: Wedlock Cinema, Kindlewood,
+  IQvideography, Moonstruck, JD & K Films, Tanner Castro, Hapa Films, Nice Shot Films. LifeStory #1
+  on confirmed facts, CTA right after #1.
+- **Bidirectional interlink:** city landing ⇄ best-of article ⇄ venue posts (14 venue backlinks
+  added → /santa-barbara or /napa).
+- **Email capture is now REAL:** was fake (LeadMagnet discarded the email + redirected). Added
+  `/api/subscribe` (Resend → studio inbox, honeypot + validation). LeadMagnet now POSTs the email;
+  new `InlineEmailCapture` added to the in-article conversion block (all posts) + `/orange-county`,
+  `/santa-barbara`, `/napa` carry the full LeadMagnet section. Fires GA4 `generate_lead` + Meta `Lead`.
+  NOTE: `LEAD_MAGNET_URL` PDF still doesn't exist; capture reveals the flagship film instead.
+
+### 🏛️ VENUE-PAGE AUDIT (item 4) — build priority by blog-mention volume
+Venues heavily mentioned in the blog but WITHOUT their own top-level landing page (only
+pelican-hill / malibu / four-seasons currently have one). Build in this order:
+1. **Terranea Resort** — 38 posts    2. **Calamigos Ranch** — 33    3. **San Ysidro Ranch** — 31
+4. **Hotel Bel-Air** — 28    5. **Bel-Air Bay Club** — 27    6. **Ojai Valley Inn** — 27
+7. **Montage Laguna Beach** — 26    8. **Beverly Hills Hotel** — 25    9. **Hummingbird Nest Ranch** — 18
+10. **Meadowood** — 16    11. **Belmond (Hotel Caruso)** — 13    12. **Beaulieu Garden** — 12
+Most already have a blog post; a top-level `/[venue]-wedding-videographer` landing (like
+pelican-hill) would capture the high-intent branded venue searches. **Belmond El Encanto** and
+**Rosewood Miramar** have 0 posts yet (SB luxury) — worth creating both post + page.
+
+### NEXT
+- Build venue landing pages in the priority order above (start Terranea / Calamigos / San Ysidro).
+- The 5 cost-guide article deep bodies still need the grid reconciliation (Session 6 finding) —
+  now that the grid is confirmed ($2,499/$3,959/$6,928), this can be done.
+
 ### Still pending / next
 - **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
   prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs
