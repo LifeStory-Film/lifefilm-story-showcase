@@ -4,6 +4,7 @@ import './globals.css'
 import { LuxuryCursor } from '@/components/LuxuryCursor'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import MetaPixel from '@/components/MetaPixel'
+import ConversionTracking from '@/components/ConversionTracking'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const playfair = Playfair_Display({
@@ -116,6 +117,7 @@ export default function RootLayout({
       </head>
       <body className="font-inter antialiased luxury-gradient min-h-screen">
         <MetaPixel />
+        <ConversionTracking />
         <ThemeProvider>
         <LuxuryCursor />
         {children}

@@ -1,40 +1,79 @@
 import { MetadataRoute } from 'next'
 import { getAllServiceSlugs } from '@/lib/services'
+import { getAllSlugs as getAllPostSlugs } from '@/lib/posts'
+
+const BASE = 'https://lifestory.film'
+
+// Standalone landing pages (top-level routes)
+const LANDING_SLUGS = [
+  'south-asian-wedding-videographer',
+  'persian-wedding-videographer',
+  'jewish-wedding-videographer',
+  'chinese-wedding-videographer',
+  'african-wedding-videographer',
+  'armenian-wedding-videographer',
+  'filipino-wedding-videographer',
+  'indian-wedding-videographer',
+  'pelican-hill-wedding-videographer',
+  'malibu-wedding-videographer',
+  'four-seasons-wedding-videographer',
+]
+
+// Film case studies (/films/[slug])
+const FILM_SLUGS = [
+  'ryan-and-victoria',
+  'katherine-and-harsh',
+  'josh-and-whitney',
+  'ayaka-and-kyan',
+  'michelle-and-jason',
+  'jazza-and-naim',
+  'charlotte-and-john',
+  'carrie-and-grant',
+  'serena-and-daniel',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const serviceEntries: MetadataRoute.Sitemap = getAllServiceSlugs().map((slug) => ({
-    url: `https://lifestory.film/services/${slug}`,
-    lastModified: new Date(),
+  const now = new Date()
+
+  const core: MetadataRoute.Sitemap = [
+    { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${BASE}/photography`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/videography`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE}/pricing`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/reviews`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+  ]
+
+  const landing: MetadataRoute.Sitemap = LANDING_SLUGS.map((slug) => ({
+    url: `${BASE}/${slug}`,
+    lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.8,
   }))
 
-  return [
-    { url: 'https://lifestory.film', lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: 'https://lifestory.film/photography', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: 'https://lifestory.film/videography', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: 'https://lifestory.film/pricing', lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: 'https://lifestory.film/reviews', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: 'https://lifestory.film/faq', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: 'https://lifestory.film/south-asian-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/persian-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/jewish-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/chinese-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/african-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/armenian-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/filipino-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/pelican-hill-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/malibu-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/four-seasons-wedding-videographer', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-    { url: 'https://lifestory.film/films/ryan-and-victoria', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/katherine-and-harsh', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/josh-and-whitney', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/ayaka-and-kyan', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/michelle-and-jason', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/jazza-and-naim', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/charlotte-and-john', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/carrie-and-grant', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    { url: 'https://lifestory.film/films/serena-and-daniel', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
-    ...serviceEntries,
-  ]
+  const services: MetadataRoute.Sitemap = getAllServiceSlugs().map((slug) => ({
+    url: `${BASE}/services/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
+  const films: MetadataRoute.Sitemap = FILM_SLUGS.map((slug) => ({
+    url: `${BASE}/films/${slug}`,
+    lastModified: now,
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }))
+
+  // The whole content library — previously absent from the sitemap entirely.
+  const posts: MetadataRoute.Sitemap = getAllPostSlugs().map((slug) => ({
+    url: `${BASE}/blog/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  return [...core, ...landing, ...services, ...films, ...posts]
 }

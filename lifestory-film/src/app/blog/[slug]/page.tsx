@@ -4,6 +4,7 @@ import { marked } from 'marked'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { BlogPostCard } from '@/components/blog/BlogPostCard'
+import BlogConversionCTA from '@/components/blog/BlogConversionCTA'
 import { getAllSlugs, getAllPosts, getPost } from '@/lib/posts'
 
 export async function generateStaticParams() {
@@ -46,6 +47,25 @@ function splitCtaHtml(html: string): { body: string; cta: string | null } {
   return { body: html.slice(0, lastHr), cta: html.slice(lastHr + 4) }
 }
 
+/**
+ * Split the article body AFTER the first section (before the second <h2>) so the
+ * conversion block lands right after the opening section. In a ranked "best of"
+ * list the first section is the #1 pick, so the block sits immediately after #1;
+ * in an essay it sits after the first substantive section — still high on the
+ * page. Falls back to the first <h2>, then the first paragraph.
+ */
+function splitAfterFirstSection(html: string): { intro: string; rest: string } {
+  const first = html.indexOf('<h2')
+  if (first === -1) {
+    const firstPara = html.indexOf('</p>')
+    if (firstPara === -1) return { intro: html, rest: '' }
+    return { intro: html.slice(0, firstPara + 4), rest: html.slice(firstPara + 4) }
+  }
+  const second = html.indexOf('<h2', first + 4)
+  if (second === -1) return { intro: html, rest: '' }
+  return { intro: html.slice(0, second), rest: html.slice(second) }
+}
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -62,13 +82,35 @@ export default async function BlogPostPage({
 
   const rawHtml = marked(post.content, { async: false }) as string
   const { body: bodyHtml, cta: ctaHtml } = splitCtaHtml(rawHtml)
+  const { intro: introRaw, rest: restRaw } = splitAfterFirstSection(bodyHtml)
+  // The page header already renders the title as the single <h1>. Markdown that
+  // opens with "# ..." produces a second <h1> (83/87 posts did) — drop the first
+  // one and demote any stray <h1> in the body to <h2> so each article has one H1.
+  const introHtml = introRaw.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, '')
+  const restHtml = restRaw.replace(/<h1(\s[^>]*)?>/g, '<h2$1>').replace(/<\/h1>/g, '</h2>')
 
   const relatedPosts = getAllPosts()
     .filter(p => p.slug !== slug)
     .slice(0, 2)
 
+  // Per-article JSON-LD lives in the post frontmatter under `schema.items` but was
+  // never rendered. Emit each item so Article/Service/BreadcrumbList rich results
+  // actually reach Google.
+  const schemaItems: unknown[] = Array.isArray((post.schema as { items?: unknown[] })?.items)
+    ? (post.schema as { items: unknown[] }).items
+    : post.schema
+      ? [post.schema]
+      : []
+
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'var(--t-bg-primary)', color: 'var(--t-text-primary)' }}>
+      {schemaItems.map((item, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+        />
+      ))}
       <Navigation />
 
       {/* Cover image hero */}
@@ -159,10 +201,11 @@ export default async function BlogPostPage({
 
       {/* Article body */}
       <article className="py-14 px-6">
-        <div
-          className="container mx-auto max-w-3xl blog-content"
-          dangerouslySetInnerHTML={{ __html: bodyHtml }}
-        />
+        <div className="container mx-auto max-w-3xl blog-content">
+          <div dangerouslySetInnerHTML={{ __html: introHtml }} />
+          <BlogConversionCTA />
+          {restHtml && <div dangerouslySetInnerHTML={{ __html: restHtml }} />}
+        </div>
       </article>
 
       {/* CTA card */}

@@ -6,6 +6,7 @@ import { PrimaryCTA } from './PrimaryCTA'
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void
+    gtag?: (...args: unknown[]) => void
   }
 }
 
@@ -96,6 +97,9 @@ export function ContactSection() {
 
       if (typeof window !== 'undefined' && window.fbq) {
         window.fbq('track', 'Lead')
+      }
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', { method: 'contact_form' })
       }
 
       setFormData({

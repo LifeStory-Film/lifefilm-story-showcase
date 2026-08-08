@@ -20,6 +20,7 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   content: string
+  schema: unknown
 }
 
 function estimateWordCount(content: string): number {
@@ -86,6 +87,7 @@ export function getPost(slug: string): Post {
     excerpt: makeExcerpt(content),
     wordCount: estimateWordCount(content),
     content,
+    schema: data.schema ?? null,
   }
 }
 
