@@ -142,7 +142,7 @@ export function ContactSection() {
               We respond within 24 hours. Tell us about your day and we'll reach out to check availability.
             </p>
             <p className="mt-4" style={{ fontSize: '14px', color: '#BFA181', textAlign: 'center', marginBottom: '24px', fontWeight: 400 }}>
-              Packages from $3,959 — 30-month payment plans available
+              Packages from $2,499 — 30-month payment plans available
             </p>
           </div>
 
