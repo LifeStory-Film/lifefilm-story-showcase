@@ -102,6 +102,41 @@ Full findings in **02-PRICING-AUDIT.md**. Summary of fixes (deployed + verified 
   in prose. Left untouched (bulk content-price editing deferred). Needs one pass once owner
   confirms final public ranges. Reproduce list: `grep -rln -e "12,869" -e "14,299" -e "multi-day" src/app/blog/posts/`.
 
+## Session 4 — 2026-08-08 (blog content price pass)
+
+Owner-confirmed: floor **$2,499**, ceiling **$6,928** (Signature combined), FAQ $6,928 confirmed.
+Commit `ff3a8e1`. `$12,869` was already 0 in blog prose; the live stale ceiling was `$14,299`.
+
+**Fixed (LifeStory-attributed only):**
+- Vilkas "LifeStory.Film packages range from $3,959 to $14,299" → "$2,499 to $6,928"
+  (how-to-choose-wedding-videographer, wedding-videography-packages-california:103, jen-huang range).
+- Floor claims ("Packages from $3,959", "coverage/packages starting at $3,959", "video-only
+  packages starting at $3,959", "Wedding film packages start at $3,959") → **$2,499**.
+- Multi-day/destination start prices ($14,299): number removed → "quoted individually"
+  (hotel-du-cap, villa-cetinale, pricing-breakdown ×3 + Tier-4 heading, best-packages, packages-california, santa-barbara).
+- 11 files changed, all verified live.
+
+**Left in place = REPORT ONLY (rule 3, market framing — owner decides):** `$14,299` still appears
+in market-framed ranges: `wedding-videography-pricing-breakdown-california` (meta/schema/body:17
+"pricing in California ranges…"), `wedding-videographer-cost-california` (4/12/16/66),
+`wedding-videographer-cost-orange-county` (4/12/16; :32 "$10,000–$14,299"),
+`wedding-videographer-orange-county:120`, `los-angeles-wedding-videographer:119`,
+`los-angeles-wedding-videography:74`, `luxury-wedding-film-los-angeles-guide:16`,
+`best-wedding-videography-packages-california` (4/13/159 "packages in California start at $3,959").
+
+**🔴 NEW FINDING — fabricated LifeStory pricing STRUCTURES (beyond the $12,869/$14,299 scope):**
+Some posts state multi-number LifeStory tier prices inconsistent with $2,499–$6,928 and using
+numbers we have NOT confirmed — editing one number would contradict the others, so left for a
+dedicated pass with real tier numbers:
+- `wedding-videographers-like-jen-huang.mdx:54` — "…$14,299+ … most booked $7,500–$10,000".
+- `wedding-videography-packages-california.mdx:52` — "Price point: $9,500–$14,299" (full-day combined);
+  `:105` — "highlight reel tier starts at $3,959. full-day tier starts at $6,800. Multi-day starts at $11,000."
+- `luxury-wedding-videographer-los-angeles.mdx:62` — "photo + video combined package ranges from $9,500 to $14,299".
+- Also recurring "average investment $7,500–$10,000" phrasing (exceeds the $6,928 ceiling) across
+  several posts — likely fine as *market* context, but confirm.
+**Need from owner:** real tier prices (highlight-reel / full-day / photo+video combined) so this
+can be fixed in one pass. Reproduce: `grep -rn -e "9,500" -e "6,800" -e "11,000" -e "7,500" src/app/blog/posts/`.
+
 ### Still pending / next
 - **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
   prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs
