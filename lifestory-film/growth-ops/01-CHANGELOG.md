@@ -47,8 +47,52 @@ pm2 restart lifestory --update-env
 - Page header renders the title as `<h1>`; markdown starting with `# ...` produced a SECOND `<h1>`.
 - Renderer now strips the leading body `<h1>` and demotes any stray `<h1>`→`<h2>`. Verified: 1 H1/post.
 
-### Still pending
-- **Task #5:** owner inputs — GSC/GA4 access, target cities, confirm claims (1,500+/7x/78 reviews),
-  Rich vs Rick name. Once GSC is granted: resubmit sitemap + request indexing (~10/day).
-- Later: blog→landing-page interlinking; city landing pages; email capture (LeadMagnet exists);
-  the "Best…" articles are how-to essays, not ranked "10 companies" lists — decide if we convert.
+## Session 2 — 2026-08-08 (owner directive: LA ranked-list etalon)
+
+### Owner-CONFIRMED facts (use these; nothing else invented)
+- Name is **Rich**. First landing-page geo priority = **Orange County**.
+- Approved claims: **7-Time Best of Weddings (The Knot; 2025/2024/2022 +4)**, **The Knot Hall of
+  Fame**, **5.0 / 78 reviews on The Knot**, **filming since 2010**, **packages from $2,499**.
+  Award/review source: https://www.theknot.com/marketplace/lifestoryfilm-los-angeles-ca-2082602
+- **NOT confirmed** → do NOT use: "1,500+ weddings". (Removed from the CTA.)
+- ⚠️ **Pricing discrepancy to resolve:** owner says "packages from $2,499", but /pricing shows
+  $1,999 / $2,199 / $3,959. Likely $2,499 = videography starting package vs a lower photography/
+  engagement tier — but the numbers should be reconciled so the article and /pricing agree.
+
+### ✅ New ranked article (the etalon) — /blog/best-wedding-videographers-los-angeles
+- Ranked list of 10. #1 = LifeStory on confirmed facts only, with conversion block **right after
+  #1** (verified: #1 < CTA < #2). #2–#10 are **real** LA studios with real sites, described only
+  from their own positioning, **no invented prices/awards/counts**, all outbound links `nofollow`:
+  Lin & Jirsa, Lulan Studio, Symboll®, Shutter & Sound, West Films, EverTwo, Jimmy Shin, Legacy
+  Union, A Shot Of Love.
+- Internal links → /pricing, /videography, /contact, LA hub post, 3 LA venue posts (all 200).
+- Live verified: single H1, in sitemap, 8 JSON-LD blocks.
+- NOTE: created as a NEW post (didn't cannibalize the existing `los-angeles-wedding-videographer`
+  service post). This is the template to clone for other cities (OC next per owner).
+
+### ✅ CTA placement changed site-wide
+- Conversion block now injects **after the first section** (before 2nd `<h2>`) instead of before
+  the first — so on ranked posts it sits right after #1, on essays after the first section.
+
+### ✅ Per-article JSON-LD activated (all 87 posts) — was dead
+- `schema:` frontmatter existed on posts but `posts.ts` never exposed it and the renderer never
+  output it. Now parsed + rendered as `<script type="application/ld+json">`. Verified: OC post
+  went from 2 → 10 JSON-LD blocks. Big rich-result win across the whole library.
+
+### ✅ CTA copy → confirmed facts
+- "7-Time Best of Weddings & Hall of Fame on The Knot · 5.0 from 78 reviews · Packages from $2,499."
+
+### Deploy
+- Two commits pushed to origin/main: `3fc392e` (SEO work) + `1ca38c1` (sync prior auto-published
+  content/images that were live but uncommitted). Live site deploys via local `npm build` +
+  `pm2 restart` — git is backup, push does not change production.
+
+### Still pending / next
+- **Task #5 (owner):** grant GSC + GA4 access → then resubmit sitemap + request indexing (~10/day),
+  prioritizing the new LA article + the OC best-of + top landing pages. Reconcile the $2,499 vs
+  $1,999 pricing.
+- Clone the LA ranked-list format for **Orange County** (owner's #1 geo) — the OC best-of essay
+  already exists; convert it to the ranked format next.
+- Build commercial **city landing pages** (/orange-county first) — none exist yet.
+- Email capture (LeadMagnet component + LEAD_MAGNET_URL PDF already present) — wire it in.
+- Deeper blog→landing interlinking once landing pages exist.
